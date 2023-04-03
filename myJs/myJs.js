@@ -51,3 +51,19 @@ function showPayment(){
     form2.style.display = 'block';
   }
 }
+
+function scrollaPaginaDonazione() {
+  window.scroll({top: 700, behavior: 'smooth'});
+}
+
+window.addEventListener('scroll', function() {
+  var pulsanteScrollUp = document.getElementById('pulsante-scroll-up');
+  if (window.pageYOffset > 500) {
+    pulsanteScrollUp.style.display = 'block';
+  } else {
+    pulsanteScrollUp.style.display = 'none';
+  }
+});
+function scrollaPaginaSu() {
+  window.scroll({top: 0, behavior: 'smooth'});
+}

@@ -56,7 +56,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form>
+                  <form method="get">
                     <div class="mb-3">
                       <label for="name" class="form-label">Username</label>
                       <input type="text" class="form-control" id="name" placeholder="Inserisci l'username">
@@ -85,7 +85,7 @@
 			<p class="lead">Aiutaci a combattere la fame nel mondo!</p>
 			<hr class="my-4">
 			<p>Il cibo è un diritto umano fondamentale, ma molte persone nel mondo non hanno accesso a cibo sufficiente per soddisfare le loro esigenze nutrizionali di base. Con la tua donazione, puoi aiutarci a fornire cibo a chi ne ha bisogno.</p>
-			<a class="btn btn-donate" href="#donazioneForm" id="btn-donate">Dona adesso</a>
+			<button class="btn btn-donate" id="btn-donate" onclick="scrollaPaginaDonazione();">Dona adesso</button>
 		</div>
 	</div>
   <div id="donazioneForm" class="container">
@@ -93,7 +93,7 @@
       <div class="col-md-8">
         <h2 class="text-center mb-4">Fai una donazione</h2>
         <hr>
-        <form id="donazioneForm">
+        <form method="get" id="donazioneForm">
           <div class="row">
             <div class="col-md-6">
               <div>
@@ -347,4 +347,8 @@
       </div>
     </div>
   </footer>
+  <button id="pulsante-scroll-up" class="btn btn-primary rounded-circle" onclick="scrollaPaginaSu()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 </body>
+</html>
