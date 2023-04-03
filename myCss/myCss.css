@@ -1,0 +1,177 @@
+.logo{
+  margin-left: 10px;
+}
+
+.imLog{
+  width: 150px;
+  transition: transform 0.5s ease;
+}
+
+.imLog:hover {
+  transform: rotate(-50deg);
+}
+
+.modal-footer{
+  margin: auto;
+}
+
+.containerHome {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+  align-items: center;
+}
+
+.containerHome > * {
+  padding: 20px;
+}
+
+.titoliHome {
+  color: blue;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+}
+
+.testoHome {
+  grid-column: 1 / 2;
+}
+
+.carousel {
+  grid-column: 2 / 3;
+  height: 100%;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-item img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.colonna1 {
+  grid-column: 1 / 2;
+}
+
+.colonna2 {
+  grid-column: 2 / 3;
+}
+
+footer {
+  padding: 50px 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul li {
+  margin-bottom: 10px;
+}
+
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  color: #aaa;
+}
+
+footer form {
+  margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+  footer h4 {
+    margin-top: 20px;
+  }
+}
+
+.list-unstyled-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 24px; 
+}
+
+.list-unstyled li {
+  margin: 10px 0;
+}
+
+.titleFooter{
+  text-align: center;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-indicators button {
+  border-radius: 0%;
+  border: none;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.carousel-indicators button.active {
+  background-color: black;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%);
+}
+
+.form-container {
+  background-color: #fff;
+  border-radius: 70px;
+  padding: 30px;
+  box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.2);
+}
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.jumbotron {
+  background-color: #FFCC80;
+  color: #212121;
+  padding: 50px;
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.btn-donate {
+  background-color: #212121;
+  color: #FFFFFF;
+  padding: 10px 30px;
+  border-radius: 25px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.btn-donate:hover {
+  background-color: #FFCC80;
+  color: #212121;
+  transition: all 0.3s ease-in-out;
+}
+
+
