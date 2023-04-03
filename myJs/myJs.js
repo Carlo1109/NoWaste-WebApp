@@ -51,3 +51,20 @@ function showPayment(){
     form2.style.display = 'block';
   }
 }
+
+$(function () {
+  $('[data-provide="datepicker"]').datepicker({
+    format: 'dd/mm/yyyy',
+    endDate: '-18y',
+    autoclose: true,
+    todayHighlight: true
+  });
+
+  // Aggiungi la classe "fa" e "fa-calendar" all'icona del calendario
+  $('.input-group-addon').html('<i class="fa fa-calendar"></i>');
+
+  // Attiva il datepicker quando l'utente fa clic sull'input box di testo
+  $('input[name="birthdate"]').on('focus', function () {
+    $(this).closest('.date').datepicker('show');
+  });
+});
