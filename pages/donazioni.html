@@ -88,12 +88,19 @@
 			<button class="btn btn-donate" id="btn-donate" onclick="scrollaPaginaDonazione();">Dona adesso</button>
 		</div>
 	</div>
+  <div class="jumbotronImg">
+    <div class="container">
+      <h1 class="display-3 font-weight">Il cibo è cultura, passione e condivisione</h1>
+      <p class="lead">Scopri il meglio della cucina tradizionale italiana e di tutto il mondo</p>
+    </div>
+  </div>
+
   <div id="donazioneForm" class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
         <h2 class="text-center mb-4">Fai una donazione</h2>
         <hr>
-        <form method="get" id="donazioneForm">
+        <form method="get" id="formDonazione" action="">
           <div class="row">
             <div class="col-md-6">
               <div>
@@ -281,7 +288,7 @@
               <div id="formCC" style="display:none">
                 <div>
                   <label for="card" class="form-label">Numero carta di credito:</label>
-                  <div class="input-group credit-card-input">
+                  <div class="input-group">
                     <input type="text" class="form-control" id="card" pattern="[0-9]{16}" required>
                     <span class="input-group-text"><i class="fa fa-credit-card"></i></span>
                   </div>
@@ -295,7 +302,7 @@
                 </div>
                 <div>
                   <label for="cvv" class="form-label">CVV:</label>
-                  <div class="input-group credit-card-input">
+                  <div class="input-group">
                     <input type="text" class="form-control" id="cvv" pattern="[0-9]{3,4}" required>
                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
                   </div>

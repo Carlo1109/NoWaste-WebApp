@@ -53,7 +53,7 @@ function showPayment(){
 }
 
 function scrollaPaginaDonazione() {
-  window.scroll({top: 700, behavior: 'smooth'});
+  window.scroll({top: 1200, behavior: 'smooth'});
 }
 
 window.addEventListener('scroll', function() {

@@ -180,3 +180,14 @@ footer form {
   bottom: 20px;
   right: 20px;
 }
+
+.jumbotronImg {
+  background-image: url("../src/sfondoDon.jpg");
+  background-size: cover;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
