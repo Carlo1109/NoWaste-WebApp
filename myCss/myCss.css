@@ -201,3 +201,13 @@ footer form {
   text-align: center;
   color: white;
 }
+
+.logout-message{
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.item-dropdown{
+  margin: 14px;
+}

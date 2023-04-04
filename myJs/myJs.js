@@ -30,9 +30,8 @@ function hideForm(){
   document.getElementById('formDonatore').style.display = 'none';
 }
 
-function decidiPagina(){ //DA FAREE
-  return true;
-  //return false;
+function decidiPagina(){
+  window.location.href = "../pages/donatore.html";
 }
 
 function showPayment(){
@@ -67,3 +66,4 @@ window.addEventListener('scroll', function() {
 function scrollaPaginaSu() {
   window.scroll({top: 0, behavior: 'smooth'});
 }
+
