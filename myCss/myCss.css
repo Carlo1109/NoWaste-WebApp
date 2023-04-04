@@ -1,14 +1,24 @@
+.nav-link.active {
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.nav-link.active:hover {
+  background-color: #FFCC80;
+}
+
 .logo{
   margin-left: 10px;
 }
 
-.imLog{
+.imLog {
   width: 150px;
   transition: transform 0.5s ease;
+  transform: scale(1);
 }
 
 .imLog:hover {
-  transform: rotate(-50deg);
+  transform: scale(1.5);
 }
 
 .modal-footer{
