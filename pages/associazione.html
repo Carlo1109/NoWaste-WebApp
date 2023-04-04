@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>NoWaste - AreaPrivataDonatore</title>
+		<title>NoWaste - AreaPrivataAssociazione</title>
 		<link rel="shortcut icon" href="../src/iconaLogo.ico">
 		<link rel="stylesheet" href="../libraries/bootstrap-5.2.3/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../myCss/myCss.css">
@@ -43,7 +43,7 @@
                 <a class="nav-link active" href="donazioni.html">Donazioni</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina();">Area privata-Donatore</a>
+                <a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina();">Area privata-Associazione</a>
               </li>
             </ul>
             <div class="dropdown">
@@ -78,12 +78,12 @@
       <div class="row">
         <div class="jumbotron">
           <div class="col-md-12 text-center">
-            <h2 class="mb-4">Donare il cibo</h2>
+            <h2 class="mb-4">Raccogli il cibo</h2>
             <p>In questa sezione è possibile prendere nota degli alimenti maggiormente richiesti alle associazioni che si occupano della distribuzione nell'ultimo mese. Così facendo potremmo raccogliere cibo in modo più efficace e più mirato.<br>
-              In caso questi cibi non siano a vostra disposzione, cliccando sul pulsante sottostante potete aggiungere alimentari al vostro carrello e renderlo visibile alle associazioni per il ritiro.</p>
-            <button class="btn btn-donate mt-auto" id="btn-donate" onclick="scrollaPaginaDonazione();">Vai a "Aggiungi cibo"</button>
+              In caso questi cibi non siano a vostra disposzione, cliccando sul pulsante sottostante potete visualizzare gli alimentari presenti nel vostro carrello, ma non ancora ritirati.</p>
+            <button class="btn btn-donate mt-auto" id="btn-donate" onclick="scrollaPaginaAssociazione();">Vai a "Visualizza carrello"</button>
             <hr>
-            <h3 class="mt-5">Consulta l'elenco degli alimenti più richiesti e di cui c'è maggiore necessità:</h3>
+            <h3 class="mt-5">Consulta l'elenco degli alimenti disponibili e che puoi aggiungere al carrello:</h3>
           </div>
         </div>
       </div>
@@ -146,16 +146,12 @@
         </div>
       </div>
     </div>
-
     <div class="container text-center mb-4">
-      <a href="#" class="cestinoDonatore btn btn-info d-flex flex-column align-items-center justify-content-center">
+      <a href="#" class="cestinoAssociazione btn btn-info d-flex flex-column align-items-center justify-content-center">
         <i class="fas fa-shopping-basket fa-5x"></i>
-        <span class="mt-2">Aggiungi elementi nel cestino</span>
+        <span class="mt-2">Visualizza elementi nel carrello</span>
       </a>
     </div>
-    
-    
-
     <footer class="bg-dark text-white">
 			<div class="container">
 				<div class="row">

@@ -15,7 +15,6 @@ function showForm() {
   var option2 = document.getElementById('donatore');
   var form1 = document.getElementById('formAssociazione');
   var form2 = document.getElementById('formDonatore');
-  
   if (option1.checked) {
     form1.style.display = 'block';
     form2.style.display = 'none';
@@ -31,7 +30,7 @@ function hideForm(){
 }
 
 function decidiPagina(){
-  window.location.href = "../pages/donatore.html";
+  window.location.href = "../pages/associazione.html";
 }
 
 function showPayment(){
@@ -53,6 +52,10 @@ function showPayment(){
 
 function scrollaPaginaDonazione() {
   window.scroll({top: 1200, behavior: 'smooth'});
+}
+
+function scrollaPaginaAssociazione() {
+  window.scroll({top: 1350, behavior: 'smooth'});
 }
 
 window.addEventListener('scroll', function() {
