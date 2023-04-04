@@ -1,6 +1,6 @@
 function checkLogin(){
-  if(document.loginForm.usurname.value==""){
-    alert("Inserisci Usurname!");
+  if(document.loginForm.username.value==""){
+    alert("Inserisci Username!");
     return false;
   }
   if(document.loginForm.psw.value==""){
