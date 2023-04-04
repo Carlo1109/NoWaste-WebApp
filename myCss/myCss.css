@@ -208,6 +208,18 @@ footer form {
   text-align: center;
 }
 
-.item-dropdown{
+.Myitem-dropdown{
   margin: 14px;
 }
+
+.dropdown-item{
+  cursor: pointer;
+}
+
+.cestinoDonatore:hover,
+.cestinoDonatore:focus,
+.cestinoDonatore:active {
+  box-shadow: 0px 0px 10px #007bff;
+  transform: translateY(-1px);
+}
+

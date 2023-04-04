@@ -43,7 +43,7 @@
                 <a class="nav-link active" href="donazioni.html">Donazioni</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina();">Area privata</a>
+                <a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina();">Area privata-Donatore</a>
               </li>
             </ul>
             <div class="dropdown">
@@ -51,16 +51,16 @@
                 <i class="fa fa-user"></i>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                <li class="item-dropdown">Username: </li>
-                <li class="item-dropdown">Email: </li>
+                <li class="Myitem-dropdown">Username: </li>
+                <li class="Myitem-dropdown">Email: </li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#ModalLogout">Logout</a></li>
+                <li><a class="dropdown-item " data-bs-toggle="modal" data-bs-target="#ModalLogout">Logout</a></li>
               </ul>
             </div>
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalLogout">
               LOGOUT
             </button>
-            <div class="modal fade" id="ModalLogout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div data-backdrop="static" data-keyboard="false" class="modal fade" id="ModalLogout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <h3 class="logout-message">Logout avvenuto con successo</h3>
@@ -74,4 +74,122 @@
         </div>
       </nav>
     </header>
+    <div class="container mb-4">
+      <div class="row">
+        <div class="jumbotron">
+          <div class="col-md-12 text-center">
+            <h2 class="mb-4">Donare il cibo</h2>
+            <p>In questa sezione è possibile prendere nota degli alimenti maggiormente richiesti alle associazioni che si occupano della distribuzione nell'ultimo mese. Così facendo potremmo raccogliere cibo in modo più efficace e più mirato.<br>
+              In caso questi cibi non siano a vostra disposzione, cliccando sul pulsante sottostante potete aggiungere alimentari al vostro carrello e renderlo visibile alle associazioni per il ritiro.</p>
+            <button class="btn btn-donate mt-auto" id="btn-donate" onclick="scrollaPaginaDonazione();">Vai a "Aggiungi cibo"</button>
+            <hr>
+            <h3 class="mt-5">Consulta l'elenco degli alimenti più richiesti e di cui c'è maggiore necessità:</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">
+            <div class="card-body">
+              <h5 class="card-title">Pasta al pomodoro</h5>
+              <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">
+            <div class="card-body">
+              <h5 class="card-title">Pasta al pomodoro</h5>
+              <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">
+            <div class="card-body">
+              <h5 class="card-title">Pasta al pomodoro</h5>
+              <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">
+            <div class="card-body">
+              <h5 class="card-title">Pasta al pomodoro</h5>
+              <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">
+            <div class="card-body">
+              <h5 class="card-title">Pasta al pomodoro</h5>
+              <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">
+            <div class="card-body">
+              <h5 class="card-title">Pasta al pomodoro</h5>
+              <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center mb-4">
+      <a href="#" class="cestinoDonatore btn btn-info d-flex flex-column align-items-center justify-content-center">
+        <i class="fas fa-shopping-basket fa-5x"></i>
+        <span class="mt-2">Aggiungi elementi nel cestino</span>
+      </a>
+    </div>
+    
+    
+
+    <footer class="bg-dark text-white">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<h4 class="titleFooter">Contatti</h4>
+						<ul class="list-unstyled">
+							<li>Indirizzo: Via Roma 123, 00100 Roma</li>
+							<li>Telefono: 06 1234567</li>
+							<li>Email: nowaste@gmail.com</li>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<h4 class="titleFooter">Social</h4>
+						<ul class="list-unstyled-icon">
+							<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<h4 class="titleFooter">Newsletter</h4>
+						<p>Iscriviti alla nostra newsletter per ricevere tutte le novità</p>
+						<form>
+							<div class="input-group mb-3">
+								<input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="button-addon2">
+								<input type="submit" class="btn btn-outline-secondary" id="button-addon2" value="Invia"></button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<button id="pulsante-scroll-up" class="btn btn-primary rounded-circle" onclick="scrollaPaginaSu()">
+			<i class="fas fa-arrow-up"></i>
+		</button>
   </body>
+</html>
