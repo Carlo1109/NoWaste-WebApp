@@ -71,3 +71,195 @@ function scrollaPaginaSu() {
   window.scroll({top: 0, behavior: 'smooth'});
 }
 
+function mostraContenuto(numero) {
+  const container = document.querySelector('#ccc');
+  
+  switch (numero) {
+    case 1:
+      container.innerHTML = '<div class="row mt-2">\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body\">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+    </div>\
+    <div class="row mt-5">\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+    </div>\
+  </div>';
+      break;
+    case 2:
+      container.innerHTML = '<div class="row mt-2">\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body\">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+    </div>\
+    <div class="row mt-5">\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice PAG 2 ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+    </div>\
+  </div>';
+      break;
+    case 3:
+      container.innerHTML = '<div class="row mt-2">\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body\">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+    </div>\
+    <div class="row mt-5">\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+      <div class="col-md-4">\
+        <div class="card">\
+          <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title">Pasta al pomodoro</h5>\
+            <p class="card-text">Una pietanza semplice ma PAG 3, adatta a tutti i palati.</p>\
+          </div>\
+        </div>\
+      </div>\
+    </div>\
+  </div>';
+      break;
+    default:
+      container.innerText = "Il numero selezionato non è valido";
+      break;
+  }
+}
