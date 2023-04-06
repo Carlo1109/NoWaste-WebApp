@@ -51,13 +51,24 @@ function showPayment(){
 }
 
 function scrollaPaginaDonazione() {
-  window.scroll({top: 1200, behavior: 'smooth'});
+  const container = document.querySelector('#donazioneForm'); 
+  const yOffset = container.getBoundingClientRect().top + window.pageYOffset;
+  window.scrollTo({
+    top: yOffset,
+    behavior: 'smooth'
+  });
 }
 
 function scrollaPaginaAssociazione() {
-  window.scroll({top: 1350, behavior: 'smooth'});
+  const container = document.querySelector('#containerBasket'); 
+  const yOffset = container.getBoundingClientRect().top + window.pageYOffset;
+  window.scrollTo({
+    top: yOffset,
+    behavior: 'smooth'
+  });
 }
 
+//Listener per mostrare pulsante 'sali su'
 window.addEventListener('scroll', function() {
   var pulsanteScrollUp = document.getElementById('pulsante-scroll-up');
   if (window.pageYOffset > 500) {
@@ -73,16 +84,31 @@ function scrollaPaginaSu() {
 
 function mostraContenuto(numero) {
   const container = document.querySelector('#scorriPagine');
-  
-  switch (numero) {
+  switch(numero) {
     case 1:
-      container.innerHTML = '<div class="row mt-2">\
+      container.innerHTML = '\
+      <div class="row mt-2">\
       <div class="col-md-4">\
         <div class="card">\
           <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
           <div class="card-body\">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -92,6 +118,21 @@ function mostraContenuto(numero) {
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -101,6 +142,21 @@ function mostraContenuto(numero) {
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -112,6 +168,21 @@ function mostraContenuto(numero) {
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -121,6 +192,21 @@ function mostraContenuto(numero) {
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -130,11 +216,42 @@ function mostraContenuto(numero) {
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
     </div>\
-  </div>';
+  </div>\
+  <hr>\
+  <nav aria-label="...">\
+      <ul class="pagination justify-content-center">\
+        <li class="page-item disabled">\
+        <button  class="page-link">Previous</button>\
+        </li>\
+        <li aria-current="page" class="page-item active"><button class="page-link" onclick="mostraContenuto(1); scrollaSuContenuti();">1</button></li>\
+        <li class="page-item">\
+          <button  class="page-link" onclick="mostraContenuto(2); scrollaSuContenuti();">2</button>\
+        </li>\
+        <li class="page-item"><button class="page-link" onclick="mostraContenuto(3); scrollaSuContenuti();">3</button></li>\
+        <li class="page-item">\
+        <button  class="page-link" onclick="mostraContenuto(2); scrollaSuContenuti();">Next</button>\
+        </li>\
+      </ul>\
+    </nav>';
       break;
     case 2:
       container.innerHTML = '<div class="row mt-2">\
@@ -144,6 +261,21 @@ function mostraContenuto(numero) {
           <div class="card-body\">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -153,6 +285,21 @@ function mostraContenuto(numero) {
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -162,6 +309,21 @@ function mostraContenuto(numero) {
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -173,6 +335,21 @@ function mostraContenuto(numero) {
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -182,6 +359,21 @@ function mostraContenuto(numero) {
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -190,12 +382,43 @@ function mostraContenuto(numero) {
           <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
-            <p class="card-text">Una pietanza semplice PAG 2 ma gustosa, adatta a tutti i palati.</p>\
+            <p class="card-text">Una pietanza semplice ma gustosa, PAG2 a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
     </div>\
-  </div>';
+  </div>\
+  <hr>\
+  <nav aria-label="...">\
+      <ul class="pagination justify-content-center">\
+        <li class="page-item">\
+        <button  class="page-link" onclick="mostraContenuto(1); scrollaSuContenuti();">Previous</button>\
+        </li>\
+        <li class="page-item"><button class="page-link" onclick="mostraContenuto(1); scrollaSuContenuti();">1</button></li>\
+        <li class="page-item active" aria-current="page">\
+          <button  class="page-link" onclick="mostraContenuto(2); scrollaSuContenuti();">2</button>\
+        </li>\
+        <li class="page-item"><button class="page-link" onclick="mostraContenuto(3); scrollaSuContenuti();">3</button></li>\
+        <li class="page-item">\
+        <button  class="page-link" onclick="mostraContenuto(3); scrollaSuContenuti();">Next</button>\
+        </li>\
+      </ul>\
+    </nav>';
       break;
     case 3:
       container.innerHTML = '<div class="row mt-2">\
@@ -205,6 +428,21 @@ function mostraContenuto(numero) {
           <div class="card-body\">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -214,6 +452,21 @@ function mostraContenuto(numero) {
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -223,6 +476,21 @@ function mostraContenuto(numero) {
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -234,6 +502,21 @@ function mostraContenuto(numero) {
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -243,6 +526,21 @@ function mostraContenuto(numero) {
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
             <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
@@ -251,15 +549,74 @@ function mostraContenuto(numero) {
           <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
           <div class="card-body">\
             <h5 class="card-title">Pasta al pomodoro</h5>\
-            <p class="card-text">Una pietanza semplice ma PAG 3, adatta a tutti i palati.</p>\
+            <p class="card-text">Una pietanza semplice ma gustosa, PAG3 a tutti i palati.</p>\
+            <div class="input-group mb-3 justify-content-center">\
+              <div class="input-group-prepend">\
+                <label class="input-group-text" for="quantita-select">Quantità</label>\
+              </div>\
+              <select class="custom-select" id="quantita-select">\
+                <option selected>1</option>\
+                <option value="2">2</option>\
+                <option value="3">3</option>\
+                <option value="4">4</option>\
+                <option value="5">5</option>\
+              </select>\
+              <div class="input-group-append">\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+              </div>\
+            </div>\
           </div>\
         </div>\
       </div>\
     </div>\
-  </div>';
+  </div>\
+  <hr>\
+  <nav aria-label="...">\
+    <ul class="pagination justify-content-center">\
+      <li class="page-item">\
+        <button  class="page-link" onclick="mostraContenuto(2); scrollaSuContenuti();">Previous</button>\
+      </li>\
+      <li class="page-item">\
+        <button class="page-link" onclick="mostraContenuto(1); scrollaSuContenuti();">1</button>\
+      </li>\
+      <li class="page-item">\
+        <button  class="page-link" onclick="mostraContenuto(2); scrollaSuContenuti();">2</button>\
+      </li>\
+      <li class="page-item active" aria-current="page">\
+        <button class="page-link" onclick="mostraContenuto(3); scrollaSuContenuti();">3</button>\
+      </li>\
+      <li class="page-item disabled">\
+        <button  class="page-link">Next</button>\
+      </li>\
+    </ul>\
+  </nav>';
       break;
     default:
       container.innerText = "Il numero selezionato non è valido";
       break;
   }
 }
+
+function scrollaSuContenuti() {
+  const container = document.querySelector('#scorriPagine'); 
+  const yOffset = container.getBoundingClientRect().top + window.pageYOffset - 100;
+  window.scrollTo({
+    top: yOffset,
+    behavior: 'smooth'
+  });
+}
+
+function aggiungiCestino(pulsante) {
+  let icona = pulsante.querySelector('.fa-plus');
+  icona.classList.add('visibile');
+  setTimeout(function() {
+    icona.classList.add('traslazione-su');
+    setTimeout(function() {
+      icona.classList.remove('visibile', 'traslazione-su');
+    }, 800);
+  }, 100);
+}
+
+
+
+

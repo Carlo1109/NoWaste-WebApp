@@ -223,3 +223,26 @@ footer form {
   transform: translateY(-1px);
 }
 
+.input-group-append {
+  margin-left: 20px;
+}
+
+.custom-select {
+  margin-right: 20px;
+}
+
+.fa-plus {
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.8s;
+  color : black;
+}
+
+.visibile {
+  opacity: 1;
+}
+
+.traslazione-su {
+  transform: translateY(-100%);
+}
+
+
