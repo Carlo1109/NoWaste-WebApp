@@ -72,7 +72,7 @@ function scrollaPaginaSu() {
 }
 
 function mostraContenuto(numero) {
-  const container = document.querySelector('#ccc');
+  const container = document.querySelector('#scorriPagine');
   
   switch (numero) {
     case 1:
