@@ -106,7 +106,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -130,7 +130,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -154,7 +154,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -180,7 +180,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -204,7 +204,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -228,7 +228,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -273,7 +273,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -297,7 +297,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -321,7 +321,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -347,7 +347,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -371,7 +371,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -395,7 +395,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -440,7 +440,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -464,7 +464,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -488,7 +488,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -514,7 +514,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -538,7 +538,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -562,7 +562,7 @@ function mostraContenuto(numero) {
                 <option value="5">5</option>\
               </select>\
               <div class="input-group-append">\
-                <button class="btn btn-primary" type="button" onclick="aggiungiCestino(this)"><i class="fas fa-plus"></i> Aggiungi al cestino</button>\
+                <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
               </div>\
             </div>\
           </div>\
@@ -606,7 +606,7 @@ function scrollaSuContenuti() {
   });
 }
 
-function aggiungiCestino(pulsante) {
+function aggiungiCarrello(pulsante) {
   let icona = pulsante.querySelector('.fa-plus');
   icona.classList.add('visibile');
   setTimeout(function() {
