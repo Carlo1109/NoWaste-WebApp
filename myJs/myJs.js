@@ -82,6 +82,7 @@ function scrollaPaginaSu() {
   window.scroll({top: 0, behavior: 'smooth'});
 }
 
+//Per il momento non utilizzata, perchè stimao usando la funzione mostraContenutoProva definita in myJsPROVA
 function mostraContenuto(numero) {
   const container = document.querySelector('#scorriPagine');
   switch(numero) {
@@ -607,6 +608,7 @@ function scrollaSuContenuti() {
 }
 
 function aggiungiCarrello(pulsante) {
+  //Animazione '+'
   let icona = pulsante.querySelector('.fa-plus');
   icona.classList.add('visibile');
   setTimeout(function() {
@@ -615,6 +617,86 @@ function aggiungiCarrello(pulsante) {
       icona.classList.remove('visibile', 'traslazione-su');
     }, 800);
   }, 100);
+  
+  const nomeProdotto = pulsante.parentNode.parentNode.parentNode.querySelector('.card-title').textContent;
+  const quantita = parseInt(pulsante.parentNode.parentNode.querySelector('#quantita-select').value);
+  const tableBody = document.querySelector('#tableCarrello');
+  let rowFound = false;
+  //Controllo se il prodotto esiste già
+  for (let i = 0; i < tableBody.rows.length; i++) {
+    if (tableBody.rows[i].cells[0].textContent === nomeProdotto) {
+      const quantitaPrecedente = parseInt(tableBody.rows[i].cells[1].textContent);
+      const nuovaQuantita = quantitaPrecedente + quantita;
+      tableBody.rows[i].cells[1].textContent = nuovaQuantita;
+
+      //Aggiungo remove
+      const removeButton = document.createElement('button');
+      removeButton.textContent = 'Rimuovi';
+      removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'mx-1', 'rimuovi-button');
+      removeButton.addEventListener('click', function() {
+        const row = this.parentNode.parentNode;
+        const quantitaPrecedente = parseInt(row.cells[1].textContent);
+        const nuovaQuantita = quantitaPrecedente - quantita;
+        if (nuovaQuantita <= 0) {
+          row.remove();
+        } else {
+          row.cells[1].textContent = nuovaQuantita;
+        }
+      });
+      tableBody.rows[i].cells[2].innerHTML = '';
+      tableBody.rows[i].cells[2].appendChild(removeButton);
+
+      rowFound = true;
+      break;
+    }
+  }
+  //Aggiungo riga se il prodotto non esiste
+  if (!rowFound) {
+    const newRow = document.createElement('tr');
+    const nameCell = document.createElement('td');
+    nameCell.textContent = nomeProdotto;
+    const quantityCell = document.createElement('td');
+    quantityCell.textContent = quantita;
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Rimuovi';
+    removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'mx-1', 'rimuovi-button');
+    removeButton.addEventListener('click', function() {
+      const row = this.parentNode.parentNode;
+      const quantitaPrecedente = parseInt(row.cells[1].textContent);
+      const nuovaQuantita = quantitaPrecedente - quantita;
+      if (nuovaQuantita <= 0) {
+        row.remove();
+      } else {
+        row.cells[1].textContent = nuovaQuantita;
+      }
+    });
+    const removeCell = document.createElement('td');
+    removeCell.appendChild(removeButton);
+    newRow.appendChild(nameCell);
+    newRow.appendChild(quantityCell);
+    newRow.appendChild(removeCell);
+    tableBody.appendChild(newRow);
+  }
+  const modalCarrello = document.querySelector('#modalCarrello');
+  const modal = bootstrap.Modal.getInstance(modalCarrello);
+  modal.hide();
+}
+
+function resetAllCarrello() {
+  const tableBody = document.querySelector('#tableCarrello');
+  tableBody.innerHTML = '';
+}
+
+function checkCarrello() {
+  const tableBody = document.getElementById('tableCarrello');
+  if (tableBody.rows.length > 0) {
+    alert("Dati del carrello acquisiti. Sarà contattato via mail per informazioni sul ritiro. Grazie!");
+    resetAllCarrello();
+    return true;
+  } else {
+    alert("Nessun elemento presente nel carrello!");
+    return false;
+  }
 }
 
 

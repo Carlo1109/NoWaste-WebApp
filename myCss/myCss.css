@@ -245,4 +245,14 @@ footer form {
   transform: translateY(-100%);
 }
 
+th {
+  background-color: #f0ad4e;
+  color: #e90808;
+  border-color: #f0ad4e;
+}
+
+td {
+  background-color: #5f5d06;
+  border-color: #5f5d06;
+}
 
