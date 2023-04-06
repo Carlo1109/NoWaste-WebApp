@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Document </title>
+  <script type="text/javascript" src="es1.js"></script>
+</head>
+<body onload="CreaStorage();">
+  <form method="form" action="" name="form" onsubmit="return InserisciUtente();">
+    <table border=1 celpadding=1>
+      <tr>
+        <td align="right"> Cognome:</td>
+        <td> <input type="text" name="cognome" size="50"> </input> </td>
+      </tr>
+      <tr>
+        <td align="right"> Nome:</td>
+        <td> <input type="text" name="nome" size="50"> </input> </td>
+      </tr>
+      <tr>
+        <td align="right"> Matricola:</td>
+        <td> <input type="text" name="matricola" size="50"> </input> </td>
+      </tr>
+      <tr>
+        <td align="center" colspan=2> 
+          <input type="submit" value="Invia">
+          <input type="reset" value="Reset">
+          <input type="button" value="StampaLocalStorageUtenti" onclick="StampaStorage();">
+          <input type="button" value="ResetLocalStorageUtenti" onclick="ResetStorage();">
+        </td>
+      </tr>
+    </table>
+  </form>
+  <hr>
+  <div id="spaziodinamico"> </div>
+</body>
+</html>
