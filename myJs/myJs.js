@@ -636,7 +636,7 @@ function aggiungiCarrello(pulsante) {
       removeButton.addEventListener('click', function() {
         const row = this.parentNode.parentNode;
         const quantitaPrecedente = parseInt(row.cells[1].textContent);
-        const nuovaQuantita = quantitaPrecedente - quantita;
+        const nuovaQuantita = quantitaPrecedente - 1;
         if (nuovaQuantita <= 0) {
           row.remove();
         } else {
@@ -663,7 +663,7 @@ function aggiungiCarrello(pulsante) {
     removeButton.addEventListener('click', function() {
       const row = this.parentNode.parentNode;
       const quantitaPrecedente = parseInt(row.cells[1].textContent);
-      const nuovaQuantita = quantitaPrecedente - quantita;
+      const nuovaQuantita = quantitaPrecedente - 1;
       if (nuovaQuantita <= 0) {
         row.remove();
       } else {
@@ -698,7 +698,3 @@ function checkCarrello() {
     return false;
   }
 }
-
-
-
-
