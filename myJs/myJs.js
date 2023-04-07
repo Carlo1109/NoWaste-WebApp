@@ -698,3 +698,14 @@ function checkCarrello() {
     return false;
   }
 }
+
+
+
+
+var parallaxContainer = document.querySelector('.parallax-container');
+
+window.addEventListener('scroll', function() {
+  var scrollPosition = window.pageYOffset;
+
+  parallaxContainer.style.backgroundPositionY = (scrollPosition * 0.5) + 'px';
+});
