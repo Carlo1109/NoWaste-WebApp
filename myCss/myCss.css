@@ -38,7 +38,10 @@
 }
 
 .testoHome {
-  grid-column: 1 / 2;
+  font-weight: bolder;
+  color:black;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: larger;
 }
 
 .carousel {
@@ -50,8 +53,8 @@
 }
 
 .carousel-item img {
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  width: auto;
 }
 
 .row2 {
@@ -247,16 +250,4 @@ th {
 td {
   background-color: #5f5d06;
   border-color: #5f5d06;
-}
-
-.parallax-container {
-  background-image: url('../src/3ps5iusw.png');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
