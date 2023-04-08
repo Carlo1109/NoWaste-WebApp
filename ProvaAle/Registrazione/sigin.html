@@ -56,7 +56,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form method="post" name="loginForm" onsubmit="return checkLogin();">
+                    <form method="post" id="loginForm" onsubmit="return checkLogin();">
                       <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" name="username" class="form-control" id="username" placeholder="Inserisci l'username">
@@ -81,12 +81,12 @@
     </header>
     <div class="form-container">
       <h2>Registrazione</h2>
-      <form method="post" action="register.php" name="registrazioneForm" onsubmit="return checkRegistrazione()">
+      <form method="post" action="register.php" id="registrazioneForm" onsubmit="return checkRegistrazione()">
         <div class="mb-2">
           <label for="radioCheck">Seleziona l'opzione che ti riguarda:</label>
           <div class="form-check-inline" name="radioCheck"></div>
           <label class="form-check-label" for="donatore">Donatore</label>
-          <input class="form-check-input" type="radio" name="donatore" name="donAss" value="donatore" onclick="showForm()">
+          <input class="form-check-input" type="radio" name="donatore" value="donatore" onclick="showForm()">
           <label class="form-check-label" for="associazione">Associazione</label>
           <input class="form-check-input" type="radio" name="associazione" value="associazione" onclick="showForm()">
         </div>
