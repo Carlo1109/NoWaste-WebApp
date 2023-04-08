@@ -31,30 +31,44 @@ function checkRegistrazione() {
     alert("Devi essere un Donatore o una Associazione");
     return false;
   }
+  if(document.registrazioneForm.donatore.checked) {
+    if((document.registrazioneForm.nomeP.value=="" && document.registrazioneForm.cognomeP.value=="" && document.registrazioneForm.idAzienda.value=="") || (document.registrazioneForm.nomeP.value!="" && document.registrazioneForm.cognomeP.value=="" && document.registrazioneForm.idAzienda.value=="") || (document.registrazioneForm.nomeP.value=="" && document.registrazioneForm.cognomeP.value!="" && document.registrazioneForm.idAzienda.value=="")) {
+      alert("Devi riempire tuoi campi");
+      return false;
+    }
+    if(document.registrazioneForm.nomeP.value!="" && document.registrazioneForm.cognomeP.value!="" && document.registrazioneForm.idAzienda.value!="") {
+      alert("Non puoi essere sia un privato che un'azienda");
+      return false;
+    }
+    if(document.registrazioneForm.telDonatore.value=="") {
+      alert("Inserisci il numero del telefono");
+      return false;
+    }
+  }
+  if(document.registrazioneFOrm.associazione.checked) {
+    if(document.registrazioneForm.nomeAssociazione.value=="") {
+      alert("Inserisci il nome associazione")
+      return false;
+    }
+    if(document.registrazioneForm.telAssociazione.value="") {
+      alert("Inserisci il numero del telefono");
+      return false;
+    }
+  }
+  return true;
 }
 
 function showForm() {
   var option1 = document.getElementById('associazione');
   var option2 = document.getElementById('donatore');
-  var option3 = document.getElementById("privato");
-  var option4 = document.getElementById("azienda");
   var form1 = document.getElementById('formAssociazione');
   var form2 = document.getElementById('formDonatore');
-  var form3 = docuemnt.getElementById("formPrivato");
-  var form4 = docuemnt.getElementById("formAzienda");
   if (option1.checked) {
     form1.style.display = 'block';
     form2.style.display = 'none';
   } else if (option2.checked) {
     form1.style.display = 'none';
     form2.style.display = 'block';
-  }
-  if (option3.checked) {
-    form3.style.display = 'block';
-    form4.style.display = 'none';
-  } else if (option4.checked) {
-    form3.style.display = 'none';
-    form4.style.display = 'block';
   }
 }
 

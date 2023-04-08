@@ -104,38 +104,26 @@
         </div>
         <div id="formDonatore" style="display:none;">
           <div class="mb-2">
-            <label for="radioCheck">Seleziona l'opzione che ti riguarda:</label>
-            <div class="form-check-inline" id="radioCheck"></div>
-            <label class="form-check-label" for="privato">Privato</label>
-            <input class="form-check-input" type="radio" id="privato" name="priAz" value="privato" onclick="showForm()">
-            <label class="form-check-label" for="azienda">Azienda</label>
-            <input class="form-check-input" type="radio" id="azienda" name="priAz" value="privato" onclick="showForm()">
-          </div>
-          <div id="formPrivato" style="display:none">
-            <div class="mb-2">
-              <label for="nome">Inserisci nome se sei un privato:</label>
-              <input type="text" class="form-control" id="nome" placeholder="Nome">
-            </div>
-            <div class="mb-2">
-              <label for="cognome">Inserisci cognome se sei un privato:</label>
-              <input type="text" class="form-control" id="cognome" placeholder="Cognome">
-            </div>
-          </div>
-          <div id="formAzienda" style="display:none">
-            <div class="mb-2">
-              <label for="azienda">Inserisci identificativo azienda se sei un ristorante o un alimentare:</label>
-              <input type="text" class="form-control" id="azienda" placeholder="Azienda">
-            </div>
+            <label for="nome">Inserisci nome se sei un privato:</label>
+            <input type="text" class="form-control" id="nomeP" placeholder="Nome">
           </div>
           <div class="mb-2">
-            <label for="telDonatore">Inserisci numero di telefono:</label>
+            <label for="cognome">Inserisci cognome se sei un privato:</label>
+            <input type="text" class="form-control" id="cognomeP" placeholder="Cognome">
+          </div>
+          <div class="mb-2">
+            <label for="azienda">Inserisci identificativo azienda se sei un ristorante o un alimentare:</label>
+            <input type="text" class="form-control" id="idAzienda" placeholder="Azienda">
+          </div>
+          <div class="mb-2">
+            <label for="telDonatore">Inserisci numero di telefono dell'azienda:</label>
             <input type="tel" class="form-control" id="telDonatore" placeholder="Numero di telefono">
           </div>
         </div>
         <div id="formAssociazione" style="display:none;">
           <div class="mb-2">
             <label for="associazione">Inserisci nome associazione:</label>
-            <input type="text" class="form-control" id="associazione" placeholder="Nome associazione">
+            <input type="text" class="form-control" id="nomeAssociazione" placeholder="Nome associazione">
           </div>
           <div class="mb-2">
             <label for="telAssociazione">Inserisci numero di telefono dell'associazione:</label>
