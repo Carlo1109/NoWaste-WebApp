@@ -45,12 +45,12 @@ function checkRegistrazione() {
       return false;
     }
   }
-  if(document.registrazioneFOrm.associazione.checked) {
+  if(document.registrazioneForm.associazione.checked) {
     if(document.registrazioneForm.nomeAssociazione.value=="") {
       alert("Inserisci il nome associazione")
       return false;
     }
-    if(document.registrazioneForm.telAssociazione.value="") {
+    if(document.registrazioneForm.telAssociazione.value=="") {
       alert("Inserisci il numero del telefono");
       return false;
     }
