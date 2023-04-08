@@ -10,11 +10,38 @@ function checkLogin(){
   return true;
 }
 
+function checkRegistrazione() {
+  if(document.registrazioneForm.email.value=="") {
+    alert("Inserisci una Email!");
+    return false;
+  }
+  if(document.registrazioneForm.password.value=="") {
+    alert("Inserisci una Password!");
+    return false;
+  }
+  if(document.registrazioneForm.confirmPassword.value=="") {
+    alert("Conferma la Password!");
+    return false;
+  }
+  if(document.registrazioneForm.confirmPassword.value != document.registrazioneForm.password.value) {
+    alert("Le password non coincidono");
+    return false;
+  }
+  if(!document.registrazioneForm.donatore.checked && !document.registrazioneForm.associazione.checked) {
+    alert("Devi essere un Donatore o una Associazione");
+    return false;
+  }
+}
+
 function showForm() {
   var option1 = document.getElementById('associazione');
   var option2 = document.getElementById('donatore');
+  var option3 = document.getElementById("privato");
+  var option4 = document.getElementById("azienda");
   var form1 = document.getElementById('formAssociazione');
   var form2 = document.getElementById('formDonatore');
+  var form3 = docuemnt.getElementById("formPrivato");
+  var form4 = docuemnt.getElementById("formAzienda");
   if (option1.checked) {
     form1.style.display = 'block';
     form2.style.display = 'none';
@@ -22,11 +49,20 @@ function showForm() {
     form1.style.display = 'none';
     form2.style.display = 'block';
   }
+  if (option3.checked) {
+    form3.style.display = 'block';
+    form4.style.display = 'none';
+  } else if (option4.checked) {
+    form3.style.display = 'none';
+    form4.style.display = 'block';
+  }
 }
 
 function hideForm(){
   document.getElementById('formAssociazione').style.display = 'none';
   document.getElementById('formDonatore').style.display = 'none';
+  document.getElementById('formPrivato').style.display = 'none';
+  document.getElementById('formAzienda').style.display = 'none';
 }
 
 function decidiPagina(){
