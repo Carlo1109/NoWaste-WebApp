@@ -28,7 +28,7 @@
       //printf("Utente già registrato");
     }
     else {
-      $query2 = "INSERT INTO utente (email,pswd,telefono,isassociazione,nomeass,isprivato,nomep,cognomep,isazienda,idaz) VALUES ($1,$2,$3,$4,$5,$6,$7)";
+      $query2 = "INSERT INTO utente (email,pswd,telefono,nomeass,nomep,cognomep,idaz) VALUES ($1,$2,$3,$4,$5,$6,$7)";
       $result2 = pg_query_params($dbconn,$query2,array($email,$pswd,$tel,$nomeAssociazione,$nomeP,$cognomeP,$idAzienda));
       if($result2) {
         echo "La registrazione è andata a buon fine";
