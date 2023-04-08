@@ -32,7 +32,6 @@
       $result2 = pg_query_params($dbconn,$query2,array($email,$pswd,$tel,$nomeAssociazione,$nomeP,$cognomeP,$idAzienda));
       if($result2) {
         echo "La registrazione è andata a buon fine";
-        //printf("La registrazione è andata a buon fine");
       }
       else {
         die("La registrazione non è andata a buon fine");
