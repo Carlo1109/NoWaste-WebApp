@@ -8,11 +8,6 @@
 </head>
 <body>
   <?php
-    foreach($GLOBALS as $k => $v) {
-      echo "$k => ";
-      print_r($v);
-      echo "<br><hr><br>";
-    }
     $email = $_POST["email"];
     $pswd = $_POST["password"];
     $nomeP = $_POST["nomeP"];
@@ -25,12 +20,6 @@
     else {
       $tel = $_POST["telAssociazione"];
     }
-    foreach($GLOBALS as $k => $v) {
-      echo "$k => ";
-      print_r($v);
-      echo "<br><hr><br>";
-    }
-    /*
     $dbconn = pg_connect("host=localhost user=postgres password=password port=5433 dbname=Prova");
     $query = "SELECT * FROM utente WHERE email=$1";
     $result = pg_query_params($dbconn,$query,array($email));
@@ -49,7 +38,6 @@
         die("La registrazione non è andata a buon fine");
       }
     }
-    */
     pg_close($dbconn);
   ?>
 </body>
