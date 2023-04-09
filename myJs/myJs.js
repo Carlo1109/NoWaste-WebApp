@@ -84,13 +84,11 @@ function decidiPagina(){
 }
 
 function showPayment(){
-  console.log("Sono nella funz");
   var option1 = document.getElementById('visa');
   var option2 = document.getElementById('mc');
   var option3 = document.getElementById('pp');
   var form1 = document.getElementById('formCC');
   var form2 = document.getElementById('formPaypal');
-
   if (option1.checked || option2.checked) {
     form1.style.display = 'block';
     form2.style.display = 'none';
