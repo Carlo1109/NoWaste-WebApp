@@ -101,6 +101,7 @@ footer form {
 @media (max-width: 767px) {
   footer h4 {
     margin-top: 20px;
+    margin-left: 20px;
   }
 }
 
