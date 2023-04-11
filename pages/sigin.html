@@ -55,7 +55,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form method="get" name="loginForm" onsubmit="return checkLogin();">
+                    <form method="post" action="../myPhp/login.php" name="loginForm" onsubmit="return checkLogin();">
                       <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" name="username" class="form-control" id="username" placeholder="Inserisci l'username">

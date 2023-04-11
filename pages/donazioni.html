@@ -55,7 +55,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form method="get" name="loginForm" onsubmit="return checkLogin();">
+                    <form method="post" action="../myPhp/login.php" name="loginForm" onsubmit="return checkLogin();">
                       <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" name="username" class="form-control" id="username" placeholder="Inserisci l'username">
@@ -99,7 +99,7 @@
         <div class="col-md-8">
           <h2 class="text-center mb-4">Fai una donazione</h2>
           <hr>
-          <form method="get" id="formDonazione">
+          <form method="post" id="formDonazione">
             <div class="row">
               <div class="col-md-6">
                 <div class="mb-4">

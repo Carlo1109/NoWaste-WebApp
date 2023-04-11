@@ -1,0 +1,13 @@
+.logo {
+  position: absolute;
+  left: 25%;
+  height: auto; /* Altezza proporzionale all'immagine */
+}
+
+.mio {
+  padding: 20px;
+  text-align: center;
+  background: #22298b;
+  color: white;
+  font-size: 20px;
+}
