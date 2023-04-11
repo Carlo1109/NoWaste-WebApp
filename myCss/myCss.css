@@ -7,6 +7,14 @@
   background-color: #FFCC80;
 }
 
+.myNav{
+  padding: 20px;
+  text-align: center;
+  background: #228b22;
+  color: white;
+  font-size: 20px;
+}
+
 .logo{
   margin-left: 10px;
 }
@@ -203,6 +211,7 @@ footer form {
   margin-bottom: 1rem;
   border-radius: 0.25rem;
   text-align: center;
+  color: #212121;
 }
 
 .Myitem-dropdown{
@@ -251,4 +260,9 @@ th {
 td {
   background-color: #5f5d06;
   border-color: #5f5d06;
+}
+
+.modal {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
 }

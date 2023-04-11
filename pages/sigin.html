@@ -27,9 +27,8 @@
           </div>
         </div>
       </nav>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg myNav">
         <div class="container-fluid">
-          <h4>NoWaste</h4>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -52,11 +51,11 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLabel">Login all'area privata</h4>
+                    <h4 class="modal-title text-black" id="exampleModalLabel">Login all'area privata</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form name="loginForm" method="post" action="../myPhp/login.php" id="loginForm" onsubmit="return checkLogin();">
+                    <form method="get" name="loginForm" onsubmit="return checkLogin();">
                       <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" name="username" class="form-control" id="username" placeholder="Inserisci l'username">
@@ -69,8 +68,8 @@
                     <div class="modal-footer">
                       <input type="reset" class="btn btn-secondary" value="Reset">
                       <input type="submit" class="btn btn-primary" value="Login">
-                      <a href="sigin.html"> <button type="button" class="btn btn-secondary">Sig in</button></a>
-                    </div>
+                      <a href="sigin.html"><button type="button" class="btn btn-secondary">Sig in</button></a>
+                      </div>
                     </form>
                 </div>
               </div>
