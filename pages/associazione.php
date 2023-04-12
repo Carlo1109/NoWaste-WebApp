@@ -69,7 +69,7 @@ session_start();
                 <div class="modal-content">
                   <h3 class="logout-message">Logout avvenuto con successo</h3>
                   <div class="modal-footer">
-                    <a href="index.html"><button type="button" class="btn btn-success">Ok</button></a>
+                    <a href="index.php"><button type="button" class="btn btn-success">Ok</button></a>
                   </div>
                 </div>
               </div>
