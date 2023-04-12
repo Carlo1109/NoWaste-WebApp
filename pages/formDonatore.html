@@ -14,85 +14,80 @@
 		<script src="../myJs/myJs.js"></script>
     <script src="../myJs/myJSPROVA.js"></script>
 	</head>
-	<body>
-		<header>
+	<body class="colorForm">
+		<header class="bg-white">
       <nav class="navbar navbar-expand-lg bg-gr">
         <div class="container">
           <div class="logo">
             <img src="../src/logo.png" class="imLog" alt="Logo NoWaste">
           </div>
-          <div class="ricerca">
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
         </div>
       </nav>
-      <nav class="navbar navbar-expand-lg myNav">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="soldi.html">Donazioni</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina();">Area privata-Donatore</a>
-              </li>
-            </ul>
-            <div class="dropdown">
-              <a class="btn dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-user"></i>
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                <li class="Myitem-dropdown">Username: </li>
-                <li class="Myitem-dropdown">Email: </li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item " data-bs-toggle="modal" data-bs-target="#ModalLogout">Logout</a></li>
-              </ul>
+    </header>
+    <div id="donazioneForm" class="container bg-white mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <h1 class="text-center mb-4">Aggiungi prodotto</h1>
+          <hr>
+          <form method="post" id="formDonazione">
+            <div class="row m-auto">
+              <label for="titolo">Titolo prodotto:</label>
+              <input type="text" class="form-control" id="titolo" required>
             </div>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalLogout">
-              LOGOUT
-            </button>
-            <div data-backdrop="static" data-keyboard="false" class="modal fade" id="ModalLogout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <h3 class="logout-message">Logout avvenuto con successo</h3>
-                  <div class="modal-footer">
-                    <a href="index.html"><button type="button" class="btn btn-success">Ok</button></a>
+            <hr>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-4">
+                  <label for="marca">Marca:</label>
+                  <input type="text" class="form-control" id="marca" required>
+                </div>
+                <div class="mb-4">
+                  <label for="tipo">Tipo:</label>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="vegano" value="vegano">
+                    <label class="form-check-label" for="vegano">Vegano</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="vegetariano" value="vegetariano">
+                    <label class="form-check-label" for="vegetariano">Vegetariano</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="celiaco" value="celiaco">
+                    <label class="form-check-label" for="celiaco">Celiaco</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-4">
+                  <label for="scad">Consumarsi preferibilmente entro:</label>
+                  <div class="input-group date">
+                    <input type="date" class="form-control" name="scad" id="scad" required>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <div class="input-group mb-3">
+                    <label class="input-group-text" for="immagine">Aggiungi immagine:</label>
+                    <input type="file" class="form-control" id="immagine">
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+            <hr>
+            <div class="row m-auto mb-4">
+              <label for="descrizione">Descrizione del prodotto:</label>
+              <textarea class="form-control" id="descrizione" rows="3"></textarea>
+            </div>
+            <div class="row justify-content-center">
+              <div class="btn-group btn-group-horizontal">
+                <button type="submit" class="btn btn-primary btn-sm" value="conferma">Conferma</button>
+                <button type="reset" class="btn btn-secondary btn-sm m-lg-auto" value="reset">Reset</button>
+              </div>
+            </div>
+            <br>
+          </form>
         </div>
-      </nav>
-    </header>
-    <div class="form-container">
-      <h2>Aggiugni prodotti</h2>
-      <form method="post" name="aggiungiForm" onsubmit="">
-        <div class="mb-2">
-          <label for="titoloProdotto">Titolo Prodotto:</label>
-          <input type="text" class="form-control" name="titoloProdotto" id="titoloProdotto" placeholder="Inserisci titolo del prodotto">
-        </div>
-        <hr>
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <label for="marcaProdotto">Marca Prodotto:</label>
-            <input type="text" class="form-control" name="marcaProdotto" id="marcaProdotto" placeholder="Inserisci marca del prodotto">
-          </div>
-          <div class="col-md-8">
-            <label for="marcaProdotto">Marca Prodotto:</label>
-            <input type="text" class="form-control" name="marcaProdotto" id="marcaProdotto" placeholder="Inserisci marca del prodotto">
-          </div>
-        </div>
-      </form>
+      </div>
     </div>
+    <br>
 </body>
 </html>
