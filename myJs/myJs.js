@@ -747,3 +747,21 @@ function checkCarrello() {
   }
 }
 
+function scrollaHome() {
+  const container = document.querySelector('#navHome'); 
+  const yOffset = container.getBoundingClientRect().top + window.pageYOffset - 100;
+  window.scrollTo({
+    top: yOffset,
+    behavior: 'smooth'
+  });
+}
+
+function animateCardOn(card) {
+  card.style.transform = "scale(1.1)";
+  card.style.transition = "transform 0.3s ease-in-out";
+}
+
+function animateCardOff(card) {
+  card.style.transform = "scale(1)";
+  card.style.transition = "transform 0.3s ease-in-out";
+}
