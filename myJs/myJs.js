@@ -80,7 +80,7 @@ function hideForm(){
 }
 
 function decidiPagina(){
-  window.location.href = "../pages/associazione.html";
+  window.location.href = "../pages/donatore.html";
 }
 
 function showPayment(){
@@ -765,3 +765,4 @@ function animateCardOff(card) {
   card.style.transform = "scale(1)";
   card.style.transition = "transform 0.3s ease-in-out";
 }
+
