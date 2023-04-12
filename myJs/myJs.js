@@ -79,8 +79,11 @@ function hideForm(){
   document.getElementById('formAzienda').style.display = 'none';
 }
 
-function decidiPagina(){
-  window.location.href = "../pages/donatore.html";
+function decidiPagina(assBoolean){
+  if(assBoolean)
+    window.location.href = "../pages/associazione.php";
+  else if(!assBoolean)
+    window.location.href = "../pages/donatore.php";
 }
 
 function showPayment(){
@@ -765,4 +768,3 @@ function animateCardOff(card) {
   card.style.transform = "scale(1)";
   card.style.transition = "transform 0.3s ease-in-out";
 }
-

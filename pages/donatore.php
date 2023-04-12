@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ita">
 	<head>
@@ -43,7 +46,7 @@
                 <a class="nav-link active" href="soldi.html">Donazioni</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina();">Area privata-Donatore</a>
+                <a class="nav-link active" style="cursor: pointer;">Area privata-Donatore</a>
               </li>
             </ul>
             <div class="dropdown">
@@ -51,8 +54,9 @@
                 <i class="fa fa-user"></i>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                <li class="Myitem-dropdown">Username: </li>
-                <li class="Myitem-dropdown">Email: </li>
+                <?php
+                echo '<li class="Myitem-dropdown"><h6>Email:</h6>'.$_SESSION["username"].'</li>';
+                ?>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item " data-bs-toggle="modal" data-bs-target="#ModalLogout">Logout</a></li>
               </ul>
