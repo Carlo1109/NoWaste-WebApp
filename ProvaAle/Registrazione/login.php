@@ -8,8 +8,9 @@
 </head>
 <body>
   <?php
+    session_start();
     $email = $_POST["username"];
-    $dbconn = pg_connect("host=localhost user=postgres password=password port=5433 dbname=Prova");
+    $dbconn = pg_connect("host=localhost user=postgres password=password port=5433 dbname=DatabaseUtenti");
     $query = "SELECT * FROM utente where email=$1";
     $result = pg_query_params($dbconn,$query,array($email));
     if ($line=pg_fetch_array($result)) {
@@ -17,7 +18,8 @@
       $query2 = "SELECT * FROM utente WHERE email=$1 and pswd=$2";
       $result = pg_query_params($dbconn,$query2,array($email, $pswd));
       if ($line=pg_fetch_array($result)) {
-        echo "Il login è andato a buon fine";
+        $_SESSION["logged_in"] = true;
+        header("Location: index.php");
       }
       else {
         die("Il login non è andato a buon fine");
