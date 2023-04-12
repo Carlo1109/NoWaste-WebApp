@@ -28,7 +28,7 @@
           </div>
         </div>
       </nav>
-      <nav class="navbar navbar-expand-lg myNav">
+      <nav class="navbar navbar-expand-lg myNav" id="navHome">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@
                 <a class="nav-link active" aria-current="page" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="donazioni.html">Donazioni</a>
+                <a class="nav-link active" href="soldi.html">Donazioni</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active mioclasse" style="cursor: pointer;" onclick="return decidiPagina();">Area privata</a>
@@ -84,19 +84,19 @@
 				<div class="row">
 					<div class="col-md-6">
 						<h2 class="display-4">Chi siamo?</h2>
-						<p class="testoHome">Siamo un'azienda alimentare che si impegna a produrre alimenti di alta qualità, sani e gustosi.</p>
+						<p class="testoHome">Siamo un'organizzazione che si impegna a creare una rete di contatti tra associazioni che donano cibo ai bisognosi e ristoranti o esercizi alimentari. Il nostro obiettivo è aiutare le persone che si trovano in difficoltà ad avere accesso a pasti nutritivi e salutari e allo stesso tempo evitare spreco di cibo. Con la nostra web-app, offriamo una piattaforma che semplifica la donazione di cibo da parte dei ristoranti e degli esercizi alimentari e la distribuzione da parte delle associazioni. Ci impegniamo a creare un ambiente collaborativo e inclusivo per promuovere il benessere e la giustizia sociale nella nostra comunità.</p>
 					</div>
 					<div class="col-md-6">
 						<div id="carousel1" class="carousel slide" data-bs-ride="carousel">
 							<div class="carousel-inner">
 								<div class="carousel-item active">
-									<img src="../src/prova1.jpeg" class="d-block w-100" alt="Immagine 1">
+									<img src="../src/carousel11.png" class="d-block w-100" alt="Immagine 1">
 								</div>
 								<div class="carousel-item">
-									<img src="../src/prova2.jpeg" class="d-block w-100" alt="Immagine 2">
+									<img src="../src/carousel12.jpg" class="d-block w-100" alt="Immagine 2">
 								</div>
 								<div class="carousel-item">
-									<img src="../src/prova3.jpeg" class="d-block w-100" alt="Immagine 3">
+									<img src="../src/carousel13.jpeg" class="d-block w-100" alt="Immagine 3">
 								</div>
 							</div>
 							<button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
@@ -116,20 +116,20 @@
 					</div>
 				</div>
 			</div>
-				<hr class="my-4">
-				<div class="jumbotron">
+			<hr class="my-4">
+			<div class="jumbotron">
 				<div class="row">
 					<div class="col-md-6">
 						<div id="carousel2" class="carousel slide" data-bs-ride="carousel">
 							<div class="carousel-inner">
 								<div class="carousel-item active">
-									<img src="../src/prova1.jpeg" class="d-block w-100" alt="Immagine 4">
+									<img src="../src/carousel21.jpeg" class="d-block w-100" alt="Immagine 4">
 								</div>
 								<div class="carousel-item">
-									<img src="../src/prova2.jpeg" class="d-block w-100" alt="Immagine 5">
+									<img src="../src/carousel22.jpg" class="d-block w-100" alt="Immagine 5">
 								</div>
 								<div class="carousel-item">
-									<img src="../src/prova3.jpeg" class="d-block w-100" alt="Immagine 6">
+									<img src="../src/carousel23.png" class="d-block w-100" alt="Immagine 6">
 								</div>
 							</div>
 							<button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
@@ -153,6 +153,46 @@
 					</div>
 				</div>
 			</div>
+			<hr>
+			<div class="jumbotron">
+				<div class="row">
+					<div class="col-md-6">
+						<h2 class="display-4">Come unirti?</h2>
+					  <p class="testoHome">Puoi unirti a noi come membro di un'associazione per prenotare il cibo messo a disposizione da ristoranti o alimentari, ma puoi entrare a far parte dell'organizzazione anche come azienda del settore alimentare che mette a dispozione sul nostro sito gli eccessi di cibo per semplificare il lavoro alle associazioni che distribuiscono ai bisognosi questi beni di prima necessità. </p>					
+						<p class="testoHome">Inoltre puoi contribuire al progetto anche senza registrarti, facendo una donazione monetaria tramite l'apposita pagina.</p>
+						<p class="testoHome">Clicca qui per esplorare le possibilità della nostra prganizzazione.</p>
+						<button class="btn btn-donate" id="btn-donate" onclick="scrollaHome();">Esplora</button>
+					</div>
+					<div class="col-md-6 marginiCarousel3">
+						<div id="carousel3" class="carousel slide" data-bs-ride="carousel">
+							<div class="carousel-inner">
+								<div class="carousel-item active">
+									<img src="../src/carousel31.jpeg" class="d-block w-100" alt="Immagine 7">
+								</div>
+								<div class="carousel-item">
+									<img src="../src/carousel32.jpg" class="d-block w-100" alt="Immagine 8">
+								</div>
+								<div class="carousel-item">
+									<img src="../src/carousel33.jpg" class="d-block w-100" alt="Immagine 9">
+								</div>
+							</div>
+							<button class="carousel-control-prev" type="button" data-bs-target="#carousel3" data-bs-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="visually-hidden">Previous</span>
+							</button>
+							<button class="carousel-control-next" type="button" data-bs-target="#carousel3" data-bs-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="visually-hidden">Next</span>
+							</button>
+							<ol class="carousel-indicators">
+								<li data-bs-target="#carousel3" data-bs-slide-to="0" class="active"></li>
+								<li data-bs-target="#carousel3" data-bs-slide-to="1"></li>
+								<li data-bs-target="#carousel3" data-bs-slide-to="2"></li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<footer class="bg-dark text-white">
 			<div class="container">
@@ -168,9 +208,9 @@
 					<div class="col-md-4">
 						<h4 class="titleFooter">Social</h4>
 						<ul class="list-unstyled-icon">
-							<li><a href="#"><i class="fab fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="https://it-it.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/?lang=it" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
 						</ul>
 					</div>
 					<div class="col-md-4">

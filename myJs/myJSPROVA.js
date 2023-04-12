@@ -1,5 +1,6 @@
 function mostraContenutoProva(numero) {
   const container = document.querySelector('#scorriPagine');
+  
   switch(numero) {
     case 1:
       var htmlSource = '';
@@ -8,8 +9,8 @@ function mostraContenutoProva(numero) {
         for(j=0;j<3;j++){
           nomecard = "Pasta al pomodoro PAG1 " + i.toString() + j.toString();
           htmlSource+= '<div class="col-md-4">\
-          <div class="card">\
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+          <div class="card" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
+            <img src="../src/card01.jpeg" class="card-img-top" alt="Pasta al pomodoro">\
             <div class="card-body\">\
               <h5 class="card-title">'+nomecard+'</h5>\
               <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
@@ -35,6 +36,7 @@ function mostraContenutoProva(numero) {
         htmlSource+='</div>';
       }
       htmlSource+='\
+      <br>\
       <hr>\
       <nav aria-label="...">\
         <ul class="pagination justify-content-center">\
@@ -62,7 +64,7 @@ function mostraContenutoProva(numero) {
           nomecard = "Pasta al pomodoro PAG2 " + i.toString() + j.toString();
           htmlSource+= '<div class="col-md-4">\
           <div class="card">\
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+            <img src="../src/card01.jpeg" class="card-img-top" alt="Pasta al pomodoro">\
             <div class="card-body\">\
               <h5 class="card-title">'+nomecard+'</h5>\
               <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
@@ -88,6 +90,7 @@ function mostraContenutoProva(numero) {
         htmlSource+='</div>';
       }
       htmlSource+='\
+      <br>\
       <hr>\
       <nav aria-label="...">\
         <ul class="pagination justify-content-center">\
@@ -115,7 +118,7 @@ function mostraContenutoProva(numero) {
           nomecard = "Pasta al pomodoro PAG3 " + i.toString() + j.toString();
           htmlSource+= '<div class="col-md-4">\
           <div class="card">\
-            <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Pasta al pomodoro">\
+            <img src="../src/card01.jpeg" class="card-img-top" alt="Pasta al pomodoro">\
             <div class="card-body\">\
               <h5 class="card-title">'+nomecard+'</h5>\
               <p class="card-text">Una pietanza semplice ma gustosa, adatta a tutti i palati.</p>\
@@ -141,6 +144,7 @@ function mostraContenutoProva(numero) {
         htmlSource+='</div>';
       }
       htmlSource+='\
+      <br>\
       <hr>\
       <nav aria-label="...">\
         <ul class="pagination justify-content-center">\

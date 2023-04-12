@@ -9,7 +9,7 @@
 <body>
   <?php
     $email = $_POST["username"];
-    $dbconn = pg_connect("host=localhost user=postgres password=password port=5433 dbname=DatabaseUtenti");
+    $dbconn = pg_connect("host=localhost user=postgres password=ltwsql port=5432 dbname=DatabaseUtenti");
     $query = "SELECT * FROM utente where email=$1";
     $result = pg_query_params($dbconn,$query,array($email));
     if ($line=pg_fetch_array($result)) {
