@@ -768,3 +768,7 @@ function animateCardOff(card) {
   card.style.transform = "scale(1)";
   card.style.transition = "transform 0.3s ease-in-out";
 }
+
+function goToLogout(){
+  window.location.href = "../myPhp/logout.php";
+}

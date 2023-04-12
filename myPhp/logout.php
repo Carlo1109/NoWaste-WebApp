@@ -1,7 +1,9 @@
 <?php
-  session_start();
+session_start();
+if (isset($_SESSION["logged_in"])) {
   session_unset();
   session_destroy();
-  header("Location: ../pages/index.php"); // reindirizza l'utente alla pagina home
-  exit;
+}
+header("Location: ../pages/index.php");
+exit();
 ?>

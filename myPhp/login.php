@@ -33,12 +33,26 @@
         exit(); 
       }
       else {
-        die("Il login non è andato a buon fine");
+        $_SESSION["login_error_psw"] = "La password inserita non è corretta";
       }
     }
     else {
-      echo "L'utente non è registrato";
+      $_SESSION["login_error_unreg"] = "L'utente non è registrato, clicca OK per registrarti.";
     }
   ?>
+  <script>
+  <?php
+  if (isset($_SESSION["login_error_psw"])) {
+    echo 'alert("' . $_SESSION["login_error_psw"] . '");';
+    unset($_SESSION["login_error_psw"]);
+    echo 'window.location.href = "../pages/index.php";';
+  }
+  if (isset($_SESSION["login_error_unreg"])) {
+    echo 'alert("' . $_SESSION["login_error_unreg"] . '");';
+    unset($_SESSION["login_error_unreg"]);
+    echo 'window.location.href = "../pages/sigin.html";';
+  }
+  ?>
+</script>
 </body>
 </html>

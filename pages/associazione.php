@@ -58,22 +58,12 @@ session_start();
                 echo '<li class="Myitem-dropdown"><h6>Email:</h6>'.$_SESSION["username"].'</li>';
                 ?>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item " data-bs-toggle="modal" data-bs-target="#ModalLogout">Logout</a></li>
+                <li><a class="dropdown-item" href="../myPhp/logout.php">Logout</a></li>
               </ul>
             </div>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalLogout">
+            <button type="button" class="btn btn-danger" onclick="goToLogout();">
               LOGOUT
             </button>
-            <div data-backdrop="static" data-keyboard="false" class="modal fade" id="ModalLogout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <h3 class="logout-message">Logout avvenuto con successo</h3>
-                  <div class="modal-footer">
-                    <a href="index.php"><button type="button" class="btn btn-success">Ok</button></a>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </nav>

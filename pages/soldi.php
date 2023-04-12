@@ -53,7 +53,7 @@ session_start();
 	}
 	else if ($_SESSION['logged_in'] === true) {
 		echo '<li class="nav-item"><a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina('.$_SESSION["assBoolean"].');">Area privata</a>
-	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6>'.$_SESSION["username"].' </li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" onclick="logout();">Logout</a></li></ul></div><button type="button" class="btn btn-danger" onclick="logout();">LOGOUT</button>';
+	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6>'.$_SESSION["username"].' </li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" href="../myPhp/logout.php">Logout</a></li></ul></div><button type="button" class="btn btn-danger" onclick="goToLogout();">LOGOUT</button>';
 	}
 ?>
       </nav>
