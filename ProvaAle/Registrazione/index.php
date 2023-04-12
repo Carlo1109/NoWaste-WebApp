@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+// Controlla se l'utente è autenticato
+$loginConfermato = false;
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    $loginConfermato = true;
+}
+?>
 <!DOCTYPE html>
 <html lang="ita">
 	<head>
@@ -11,7 +20,9 @@
 		<link rel="stylesheet" href="../../myCss/myCssProva.css">
 		<link rel="stylesheet" href="../../libraries/fontawesome-free-6.4.0-web/css/all.css">
 		<script src="../../libraries/bootstrap-5.2.3/dist/js/bootstrap.min.js"></script>
+		<script src="../../libraries/bootstrap-5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="../../myJs/myJs.js"></script>
+		<script src="./prova.js"></script>
 	</head>
 	<body>
 		<header>
@@ -47,41 +58,13 @@
             </ul>
 <?php
 	if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-		echo '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">';
-		echo "LOGIN";
-		echo "</button>";
+		echo '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">LOGIN</button><div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title text-black" id="exampleModalLabel">Login all\'area privata</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><form method="post" action="./login.php" name="loginForm" onsubmit="return checkLogin();"><div class="mb-3"><label for="username" class="form-label">Username</label><input type="text" name="username" class="form-control" id="username" placeholder="Inserisci l\'username"></div><div class="mb-3"><label for="psw" class="form-label">Password</label><input type="password"  name="psw" class="form-control" id="psw" placeholder="Password"></div></div><div class="modal-footer"><input type="reset" class="btn btn-secondary" value="Reset"><input type="submit" class="btn btn-primary" value="Login"><a href="sigin.html"><button type="button" class="btn btn-secondary">Sig in</button></a></div></form></div></div></div>';
 	}
-	else {
-		echo '<div class="dropdown"><a class="btn dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown">Username: </li><li class="Myitem-dropdown">Email: </li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item " data-bs-toggle="modal" data-bs-target="#ModalLogout">Logout</a></li></ul></div><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ModalLogout">LOGOUT</button>';
+	else if ($_SESSION['logged_in'] === true) {
+		echo '<div class="dropdown"><a class="btn dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown">Email: ' . $_SESSION["username"] . ' </li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" onclick="logout();">Logout</a></li></ul></div><button type="button" class="btn btn-danger" onclick="logout();">LOGOUT</button>';
 	}
 ?>
-            <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title text-black" id="exampleModalLabel">Login all'area privata</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form method="post" action="../myPhp/login.php" name="loginForm" onsubmit="return checkLogin();">
-                      <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" name="username" class="form-control" id="username" placeholder="Inserisci l'username">
-                      </div>
-                      <div class="mb-3">
-                        <label for="psw" class="form-label">Password</label>
-                        <input type="password"  name="psw" class="form-control" id="psw" placeholder="Password">
-                      </div>
-                  </div>
-                    <div class="modal-footer">
-                      <input type="reset" class="btn btn-secondary" value="Reset">
-                      <input type="submit" class="btn btn-primary" value="Login">
-                      <a href="sigin.html"><button type="button" class="btn btn-secondary">Sig in</button></a>
-                      </div>
-                    </form>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </nav>

@@ -19,7 +19,9 @@
       $result = pg_query_params($dbconn,$query2,array($email, $pswd));
       if ($line=pg_fetch_array($result)) {
         $_SESSION["logged_in"] = true;
-        header("Location: index.php");
+        $_SESSION["username"] = $_POST["username"];
+        header("Location: index.php?login=success");
+        exit(); 
       }
       else {
         die("Il login non è andato a buon fine");
