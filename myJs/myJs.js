@@ -772,3 +772,5 @@ function animateCardOff(card) {
 function goToLogout(){
   window.location.href = "../myPhp/logout.php";
 }
+  
+

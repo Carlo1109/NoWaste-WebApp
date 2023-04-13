@@ -19,7 +19,7 @@ session_start();
 	</head>
 	<body>
 		<header>
-      <nav class="navbar navbar-expand-lg bg-gr">
+		<nav class="navbar navbar-expand-lg bg-gr">
         <div class="container">
           <div class="logo">
             <img src="../src/logo.png" class="imLog" alt="Logo NoWaste">
