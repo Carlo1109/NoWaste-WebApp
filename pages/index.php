@@ -15,6 +15,7 @@ session_start();
 		<link rel="stylesheet" href="../libraries/fontawesome-free-6.4.0-web/css/all.css">
 		<script src="../libraries/bootstrap-5.2.3/dist/js/bootstrap.min.js"></script>
 		<script src="../libraries/bootstrap-5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="../libraries/jQuery.min.js"></script>
 		<script src="../myJs/myJs.js"></script>
 	</head>
 	<body>
