@@ -8,7 +8,7 @@ session_start();
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>NoWaste - Home</title>
-		<link rel="shortcut icon" href="../src/iconaLogoN.ico">
+		<link rel="icon" type="image/x-icon" href="../src/iconaLogoN.ico">
 		<link rel="stylesheet" href="../libraries/bootstrap-5.2.3/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../myCss/myCss.css">
 		<link rel="stylesheet" href="../myCss/myCssProva.css">
@@ -40,7 +40,7 @@ session_start();
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                <a class="nav-link active selected-text" aria-current="page" href="index.php">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="soldi.php">Donazioni</a>
@@ -50,7 +50,7 @@ session_start();
 		echo '<li class="nav-item">
 		<a class="nav-link" href="#" onclick="return false;">Area privata</a>
 	</li></ul><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">LOGIN</button><div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title text-black" id="exampleModalLabel">Login all\'area privata</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><form method="post" action="../myPhp/login.php" name="loginForm" onsubmit="return checkLogin();"><div class="mb-3"><label for="username" class="form-label text-black">Email</label><input type="email" name="username" class="form-control" id="username" placeholder="Inserisci l\'email"></div><div class="mb-3"><label for="psw" class="form-label text-black">Password</label><input type="password"  name="psw" class="form-control" id="psw" placeholder="Password"></div></div><div class="modal-footer"><input type="reset" class="btn btn-secondary" value="Reset"><input type="submit" class="btn btn-primary" value="Login"><a href="sigin.html"><button type="button" class="btn btn-secondary">Sign in</button></a></div></form></div></div></div>';
+		<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title text-black" id="exampleModalLabel">Login all\'area privata</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><form method="post" action="../myPhp/login.php" name="loginForm" onsubmit="return checkLogin();"><div class="mb-3"><label for="username" class="form-label text-black">Email</label><input type="email" name="username" class="form-control" id="username" placeholder="Inserisci l\'email"></div><div class="mb-3"><label for="psw" class="form-label text-black">Password</label><input type="password"  name="psw" class="form-control" id="psw" placeholder="Password"></div></div><div class="modal-footer"><input type="reset" class="btn btn-secondary" value="Reset"><input type="submit" class="btn btn-primary" value="Login"><a href="sigin.php"><button type="button" class="btn btn-secondary">Sign in</button></a></div></form></div></div></div>';
 	}
 	else if ($_SESSION['logged_in'] === true) {
 		echo '<li class="nav-item"><a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina('.$_SESSION["assBoolean"].');">Area privata</a>

@@ -46,7 +46,7 @@ session_start();
                 <a class="nav-link active" href="soldi.php">Donazioni</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" style="cursor: pointer;">Area privata-Donatore</a>
+                <a class="nav-link active selected-text" style="cursor: pointer;">Area privata-Donatore</a>
               </li>
             </ul>
             <div class="dropdown">
