@@ -8,7 +8,7 @@ session_start();
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>NoWaste - AreaPrivataAssociazione</title>
-		<link rel="shortcut icon" href="../src/iconaLogoN.ico">
+		<link rel="icon" type="image/x-icon" href="../src/iconaLogoN.ico">
 		<link rel="stylesheet" href="../libraries/bootstrap-5.2.3/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../myCss/myCss.css">
 		<link rel="stylesheet" href="../libraries/fontawesome-free-6.4.0-web/css/all.css">
@@ -46,7 +46,7 @@ session_start();
                 <a class="nav-link active" href="soldi.php">Donazioni</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" style="cursor: pointer;">Area privata-Associazione</a>
+                <a class="nav-link active selected-text" style="cursor: pointer;">Area privata-Associazione</a>
               </li>
             </ul>
             <div class="dropdown">

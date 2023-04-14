@@ -7,6 +7,12 @@
   background-color: #FFCC80;
 }
 
+.selected-text:after {
+  content: "";
+  display: block;
+  border-bottom: 4px solid #FFCC80;
+}
+
 .myNav{
   padding: 20px;
   text-align: center;
