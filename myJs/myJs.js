@@ -760,11 +760,13 @@ function scrollaHome() {
 }
 
 function animateCardOn(card) {
+  card.style.cursor = 'pointer';
   card.style.transform = "scale(1.1)";
   card.style.transition = "transform 0.3s ease-in-out";
 }
 
 function animateCardOff(card) {
+  card.style.cursor = 'default';
   card.style.transform = "scale(1)";
   card.style.transition = "transform 0.3s ease-in-out";
 }

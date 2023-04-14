@@ -63,7 +63,7 @@ function mostraContenutoProva(numero) {
         for(j=0;j<3;j++){
           nomecard = "Pasta al pomodoro PAG2 " + i.toString() + j.toString();
           htmlSource+= '<div class="col-md-4">\
-          <div class="card">\
+          <div class="card" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
             <img src="../src/card01.jpeg" class="card-img-top" alt="Pasta al pomodoro">\
             <div class="card-body\">\
               <h5 class="card-title">'+nomecard+'</h5>\
@@ -117,7 +117,7 @@ function mostraContenutoProva(numero) {
         for(j=0;j<3;j++){
           nomecard = "Pasta al pomodoro PAG3 " + i.toString() + j.toString();
           htmlSource+= '<div class="col-md-4">\
-          <div class="card">\
+          <div class="card" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
             <img src="../src/card01.jpeg" class="card-img-top" alt="Pasta al pomodoro">\
             <div class="card-body\">\
               <h5 class="card-title">'+nomecard+'</h5>\
