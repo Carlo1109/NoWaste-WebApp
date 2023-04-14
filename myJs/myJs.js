@@ -682,10 +682,10 @@ function aggiungiCarrello(pulsante) {
 
       //Aggiungo remove
       const removeButton = document.createElement('button');
-      removeButton.textContent = 'Rimuovi';
+      removeButton.innerHTML = '<i class="fas fa-trash"></i>'; //icona del cestino
       removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'mx-1', 'rimuovi-button');
       removeButton.addEventListener('click', function() {
-        const row = this.parentNode.parentNode;
+      const row = this.parentNode.parentNode;
         const quantitaPrecedente = parseInt(row.cells[1].textContent);
         const nuovaQuantita = quantitaPrecedente - 1;
         if (nuovaQuantita <= 0) {
@@ -709,7 +709,7 @@ function aggiungiCarrello(pulsante) {
     const quantityCell = document.createElement('td');
     quantityCell.textContent = quantita;
     const removeButton = document.createElement('button');
-    removeButton.textContent = 'Rimuovi';
+    removeButton.innerHTML = '<i class="fas fa-trash"></i>'; //icona del cestino
     removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'mx-1', 'rimuovi-button');
     removeButton.addEventListener('click', function() {
       const row = this.parentNode.parentNode;
@@ -772,5 +772,3 @@ function animateCardOff(card) {
 function goToLogout(){
   window.location.href = "../myPhp/logout.php";
 }
-  
-

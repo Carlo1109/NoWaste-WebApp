@@ -274,3 +274,10 @@ td {
 .colorForm{
   background-color: #aaa;
 }
+
+.cardFormDonatore{
+  width: 75%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
