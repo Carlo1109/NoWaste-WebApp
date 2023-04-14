@@ -90,18 +90,10 @@ session_start();
         </div>
       </div>
       <div id="scorriPagineDon">
-        <!--Qui ci sarà la visualizzazione dinamica delle schede-->
+        
+
+      
       </div>
-      <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" href="form.html">Aggiungi prodotti</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Elimina prodotti</a>
-          </li>
-        </ul>
-      </div>-->
       <div id="containerBasket" class="containermb-4 d-flex justify-content-center align-items-center">
         <button class="cestinoAssociazione btn btn-info d-flex flex-column align-items-center justify-content-center w-25" onclick="window.location.href = 'formDonatore.html';">
           <i class="fas fa-book fa-5x"></i>
