@@ -778,7 +778,7 @@ function goToLogout(){
 //AJAX per recuperare dal server il database dei prodotti per la pagina Donatore
 document.addEventListener("DOMContentLoaded", function() {
   $.ajax({
-      url: "../myPhp/downloadDonatore.php", // URL del tuo file PHP
+      url: "../myPhp/uploadDonatore.php", // URL del tuo file PHP
       dataType: "json", // Tipo di dato atteso come risposta (JSON in questo caso)
       success: function(response) {
         loadPaginaDonatore(response);
