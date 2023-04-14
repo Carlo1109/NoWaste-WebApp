@@ -791,6 +791,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function loadPaginaDonatore(response) {
   var htmlSource='';
+  var i=0;
+  htmlSource+= '<div class="row mt-5 mb-3">';
   for(const prodotto of response){
     nomecard = prodotto[2];
     descrizione = prodotto[8];
@@ -800,47 +802,27 @@ function loadPaginaDonatore(response) {
     isvegetariano = prodotto[5];
     isceliaco = prodotto[6];
     scad = prodotto[7];
-    htmlSource+='<div class="card cardDonatore" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
-    <img src="'+srcImmagine+'" class="card-img-top" alt="Pasta al pomodoro">\
-    <div class="card-body\">\
-      <h5 class="card-title">'+nomecard+'-'+marca+'</h5>\
-      <p class="card-text">'+descrizione+'</p>\
-      <p class="card-text">Prodotto vegano: '+isvegano+'</p>\
-      <p class="card-text">Prodotto vegetariano: '+isvegetariano+'</p>\
-      <p class="card-text">Prodotto celiaco: '+isceliaco+'</p>\
-      <p class="card-text">Consumarsi preferibilmente entro: '+scad+'</p>\
-      <div class="input-group mb-3 justify-content-center">\
+    if(i==3){
+      htmlSource+='</div>';
+      htmlSource+='<div class="row mt-5 mb-3">'
+      i=0;
+    }
+    htmlSource+='\
+    <div class="col-md-4">\
+      <div class="card cardDonatore" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
+        <img src="'+srcImmagine+'" class="card-img-top" alt="Pasta al pomodoro">\
+        <div class="card-body\">\
+          <h5 class="card-title">'+nomecard+'-'+marca+'</h5>\
+          <p class="card-text">'+descrizione+'</p>\
+          <p class="card-text">Prodotto vegano: '+isvegano+'</p>\
+          <p class="card-text">Prodotto vegetariano: '+isvegetariano+'</p>\
+          <p class="card-text">Prodotto celiaco: '+isceliaco+'</p>\
+          <p class="card-text">Consumarsi preferibilmente entro: '+scad+'</p>\
+        </div>\
       </div>\
-    </div>\
-  </div>';
+    </div>';
+  i+=1;
   }
+  htmlSource+='</div>';
   document.getElementById("scorriPagineDon").innerHTML=htmlSource;
 }
-
-
-/*for (const Prodotto of response) {
-  stringa+="<p>id: ";
-  stringa+=Prodotto[0] + "</p>";
-  stringa+="<p>email: ";
-  stringa+=Prodotto[1] + "</p>";
-  stringa+="<p>titolo: ";
-  stringa+=Prodotto[2] + "</p>";
-  stringa+="<p>marca: ";
-  stringa+=Prodotto[3] + "</p>";
-  stringa+="<p>isvegano: ";
-  stringa+=Prodotto[4] + "</p>";
-  stringa+="<p>isvegetariano: ";
-  stringa+=Prodotto[5] + "</p>";
-  stringa+="<p>isceliaco: ";
-  stringa+=Prodotto[6] + "</p>";
-  stringa+="<p>scad: ";
-  stringa+=Prodotto[7];
-  stringa+="<p>descrizione: ";
-  stringa+=Prodotto[8] + "</p>";
-  stringa+="<p>immagine: ";
-  stringa+="<img src='"+Prodotto[9]+"'/></p>";
-
-  stringa+="<br>" 
-}
-document.getElementById("scorriPagineDon").innerHTML=htmlSource;
-}*/
