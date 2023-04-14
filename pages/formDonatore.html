@@ -29,30 +29,30 @@
         <div class="col-md-8">
           <h1 class="text-center mb-4">Aggiungi prodotto</h1>
           <hr>
-          <form method="post" id="formDonazione">
+          <form method="post" action="../myPhp/download.php" enctype="multipart/form-data" id="formDonazione">
             <div class="row m-auto">
               <label for="titolo">Titolo prodotto:</label>
-              <input type="text" class="form-control" id="titolo" required>
+              <input type="text" class="form-control" name="titolo" required>
             </div>
             <hr>
             <div class="row">
               <div class="col-md-6">
                 <div class="mb-4">
                   <label for="marca">Marca:</label>
-                  <input type="text" class="form-control" id="marca" required>
+                  <input type="text" class="form-control" name="marca" required>
                 </div>
                 <div class="mb-4">
                   <label for="tipo">Tipo:</label>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="vegano" value="vegano">
+                    <input class="form-check-input" type="checkbox" name="vegano" id="vegano">
                     <label class="form-check-label" for="vegano">Vegano</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="vegetariano" value="vegetariano">
+                    <input class="form-check-input" type="checkbox" name="vegetariano" id="vegetariano">
                     <label class="form-check-label" for="vegetariano">Vegetariano</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="celiaco" value="celiaco">
+                    <input class="form-check-input" type="checkbox" name="celiaco" id="celiaco">
                     <label class="form-check-label" for="celiaco">Celiaco</label>
                   </div>
                 </div>
@@ -61,13 +61,13 @@
                 <div class="mb-4">
                   <label for="scad">Consumarsi preferibilmente entro:</label>
                   <div class="input-group date">
-                    <input type="date" class="form-control" name="scad" id="scad" required>
+                    <input type="date" class="form-control" name="scad" name="scad" required>
                   </div>
                 </div>
                 <div class="mb-4">
                   <div class="input-group mb-3">
                     <label class="input-group-text" for="immagine">Aggiungi immagine:</label>
-                    <input type="file" class="form-control" id="immagine">
+                    <input type="file" id="immagine" class="form-control" name="immagine">
                   </div>
                 </div>
               </div>
@@ -75,7 +75,7 @@
             <hr>
             <div class="row m-auto mb-4">
               <label for="descrizione">Descrizione del prodotto:</label>
-              <textarea class="form-control" id="descrizione" rows="3"></textarea>
+              <textarea class="form-control" name="descrizione" rows="3"></textarea>
             </div>
             <div class="row justify-content-center">
               <div class="btn-group btn-group-horizontal">
