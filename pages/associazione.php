@@ -58,8 +58,24 @@ session_start();
                 echo '<li class="Myitem-dropdown"><h6>Email:</h6>'.$_SESSION["username"].'</li>';
                 ?>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="../myPhp/logout.php">Logout</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalAvviso">Elimina profilo</a>
+                </li>
               </ul>
+            </div>
+            <div class="modal fade" id="modalAvviso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content bg-warning">
+                  <div class="modal-header">
+                    <h4 class="text-black" id="exampleModalLabel">Sei sicuro di voler eliminare il tuo profilo?</h4>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="m-lg-auto">
+                    <button class="btn btn-danger" onclick="window.location.href = \'../myPhp/eliminaProfilo.php\'">SI</button>
+                    <button class="btn btn-success" data-bs-dismiss="modal" >NO. Torna indietro</button>
+                    </div>
+                  </div>
+                </div>
+              </div>              
             </div>
             <button type="button" class="btn btn-danger" onclick="goToLogout();">
               LOGOUT
