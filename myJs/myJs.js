@@ -119,6 +119,15 @@ function scrollaPaginaAssociazione() {
   });
 }
 
+function scrollaPaginaDonatore() {
+  const container = document.querySelector('#containerBasket'); 
+  const yOffset = container.getBoundingClientRect().top + window.pageYOffset;
+  window.scrollTo({
+    top: yOffset,
+    behavior: 'smooth'
+  });
+}
+
 //Listener per mostrare pulsante 'sali su'
 window.addEventListener('scroll', function() {
   var pulsanteScrollUp = document.getElementById('pulsante-scroll-up');
@@ -776,18 +785,19 @@ function goToLogout(){
 }
 
 //AJAX per recuperare dal server il database dei prodotti per la pagina Donatore
-document.addEventListener("DOMContentLoaded", function() {
+function caricaDonatore() {
   $.ajax({
       url: "../myPhp/uploadDonatore.php", // URL del tuo file PHP
       dataType: "json", // Tipo di dato atteso come risposta (JSON in questo caso)
       success: function(response) {
         loadPaginaDonatore(response);
+        loadEliminaProdotti(response);
       },
       error: function(jqXHR, textStatus, errorThrown) {
           console.error(textStatus, errorThrown); // Gestione degli errori
       }
   });
-})
+}
 
 function loadPaginaDonatore(response) {
   var htmlSource='';
@@ -810,7 +820,7 @@ function loadPaginaDonatore(response) {
     htmlSource+='\
     <div class="col-md-4">\
       <div class="card cardDonatore" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
-        <img src="'+srcImmagine+'" class="card-img-top" alt="Pasta al pomodoro">\
+        <img src="'+srcImmagine+'" class="card-img-top" width="200" height="300" alt="Pasta al pomodoro">\
         <div class="card-body\">\
           <h5 class="card-title">'+nomecard+'-'+marca+'</h5>\
           <p class="card-text">'+descrizione+'</p>\
@@ -821,8 +831,106 @@ function loadPaginaDonatore(response) {
         </div>\
       </div>\
     </div>';
-  i+=1;
+    i+=1;
   }
   htmlSource+='</div>';
   document.getElementById("scorriPagineDon").innerHTML=htmlSource;
+}
+
+function loadEliminaProdotti(response){
+  const tableBody = document.querySelector('#tableElimina');
+  for(const prodotto of response){
+    nome = prodotto[2];
+    scad = prodotto[7];
+    const newRow = document.createElement('tr');
+    const nameCell = document.createElement('td');
+    nameCell.textContent = nome;
+    const scadenzaCell = document.createElement('td');
+    scadenzaCell.textContent = scad;
+    const removeButton = document.createElement('button');
+    removeButton.innerHTML = '<i class="fas fa-trash"></i>'; //icona del cestino
+    removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'mx-1', 'rimuovi-button');
+    removeButton.addEventListener('click', function() {
+      const row = this.parentNode.parentNode;
+      row.remove();
+    });
+    const removeCell = document.createElement('td');
+    removeCell.appendChild(removeButton);
+    newRow.appendChild(nameCell);
+    newRow.appendChild(scadenzaCell);
+    newRow.appendChild(removeCell);
+    tableBody.appendChild(newRow);
+  }
+  const modalElimina = document.querySelector('#modalElimina');
+  const modal = bootstrap.Modal.getInstance(modalElimina);
+  modal.hide();
+}
+
+//AJAX per recuperare dal server il database dei prodotti per la pagina Associazione
+function caricaAssociazione() {
+  $.ajax({
+      url: "../myPhp/uploadAssociazione.php", // URL del tuo file PHP
+      dataType: "json", // Tipo di dato atteso come risposta (JSON in questo caso)
+      success: function(response) {
+        loadPaginaAssociazione(response);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+          console.error(textStatus, errorThrown); // Gestione degli errori
+      }
+  });
+}
+
+function loadPaginaAssociazione(response){
+  const container = document.querySelector('#scorriPagine');
+      var htmlSource = '<div class="row mt-5 mb-3">';
+      var i = 0;
+      for(const prodotto of response){
+        utente = prodotto[1];
+        nomecard = prodotto[2];
+        descrizione = prodotto[8];
+        srcImmagine = prodotto[9];
+        marca = prodotto[3];
+        isvegano = prodotto[4];
+        isvegetariano = prodotto[5];
+        isceliaco = prodotto[6];
+        scad = prodotto[7];
+        if(i==3){
+          htmlSource+='</div>';
+          htmlSource+='<div class="row mt-5 mb-3">'
+          i=0;
+        }
+        htmlSource+='\
+        <div class="col-md-4">\
+          <div class="card cardDonatore" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
+            <img src="'+srcImmagine+'" class="card-img-top" width="200" height="300" alt="Pasta al pomodoro">\
+            <div class="card-body\">\
+              <h5 class="card-title">'+nomecard+'-'+marca+'</h5>\
+              <p class="card-text">Caricato da: '+utente+'</p>\
+              <p class="card-text">'+descrizione+'</p>\
+              <p class="card-text">Prodotto vegano: '+isvegano+'</p>\
+              <p class="card-text">Prodotto vegetariano: '+isvegetariano+'</p>\
+              <p class="card-text">Prodotto celiaco: '+isceliaco+'</p>\
+              <p class="card-text">Consumarsi preferibilmente entro: '+scad+'</p>\
+            </div>\
+              <div class="input-group mb-3 justify-content-center">\
+                <div class="input-group-prepend">\
+                  <label class="input-group-text" for="quantita-select">Quantità</label>\
+                </div>\
+                <select class="custom-select" id="quantita-select">\
+                  <option selected>1</option>\
+                  <option value="2">2</option>\
+                  <option value="3">3</option>\
+                  <option value="4">4</option>\
+                  <option value="5">5</option>\
+                </select>\
+                <div class="input-group-append">\
+                  <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi   al carrello</button>\
+              </div>\
+            </div>\
+          </div>\
+        </div>';
+        i+=1;
+      }
+      htmlSource+='</div>';
+      container.innerHTML = htmlSource;
 }

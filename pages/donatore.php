@@ -16,9 +16,8 @@ session_start();
     <script src="../libraries/bootstrap-5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../libraries/jQuery.min.js"></script>
 		<script src="../myJs/myJs.js"></script>
-    <script src="../myJs/myJSPROVA.js"></script>
 	</head>
-	<body>
+	<body onload="caricaDonatore();">
 		<header>
       <nav class="navbar navbar-expand-lg bg-gr">
         <div class="container">
@@ -96,15 +95,42 @@ session_start();
       
       </div>
       <div id="containerBasket" class="containermb-4 d-flex justify-content-center align-items-center">
-        <button class="cestinoAssociazione btn btn-info d-flex flex-column align-items-center justify-content-center w-25" onclick="window.location.href = 'formDonatore.html';">
+        <button class="cestino btn btn-info d-flex flex-column align-items-center justify-content-center w-25" onclick="window.location.href = 'formDonatore.html';">
           <i class="fas fa-book fa-5x"></i>
           Aggiugni prodotti
         </button>
-        <button class="m-lg-3 cestinoAssociazione btn btn-info d-flex flex-column align-items-center justify-content-center w-25">
+        <button class="m-lg-3 cestino btn btn-info d-flex flex-column align-items-center justify-content-center w-25" data-bs-toggle="modal" data-bs-target="#modalElimina">
           <i class="fas fa-trash fa-5x"></i>
           Elimina prodotti
         </button>
       </div>
+      <div class="modal fade" id="modalElimina" tabindex="-1" aria-labelledby="myModalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="myModalTitle">Prodotti caricati</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Prodotto</th>
+                    <th scope="col">Consumarsi preferibilmente entro:</th>
+                  </tr>
+                </thead>
+                <tbody id="tableElimina">
+                  <!--Tabella si aggiorna con gli elementi aggiunti-->
+                </tbody>
+              </table>              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Conferma</button>
+              <button type="button" class="btn btn-secondary" onclick="resetAllCarrello();">Elimina tutto</button>
+            </div>
+          </div>
+        </div>
+      </div> 
 		</div>
 		<footer class="bg-dark text-white">
 			<div class="container">

@@ -50,7 +50,7 @@
   if (isset($_SESSION["login_error_unreg"])) {
     echo 'alert("' . $_SESSION["login_error_unreg"] . '");';
     unset($_SESSION["login_error_unreg"]);
-    echo 'window.location.href = "../pages/sigin.html";';
+    echo 'window.location.href = "../pages/sigin.php";';
   }
   ?>
 </script>

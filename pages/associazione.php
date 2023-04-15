@@ -15,9 +15,9 @@ session_start();
 		<script src="../libraries/bootstrap-5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="../libraries/bootstrap-5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="../myJs/myJs.js"></script>
-    <script src="../myJs/myJSPROVA.js"></script>
+    <script src="../libraries/jQuery.min.js"></script>
 	</head>
-	<body onload="mostraContenutoProva(1);">
+	<body onload="caricaAssociazione();">
     <header>
       <nav class="navbar navbar-expand-lg bg-gr">
         <div class="container">
@@ -85,7 +85,7 @@ session_start();
         <!--Qui ci sarà la visualizzazione dinamica delle schede-->
       </div>
       <div id="containerBasket" class="container mb-4 d-flex justify-content-center">
-        <button class="cestinoAssociazione btn btn-info d-flex flex-column align-items-center justify-content-center w-50" data-bs-toggle="modal" data-bs-target="#modalCarrello">
+        <button class="cestino btn btn-info d-flex flex-column align-items-center justify-content-center w-50" data-bs-toggle="modal" data-bs-target="#modalCarrello">
           <i class="fas fa-shopping-basket fa-5x"></i>
           Visualizza carrello
         </button>
