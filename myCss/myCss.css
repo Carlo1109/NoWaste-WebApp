@@ -87,6 +87,9 @@
 
 footer {
   padding: 50px 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 footer ul {
@@ -290,4 +293,28 @@ td {
 
 .loginTitle{
   margin-left: 43%;
+}
+
+.containerTable {
+  text-align: center;
+}
+
+.tableDon {
+  margin: auto;
+  border-collapse: collapse;
+  color: black;
+}
+
+.thDon, .tdDon {
+  border: 1px solid black;
+  padding: 10px;
+  word-wrap: break-word;
+}
+
+.footerDon{
+  position: fixed;
+  padding: 50px 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }

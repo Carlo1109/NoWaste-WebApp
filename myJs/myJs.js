@@ -934,3 +934,31 @@ function loadPaginaAssociazione(response){
       htmlSource+='</div>';
       container.innerHTML = htmlSource;
 }
+
+//AJAX per recuperare dal server il database delle donazioni per la pagina mieDonazioni
+function caricaMieDonazioni() {
+  $.ajax({
+      url: "../myPhp/uploadDonazioniMonetarie.php", // URL del tuo file PHP
+      dataType: "json", // Tipo di dato atteso come risposta (JSON in questo caso)
+      success: function(response) {
+        loadMieDonazioni(response);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+          console.error(textStatus, errorThrown); // Gestione degli errori
+      }
+  });
+}
+
+function loadMieDonazioni(response) {
+  const tableBody = document.querySelector('#tableBodyMieDon');
+  for(const prodotto of response){
+    const newRow = document.createElement('tr');
+    for (let i = 0; i <= 11; i++) {
+      const newCell = document.createElement('td');
+      newCell.classList.add('tdDon');
+      newCell.textContent = prodotto[i];
+      newRow.appendChild(newCell);
+    }
+    tableBody.appendChild(newRow);
+  }
+}
