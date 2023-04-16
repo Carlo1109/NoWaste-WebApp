@@ -132,8 +132,8 @@ session_start();
               </table>              
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Conferma</button>
-              <button type="button" class="btn btn-secondary" onclick="resetAllCarrello();">Elimina tutto</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="window.location.href = 'donatore.php';">Chiudi e ricarica</button>
+              <button id="eliminaTutto" type="button" class="btn btn-secondary" onclick="eliminaTutti();"disabled>Elimina tutto</button>
             </div>
           </div>
         </div>

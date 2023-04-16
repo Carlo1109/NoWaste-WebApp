@@ -1,7 +1,6 @@
 <?php
 session_start();
-$nome = $_POST['nome'];
-$scad = $_POST['scadenza'];
+$sessionUser = $_SESSION["username"];
 $dbconn = pg_connect("host=localhost user=postgres password=ltwsql port=5432 dbname=DatabaseProdotti");
 
 if (!$dbconn) {
@@ -9,7 +8,7 @@ if (!$dbconn) {
 }
 
 // Elimina il prodotto dal database
-$query = "DELETE FROM immagini WHERE titolo ='$nome' AND scad = '$scad'";
+$query = "DELETE FROM immagini WHERE email='$sessionUser'";
 $result = pg_query($dbconn, $query);
 if (!$result) {
   http_response_code(500);

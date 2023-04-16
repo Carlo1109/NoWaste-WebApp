@@ -839,6 +839,7 @@ function loadPaginaDonatore(response) {
 
 function loadEliminaProdotti(response){
   const tableBody = document.querySelector('#tableElimina');
+  const eliminaTuttoButton = document.querySelector('#eliminaTutto')
   for(const prodotto of response){
     nome = prodotto[2];
     scad = prodotto[7];
@@ -852,7 +853,19 @@ function loadEliminaProdotti(response){
     removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'mx-1', 'rimuovi-button');
     removeButton.addEventListener('click', function() {
       const row = this.parentNode.parentNode;
+      const nomeProdotto = row.cells[0].textContent;
+      const scadenzaProdotto = row.cells[1].textContent;
       row.remove();
+      // Chiamata AJAX per eliminare la riga dal database
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '../myPhp/eliminaProdotto.php', true);
+      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xhr.onload = function() {
+        if (this.status === 200) {
+          console.log(this.responseText);
+        }
+      }
+      xhr.send('titolo=' + nomeProdotto + '&scad=' + scadenzaProdotto);
     });
     const removeCell = document.createElement('td');
     removeCell.appendChild(removeButton);
@@ -861,9 +874,11 @@ function loadEliminaProdotti(response){
     newRow.appendChild(removeCell);
     tableBody.appendChild(newRow);
   }
-  const modalElimina = document.querySelector('#modalElimina');
-  const modal = bootstrap.Modal.getInstance(modalElimina);
-  modal.hide();
+  if (tableBody.childElementCount > 0) {
+    eliminaTuttoButton.disabled = false;
+  } else {
+    eliminaTuttoButton.disabled = true;
+  }
 }
 
 //AJAX per recuperare dal server il database dei prodotti per la pagina Associazione
@@ -961,4 +976,18 @@ function loadMieDonazioni(response) {
     }
     tableBody.appendChild(newRow);
   }
+}
+
+function eliminaTutti(){
+  $.ajax({
+    url: '../myPhp/eliminaTutti.php',
+    type: 'POST',
+    success: function(response) {
+      console.log(response);
+      window.location.href = 'donatore.php';
+    },
+    error: function(xhr, status, error) {
+      console.log(xhr.responseText);
+    }
+  });
 }
