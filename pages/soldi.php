@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="ita">
+<html lang="it">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +34,7 @@ session_start();
       <nav class="navbar navbar-expand-lg myNav">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="fa fa-navicon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -53,7 +53,7 @@ session_start();
 	}
 	else if ($_SESSION['logged_in'] === true) {
 		echo '<li class="nav-item"><a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina('.$_SESSION["assBoolean"].');">Area privata</a>
-	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li><li class="Myitem-dropdown"><a class="nav-link active" style="cursor: pointer;" href="mieDonazioni.php"><h6>Le mie donazioni monetarie</h6></a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalAvviso">Elimina profilo</a></li></ul></div><div class="modal fade" id="modalAvviso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li><li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php"><h6>Le mie donazioni monetarie</h6></a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalAvviso">Elimina profilo</a></li></ul></div><div class="modal fade" id="modalAvviso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content bg-warning">
 			<div class="modal-header">
@@ -266,7 +266,7 @@ session_start();
                       <i class="fab fa-cc-mastercard fa-2x"></i>
                     </label>
                     <label class="btn btn-secondary">
-                      <input class="form-check-input" type="radio" id="pp" name="paymentMethod" value="paypal" onclick="showPayment();">
+                      <input class="form-check-input" type="radio" id="pp" name="paymentMethod" value="paypal" onclick="showPayment();" required>
                       <i class="fab fa-cc-paypal fa-2x"></i>
                     </label>
                   </div>
