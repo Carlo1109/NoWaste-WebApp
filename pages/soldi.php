@@ -45,13 +45,13 @@ session_start();
                 <a class="nav-link active selected-text" href="soldi.php">Donazioni</a>
               </li>
               <?php
-	if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+	if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] != true) {
 		echo '<li class="nav-item">
 		<a class="nav-link" href="#" onclick="return false;">Area privata</a>
 	</li></ul><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">LOGIN</button><div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="loginTitle text-black" id="exampleModalLabel">Login</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><form method="post" action="../myPhp/login.php" name="loginForm" onsubmit="return checkLogin();"><div class="form-floating mb-3"><input type="email" name="username" class="form-control" id="username" placeholder="Inserisci l\'email"><label for="username" class="text-black">Email</label></div><div class="form-floating mb-3"><input type="password"  name="psw" class="form-control" id="psw" placeholder="Password"><label for="psw" class="text-black">Password</label></div></div><div class="modal-footer"><input type="submit" class="btn btn-primary" value="Login"><a href="sigin.php"><button type="button" class="btn btn-secondary">Sign in</button></a></div></form></div></div></div>';
 	}
-	else if ($_SESSION['logged_in'] === true) {
+	else if ($_SESSION['logged_in'] == true) {
 		echo '<li class="nav-item"><a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina('.$_SESSION["assBoolean"].');">Area privata</a>
 	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li><li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php"><h6>Le mie donazioni monetarie</h6></a></li><li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalModificaPsw">Modifica Password</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalAvviso">Elimina profilo</a></li></ul></div>
 
