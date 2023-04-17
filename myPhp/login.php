@@ -29,6 +29,7 @@
         }
         $_SESSION["logged_in"] = true;
         $_SESSION["username"] = $_POST["username"];
+        $_SESSION["pswCurr"] = $_POST["psw"];
         header("Location: ../pages/index.php?login=success");
         exit(); 
       }
