@@ -170,7 +170,7 @@ session_start();
 						<h2 class="display-4">Come unirti?</h2>
 					  <p class="testoHome">Puoi unirti a noi come membro di un'associazione per prenotare il cibo messo a disposizione da ristoranti o alimentari, ma puoi entrare a far parte dell'organizzazione anche come azienda del settore alimentare che mette a dispozione sul nostro sito gli eccessi di cibo per semplificare il lavoro alle associazioni che distribuiscono ai bisognosi questi beni di prima necessità. </p>					
 						<p class="testoHome">Inoltre puoi contribuire al progetto anche senza registrarti, facendo una donazione monetaria tramite l'apposita pagina.</p>
-						<p class="testoHome">Clicca qui per esplorare le possibilità della nostra prganizzazione.</p>
+						<p class="testoHome">Clicca qui per esplorare le possibilità della nostra organizzazione.</p>
 						<button class="btn btn-donate" id="btn-donate" onclick="scrollaHome();">Esplora</button>
 					</div>
 					<div class="col-md-6 marginiCarousel3">

@@ -94,6 +94,7 @@ session_start();
         <table class="tableDon table-sm">
           <thead>
             <tr>
+              <th class="thDon">N°</th>
               <th class="thDon">Nome</th>
               <th class="thDon">Cognome</th>
               <th class="thDon">Email</th>

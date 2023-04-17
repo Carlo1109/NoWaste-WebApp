@@ -760,24 +760,21 @@ function checkCarrello() {
 }
 
 function scrollaHome() {
-  const container = document.querySelector('#navHome'); 
-  const yOffset = container.getBoundingClientRect().top + window.pageYOffset - 100;
-  window.scrollTo({
-    top: yOffset,
-    behavior: 'smooth'
-  });
+  const container = $('#navHome');
+  const yOffset = container.offset().top - 100;
+  $('html, body').scrollTop(yOffset);
 }
 
 function animateCardOn(card) {
-  card.style.cursor = 'pointer';
-  card.style.transform = "scale(1.1)";
-  card.style.transition = "transform 0.3s ease-in-out";
+  $(card).css('cursor', 'pointer');
+  $(card).css('transform', 'scale(1.1)');
+  $(card).css('transition', 'transform 0.3s ease-in-out');
 }
 
 function animateCardOff(card) {
-  card.style.cursor = 'default';
-  card.style.transform = "scale(1)";
-  card.style.transition = "transform 0.3s ease-in-out";
+  $(card).css('cursor', 'default');
+  $(card).css('transform', 'scale(1)');
+  $(card).css('transition', 'transform 0.3s ease-in-out');
 }
 
 function goToLogout(){
@@ -820,7 +817,7 @@ function loadPaginaDonatore(response) {
     htmlSource+='\
     <div class="col-md-4">\
       <div class="card cardDonatore" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
-        <img src="'+srcImmagine+'" class="card-img-top" width="200" height="300" alt="Pasta al pomodoro">\
+        <img src="'+srcImmagine+'" class="card-img-top" width="200" height="300" alt="Image">\
         <div class="card-body\">\
           <h5 class="card-title">'+nomecard+'-'+marca+'</h5>\
           <p class="card-text">'+descrizione+'</p>\
@@ -965,17 +962,19 @@ function caricaMieDonazioni() {
 }
 
 function loadMieDonazioni(response) {
-  const tableBody = document.querySelector('#tableBodyMieDon');
-  for(const prodotto of response){
-    const newRow = document.createElement('tr');
+  const tableBody = $('#tableBodyMieDon');
+  var num = 1;
+  $.each(response, function(index, prodotto) {
+    const newRow = $('<tr>');
+    const cellNum = $('<td>').addClass('tdDon').text(num);
+    newRow.append(cellNum);
     for (let i = 0; i <= 11; i++) {
-      const newCell = document.createElement('td');
-      newCell.classList.add('tdDon');
-      newCell.textContent = prodotto[i];
-      newRow.appendChild(newCell);
+      const newCell = $('<td>').addClass('tdDon').text(prodotto[i]);
+      newRow.append(newCell);
     }
-    tableBody.appendChild(newRow);
-  }
+    tableBody.append(newRow);
+    num += 1;
+  });
 }
 
 function eliminaTutti(){
