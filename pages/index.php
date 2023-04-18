@@ -12,10 +12,12 @@ session_start();
 		<link rel="stylesheet" href="../libraries/bootstrap-5.2.3/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../myCss/myCss.css">
 		<link rel="stylesheet" href="../libraries/fontawesome-free-6.4.0-web/css/all.css">
+		<link rel="stylesheet" href="../libraries/sweetalert2.min.css">
 		<script src="../libraries/bootstrap-5.2.3/dist/js/bootstrap.min.js"></script>
 		<script src="../libraries/bootstrap-5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="../libraries/jQuery.min.js"></script>
 		<script src="../myJs/myJs.js"></script>
+    <script src="../libraries/sweetalert2.all.min.js"></script>
 	</head>
 	<body>
 		<header>

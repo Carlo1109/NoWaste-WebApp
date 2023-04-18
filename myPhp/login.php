@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../libraries/sweetalert2.min.css">
+  <script src="../libraries/sweetalert2.all.min.js"></script>
   <title>Login</title>
 </head>
 <body>
@@ -43,15 +45,21 @@
   ?>
   <script>
   <?php
-  if (isset($_SESSION["login_error_psw"])) {
-    echo 'alert("' . $_SESSION["login_error_psw"] . '");';
-    unset($_SESSION["login_error_psw"]);
-    echo 'window.location.href = "../pages/index.php";';
+  if (isset($_SESSION["already_reg"])){
+    echo 'Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "' . $_SESSION["already_reg"] . '"
+    });';
+    unset($_SESSION["already_reg"]);
   }
-  if (isset($_SESSION["login_error_unreg"])) {
-    echo 'alert("' . $_SESSION["login_error_unreg"] . '");';
-    unset($_SESSION["login_error_unreg"]);
-    echo 'window.location.href = "../pages/sigin.php";';
+  if(isset($_SESSION["success"])){
+    echo 'Swal.fire({
+      icon: "success",
+      title: "Successo!",
+      text: "' . $_SESSION["success"] . '"
+    });';
+    unset($_SESSION["success"]);
   }
   ?>
 </script>

@@ -1,10 +1,18 @@
 function checkLogin(){
   if(document.loginForm.username.value==""){
-    alert("Inserisci Username!");
+    Swal.fire({
+      title: 'Attenzione!',
+      text: 'Inserisci email!',
+      icon: 'warning'
+    });
     return false;
   }
   if(document.loginForm.psw.value==""){
-    alert("Inserisci password!");
+    Swal.fire({
+      title: 'Attenzione!',
+      text: 'Inserisci password!',
+      icon: 'warning'
+    });
     return false;
   }
   return true;
@@ -12,46 +20,86 @@ function checkLogin(){
 
 function checkRegistrazione() {
   if(document.registrazioneForm.email.value=="") {
-    alert("Inserisci una Email!");
+    Swal.fire({
+      title: 'Attenzione!',
+      text: 'Inserisci email!',
+      icon: 'warning'
+    });
     return false;
   }
   if(document.registrazioneForm.password.value=="") {
-    alert("Inserisci una Password!");
+    Swal.fire({
+      title: 'Attenzione!',
+      text: 'Inserisci password!',
+      icon: 'warning'
+    });
     return false;
   }
   if(document.registrazioneForm.confirmPassword.value=="") {
-    alert("Conferma la Password!");
+    Swal.fire({
+      title: 'Attenzione!',
+      text: 'Conferma password!',
+      icon: 'warning'
+    });
     return false;
   }
   if(document.registrazioneForm.confirmPassword.value != document.registrazioneForm.password.value) {
-    alert("Le password non coincidono");
+    Swal.fire({
+      title: 'Attenzione!',
+      text: 'Le password non coincidono!',
+      icon: 'warning'
+    });
     return false;
   }
   if(!document.registrazioneForm.donatore.checked && !document.registrazioneForm.associazione.checked) {
-    alert("Devi essere un Donatore o una Associazione");
+    Swal.fire({
+      title: 'Attenzione!',
+      text: 'Devi spuntare "Donatore" o "Associazione"!',
+      icon: 'warning'
+    });
     return false;
   }
   if(document.registrazioneForm.donatore.checked) {
     if((document.registrazioneForm.nomeP.value=="" && document.registrazioneForm.cognomeP.value=="" && document.registrazioneForm.idAzienda.value=="") || (document.registrazioneForm.nomeP.value!="" && document.registrazioneForm.cognomeP.value=="" && document.registrazioneForm.idAzienda.value=="") || (document.registrazioneForm.nomeP.value=="" && document.registrazioneForm.cognomeP.value!="" && document.registrazioneForm.idAzienda.value=="")) {
-      alert("Devi riempire tuoi campi");
+      Swal.fire({
+        title: 'Attenzione!',
+        text: 'Devi riempire i tuoi campi!',
+        icon: 'warning'
+      });
       return false;
     }
     if(document.registrazioneForm.nomeP.value!="" && document.registrazioneForm.cognomeP.value!="" && document.registrazioneForm.idAzienda.value!="") {
-      alert("Non puoi essere sia un privato che un'azienda");
+      Swal.fire({
+        title: 'Attenzione!',
+        text: 'Non puoi essere sia un privato che un\'azienda!',
+        icon: 'warning'
+      });
       return false;
     }
     if(document.registrazioneForm.telDonatore.value=="") {
-      alert("Inserisci il numero del telefono");
+      Swal.fire({
+        title: 'Attenzione!',
+        text: 'Inserisci numero di telefono!',
+        icon: 'warning'
+      });
       return false;
     }
   }
   if(document.registrazioneForm.associazione.checked) {
     if(document.registrazioneForm.nomeAssociazione.value=="") {
-      alert("Inserisci il nome associazione")
+      Swal.fire({
+        title: 'Attenzione!',
+        text: 'Inserisci nome associazione!',
+        icon: 'warning'
+      });
       return false;
     }
     if(document.registrazioneForm.telAssociazione.value=="") {
-      alert("Inserisci il numero del telefono");
+      Swal.fire({
+        title: 'Attenzione!',
+        text: 'Inserisci numero di telefono!',
+        icon: 'warning'
+      });
       return false;
     }
   }
@@ -750,11 +798,19 @@ function resetAllCarrello() {
 function checkCarrello() {
   const tableBody = document.getElementById('tableCarrello');
   if (tableBody.rows.length > 0) {
-    alert("Dati del carrello acquisiti. Sarà contattato via mail per informazioni sul ritiro. Grazie!");
+    Swal.fire({
+      title: 'Dati del carrello acquisiti.',
+      text: 'Sarai contattato via mail per informazioni sul ritiro. Grazie!',
+      icon: 'success'
+    });
     resetAllCarrello();
     return true;
   } else {
-    alert("Nessun elemento presente nel carrello!");
+    Swal.fire({
+      title: 'Oops...',
+      text: 'Non è presente nessun elemento nel carrello',
+      icon: 'error'
+    });
     return false;
   }
 }
