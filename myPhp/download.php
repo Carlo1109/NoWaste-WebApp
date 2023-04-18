@@ -8,6 +8,7 @@
   <script src="../libraries/sweetalert2.all.min.js"></script>
   <title>Download</title>
 </head>
+<body>
 <?php
   session_start();
   $dbconn=pg_connect("host=localhost user=postgres password=ltwsql port=5432 dbname=DatabaseProdotti");
@@ -63,7 +64,7 @@
     echo 'Swal.fire({
       icon: "success",
       title: "Successo!",
-      text: "' . $_SESSION["caricamentoSuccess"] . '",
+      text: " '. $_SESSION["caricamentoSuccess"].' ",
       allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
@@ -74,3 +75,5 @@
   }
   ?>
 </script>
+</body>
+</html>
