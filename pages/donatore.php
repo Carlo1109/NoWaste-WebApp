@@ -62,7 +62,7 @@ session_start();
                 <li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li>
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalModificaPsw">Modifica Password</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalAvviso">Elimina profilo</a>
+                <li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a>
                 </li>
               </ul>
             </div>
@@ -92,21 +92,6 @@ session_start();
                   </form>
                 </div>
               </div>
-            </div>
-            <div class="modal fade" id="modalAvviso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content bg-warning">
-                  <div class="modal-header">
-                    <h4 class="text-black" id="exampleModalLabel">Sei sicuro di voler eliminare il tuo profilo?</h4>
-                  </div>
-                  <div class="modal-footer">
-                    <div class="m-lg-auto">
-                    <button class="btn btn-danger" onclick="window.location.href = \'../myPhp/eliminaProfilo.php\'">SI</button>
-                    <button class="btn btn-success" data-bs-dismiss="modal" >NO. Torna indietro</button>
-                    </div>
-                  </div>
-                </div>
-              </div>              
             </div>
             <button type="button" class="btn btn-danger" onclick="goToLogout();">
               LOGOUT

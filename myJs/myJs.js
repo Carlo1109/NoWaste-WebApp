@@ -530,3 +530,19 @@ function eliminaTutti(){
     }
   });
 }
+
+function showConfirm(){
+  Swal.fire({
+    title: 'Sei sicuro di voler eliminare il profilo?',
+    showDenyButton: true,
+    confirmButtonText: 'Si',
+    denyButtonText: `No. Cancella`,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire('Eliminazione del profilo avvenuta con successo', '', 'success')
+      window.location.href = "../myPhp/eliminaProfilo.php";
+    } else if (result.isDenied) {
+      Swal.fire('Eliminazione del profilo non avvenuta', '', 'info')
+    }
+  })
+}

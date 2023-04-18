@@ -56,7 +56,7 @@ session_start();
 	}
 	else if ($_SESSION['logged_in'] == true) {
 		echo '<li class="nav-item"><a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina('.$_SESSION["assBoolean"].');">Area privata</a>
-	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li><li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li><li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalModificaPsw">Modifica Password</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalAvviso">Elimina profilo</a></li></ul></div>
+	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li><li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li><li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalModificaPsw">Modifica Password</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a></li></ul></div>
 
 	<div class="modal fade" id="modalModificaPsw" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -72,21 +72,8 @@ session_start();
 		<div class="form-floating mb-3"><input type="password"  name="passwordNew2" class="form-control" id="passwordNew2" placeholder="Nuova password" required><label for="passwordNew2" class="text-black">Conferma password</label></div>
 		</div><div class="modal-footer"><input type="submit" class="btn btn-primary" value="Conferma e invia"></div></form></div></div></div>
 
-	<div class="modal fade" id="modalAvviso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content bg-warning">
-			<div class="modal-header">
-				<h4 class="text-black" id="exampleModalLabel">Sei sicuro di voler eliminare il tuo profilo?</h4>
-			</div>
-			<div class="modal-footer">
-				<div class="m-lg-auto">
-				<button class="btn btn-danger" onclick="window.location.href = \'../myPhp/eliminaProfilo.php\'">SI</button>
-				<button class="btn btn-success" data-bs-dismiss="modal" >NO. Torna indietro</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><button type="button" class="btn btn-danger" onclick="goToLogout();">LOGOUT</button>';
+	
+<button type="button" class="btn btn-danger" onclick="goToLogout();">LOGOUT</button>';
 	}
 ?>
       </nav>
