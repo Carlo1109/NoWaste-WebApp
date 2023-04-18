@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="ita">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../libraries/sweetalert2.min.css">
+  <script src="../libraries/sweetalert2.all.min.js"></script>
   <title>Download</title>
 </head>
 <?php
@@ -58,9 +60,16 @@
 <script>
   <?php
   if (isset($_SESSION["caricamentoSuccess"])) {
-    echo 'alert("' . $_SESSION["caricamentoSuccess"] . '");';
+    echo 'Swal.fire({
+      icon: "success",
+      title: "Successo!",
+      text: "' . $_SESSION["caricamentoSuccess"] . '"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "../pages/donatore.php";
+      }
+    });';
     unset($_SESSION["caricamentoSuccess"]);
-    echo 'window.location.href = "../pages/donatore.php";';
   }
   ?>
 </script>

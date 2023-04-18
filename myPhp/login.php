@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="ita">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../libraries/sweetalert2.min.css">
+  <script src="../libraries/sweetalert2.all.min.js"></script>
   <title>Login</title>
 </head>
 <body>
@@ -34,7 +36,7 @@
         exit(); 
       }
       else {
-        $_SESSION["login_error_psw"] = "La password inserita non è corretta";
+        $_SESSION["login_error_psw"] = "La password inserita non è corretta, clicca OK per ritornare alla home e riprovare.";
       }
     }
     else {
@@ -43,15 +45,29 @@
   ?>
   <script>
   <?php
-  if (isset($_SESSION["login_error_psw"])) {
-    echo 'alert("' . $_SESSION["login_error_psw"] . '");';
+  if (isset($_SESSION["login_error_psw"])){
+    echo 'Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "' . $_SESSION["login_error_psw"] . '"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "../pages/index.php";
+      }
+    });';
     unset($_SESSION["login_error_psw"]);
-    echo 'window.location.href = "../pages/index.php";';
   }
   if (isset($_SESSION["login_error_unreg"])) {
-    echo 'alert("' . $_SESSION["login_error_unreg"] . '");';
+    echo 'Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "' . $_SESSION["login_error_unreg"] . '"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "../pages/sigin.php";
+      }
+    });';
     unset($_SESSION["login_error_unreg"]);
-    echo 'window.location.href = "../pages/sigin.php";';
   }
   ?>
 </script>
