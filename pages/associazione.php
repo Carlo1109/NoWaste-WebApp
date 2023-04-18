@@ -57,7 +57,7 @@ session_start();
                 <?php
                 echo '<li class="Myitem-dropdown"><h6>Email:</h6>'.$_SESSION["username"].'</li>';
                 ?>
-                <li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php"><h6>Le mie donazioni monetarie</h6></a></li>
+                <li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li>
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalModificaPsw">Modifica Password</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalAvviso">Elimina profilo</a>
