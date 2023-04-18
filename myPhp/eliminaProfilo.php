@@ -44,7 +44,8 @@ if (isset($_SESSION["logged_in"])) {
     echo 'Swal.fire({
       icon: "success",
       title: "Successo!",
-      text: "' . $_SESSION["eliminazioneSuccess"] . '"
+      text: "' . $_SESSION["eliminazioneSuccess"] . '",
+      allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = "../pages/index.php";

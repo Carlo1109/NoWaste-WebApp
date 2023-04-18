@@ -63,7 +63,8 @@
     echo 'Swal.fire({
       icon: "success",
       title: "Successo!",
-      text: "' . $_SESSION["caricamentoSuccess"] . '"
+      text: "' . $_SESSION["caricamentoSuccess"] . '",
+      allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = "../pages/donatore.php";

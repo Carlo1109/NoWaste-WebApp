@@ -49,7 +49,8 @@
     echo 'Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "' . $_SESSION["login_error_psw"] . '"
+      text: "' . $_SESSION["login_error_psw"] . '",
+      allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = "../pages/index.php";
@@ -61,7 +62,8 @@
     echo 'Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "' . $_SESSION["login_error_unreg"] . '"
+      text: "' . $_SESSION["login_error_unreg"] . '",
+      allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = "../pages/sigin.php";

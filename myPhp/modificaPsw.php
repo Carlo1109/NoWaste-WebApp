@@ -43,7 +43,8 @@
     echo 'Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "' . $_SESSION["modificaERR"] . '"
+      text: "' . $_SESSION["modificaERR"] . '",
+      allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = "../pages/index.php";
@@ -55,7 +56,8 @@
     echo 'Swal.fire({
       icon: "success",
       title: "Successo!",
-      text: "' . $_SESSION["modificaSUCC"] . '"
+      text: "' . $_SESSION["modificaSUCC"] . '",
+      allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = "../pages/index.php";

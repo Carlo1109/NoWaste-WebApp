@@ -43,7 +43,8 @@
     echo 'Swal.fire({
       icon: "error",
       title: "Oops...",
-      text: "' . $_SESSION["donazioneAvvenuta"] . '"
+      text: "' . $_SESSION["donazioneAvvenuta"] . '",
+      allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = "../pages/soldi.php";
