@@ -546,3 +546,13 @@ function showConfirm(){
     }
   })
 }
+
+function searchWeb(event) {
+  if(document.search.searchText.value=='')
+    return false;
+  event.preventDefault();
+  var searchText = document.getElementById('searchText').value;
+  var searchUrl = 'https://www.google.com/search?q=' + encodeURI(searchText);
+  window.open(searchUrl, '_blank'); 
+  document.search.searchText.value='';
+}
