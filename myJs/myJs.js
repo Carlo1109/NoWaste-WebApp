@@ -201,76 +201,66 @@ function scrollaSuContenuti() {
 
 function aggiungiCarrello(pulsante) {
   //Animazione '+'
-  let icona = pulsante.querySelector('.fa-plus');
-  icona.classList.add('visibile');
+  let icona = $(pulsante).find('.fa-plus');
+  icona.addClass('visibile');
   setTimeout(function() {
-    icona.classList.add('traslazione-su');
-    setTimeout(function() {
-      icona.classList.remove('visibile', 'traslazione-su');
-    }, 800);
+  icona.addClass('traslazione-su');
+  setTimeout(function() {
+  icona.removeClass('visibile traslazione-su');
+  }, 800);
   }, 100);
   
-  const nomeProdotto = pulsante.parentNode.parentNode.parentNode.querySelector('.card-title').textContent;
-  const quantita = parseInt(pulsante.parentNode.parentNode.querySelector('#quantita-select').value);
-  const tableBody = document.querySelector('#tableCarrello');
+  const nomeProdotto = $(pulsante).parent().parent().parent().find('.card-title').text();
+  const quantita = parseInt($(pulsante).parent().parent().find('#quantita-select').val());
+  const tableBody = $('#tableCarrello');
   let rowFound = false;
   //Controllo se il prodotto esiste già
-  for (let i = 0; i < tableBody.rows.length; i++) {
-    if (tableBody.rows[i].cells[0].textContent === nomeProdotto) {
-      const quantitaPrecedente = parseInt(tableBody.rows[i].cells[1].textContent);
-      const nuovaQuantita = quantitaPrecedente + quantita;
-      tableBody.rows[i].cells[1].textContent = nuovaQuantita;
-
-      //Aggiungo remove
-      const removeButton = document.createElement('button');
-      removeButton.innerHTML = '<i class="fas fa-trash"></i>'; //icona del cestino
-      removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'mx-1', 'rimuovi-button');
-      removeButton.addEventListener('click', function() {
-      const row = this.parentNode.parentNode;
-        const quantitaPrecedente = parseInt(row.cells[1].textContent);
-        const nuovaQuantita = quantitaPrecedente - 1;
-        if (nuovaQuantita <= 0) {
-          row.remove();
-        } else {
-          row.cells[1].textContent = nuovaQuantita;
-        }
-      });
-      tableBody.rows[i].cells[2].innerHTML = '';
-      tableBody.rows[i].cells[2].appendChild(removeButton);
-
-      rowFound = true;
-      break;
-    }
-  }
-  //Aggiungo riga se il prodotto non esiste
-  if (!rowFound) {
-    const newRow = document.createElement('tr');
-    const nameCell = document.createElement('td');
-    nameCell.textContent = nomeProdotto;
-    const quantityCell = document.createElement('td');
-    quantityCell.textContent = quantita;
-    const removeButton = document.createElement('button');
-    removeButton.innerHTML = '<i class="fas fa-trash"></i>'; //icona del cestino
-    removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'mx-1', 'rimuovi-button');
-    removeButton.addEventListener('click', function() {
-      const row = this.parentNode.parentNode;
-      const quantitaPrecedente = parseInt(row.cells[1].textContent);
+  tableBody.find('tr').each(function() {
+  if ($(this).find('td:first').text() === nomeProdotto) {
+  const quantitaPrecedente = parseInt($(this).find('td:nth-child(2)').text());
+  const nuovaQuantita = quantitaPrecedente + quantita;
+  $(this).find('td:nth-child(2)').text(nuovaQuantita);
+  
+    //Aggiungo remove
+    const removeButton = $('<button>').html('<i class="fas fa-trash"></i>').addClass('btn btn-danger btn-sm mx-1 rimuovi-button');
+    removeButton.on('click', function() {
+      const row = $(this).parent().parent();
+      const quantitaPrecedente = parseInt(row.find('td:nth-child(2)').text());
       const nuovaQuantita = quantitaPrecedente - 1;
       if (nuovaQuantita <= 0) {
         row.remove();
       } else {
-        row.cells[1].textContent = nuovaQuantita;
+        row.find('td:nth-child(2)').text(nuovaQuantita);
       }
     });
-    const removeCell = document.createElement('td');
-    removeCell.appendChild(removeButton);
-    newRow.appendChild(nameCell);
-    newRow.appendChild(quantityCell);
-    newRow.appendChild(removeCell);
-    tableBody.appendChild(newRow);
+    $(this).find('td:last').empty().append(removeButton);
+  
+    rowFound = true;
+    return false; //exit loop if row is found
   }
-  const modalCarrello = document.querySelector('#modalCarrello');
-  const modal = bootstrap.Modal.getInstance(modalCarrello);
+  });
+  //Aggiungo riga se il prodotto non esiste
+  if (!rowFound) {
+  const newRow = $('<tr>');
+  const nameCell = $('<td>').text(nomeProdotto);
+  const quantityCell = $('<td>').text(quantita);
+  const removeButton = $('<button>').html('<i class="fas fa-trash"></i>').addClass('btn btn-danger btn-sm mx-1 rimuovi-button');
+  removeButton.on('click', function() {
+  const row = $(this).parent().parent();
+  const quantitaPrecedente = parseInt(row.find('td:nth-child(2)').text());
+  const nuovaQuantita = quantitaPrecedente - 1;
+  if (nuovaQuantita <= 0) {
+  row.remove();
+  } else {
+  row.find('td:nth-child(2)').text(nuovaQuantita);
+  }
+  });
+  const removeCell = $('<td>').append(removeButton);
+  newRow.append(nameCell, quantityCell, removeCell);
+  tableBody.append(newRow);
+  }
+  const modalCarrello = $('#modalCarrello');
+  const modal = new bootstrap.Modal(modalCarrello[0]);
   modal.hide();
 }
 
@@ -534,6 +524,7 @@ function eliminaTutti(){
 function showConfirm(){
   Swal.fire({
     title: 'Sei sicuro di voler eliminare il profilo?',
+    icon: 'warning',
     showDenyButton: true,
     confirmButtonText: 'Si',
     denyButtonText: `No. Cancella`,
