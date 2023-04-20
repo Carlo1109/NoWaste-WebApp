@@ -24,6 +24,11 @@
     // scad varchar(40),
     // descrizione varchar(255),
     // immagine bytea
+    if ($_FILES['immagine']['size'] == 0) {
+      $defaultImagePath = '../src/default.jpg';
+      $_FILES['immagine']['tmp_name'] = $defaultImagePath;
+      $_FILES['immagine']['name'] = basename($defaultImagePath);
+    }
     $immagine = $_FILES['immagine']; 
     $fileName = $immagine['name']; //nome del file
     $fileTmpPath = $immagine['tmp_name']; //path temporaneo dove salvare l'immagine
