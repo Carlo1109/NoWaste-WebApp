@@ -63,7 +63,7 @@ $userData = pg_fetch_assoc($result);
 	}
 	else if ($_SESSION['logged_in'] == true) {
 		echo '<li class="nav-item"><a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina('.$_SESSION["assBoolean"].');">Area privata</a>
-	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li><li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li><li><a class="dropdown-item" href="#">Dati utente</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a></li></ul></div>
+	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li><li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li><li><a class="dropdown-item selected-text" href="#">Dati utente</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a></li></ul></div>
 
 	
 <button type="button" class="btn btn-danger" onclick="goToLogout();">LOGOUT</button>';
@@ -73,11 +73,10 @@ $userData = pg_fetch_assoc($result);
     </header>
 
 		<div class="container">
-    <h1>Dati dell'utente</h1>
+    <h1 class="text-center mb-4 mt-4">Dati dell'utente</h1>
 		<form>
     <?php
       if($_SESSION["assBoolean"]){
-				echo '<p>ASSOCIAZIONE</p>';
 				echo '<div class="row">
 					<div class="col">
 						<div class="row align-items-center">
@@ -95,7 +94,6 @@ $userData = pg_fetch_assoc($result);
 					</div>';
       }
       else{
-        echo '<p>DONATORE</p>';
         if($userData['idaz']==''){
 					echo '<div class="row">
 					<div class="col">
@@ -176,7 +174,7 @@ $userData = pg_fetch_assoc($result);
 					</div>
 				</div>
 			</div>';
-			echo '<div class="row">
+			echo '<div class="row mb-4">
 					<div class="col">
 						<div class="row align-items-center">
 							<div class="col-sm-4">
@@ -195,6 +193,8 @@ $userData = pg_fetch_assoc($result);
 		</form>
     </div>
 
+		<!-- MODAL DA VISUALIZZARE PER MODIFICARE DATI -->
+		
 		<div class="modal fade" id="editPassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 		<div class="modal-content">
@@ -203,7 +203,7 @@ $userData = pg_fetch_assoc($result);
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-		<form method="post" action="../myPhp/modificaPsw.php" name="modificaForm">
+		<form method="post" action="../myPhp/modificaPsw.php" name="modificaPswForm">
 		<div class="form-floating mb-3">
 		<input type="password" name="passwordCurr" class="form-control" id="passwordCurr" placeholder="Inserisci la password attuale" required><label for="passwordCurr" class="text-black">Password corrente</label></div><div class="form-floating mb-3"><input type="password"  name="passwordNew" class="form-control" id="passwordNew" placeholder="Nuova password" required><label for="passwordNew" class="text-black">Nuova Password</label></div>
 		<div class="form-floating mb-3"><input type="password"  name="passwordNew2" class="form-control" id="passwordNew2" placeholder="Nuova password" required><label for="passwordNew2" class="text-black">Conferma password</label></div>
@@ -217,9 +217,9 @@ $userData = pg_fetch_assoc($result);
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-		<form method="post" action="../myPhp/modificaTel.php" name="modificaForm">
+		<form method="post" action="../myPhp/modificaTel.php" name="modificaTelForm">
 		<div class="form-floating mb-3">
-		<input type="password" name="passwordCurr" class="form-control" id="passwordCurr" placeholder="Inserisci la password" required><label for="passwordCurr" class="text-black">Password corrente</label></div><div class="form-floating mb-3"><input type="tel"  name="tel" class="form-control" id="tel" placeholder="Nuovo numero di telefono" required><label for="tel" class="text-black">Nuovo numero di Telefono</label></div>
+		<input type="password" name="passwordCurr" class="form-control" id="passwordCurr" placeholder="Inserisci la password" required><label for="passwordCurr" class="text-black">Password corrente</label></div><div class="form-floating mb-3"><input type="tel"  name="telNew" class="form-control" id="telNew" placeholder="Nuovo numero di telefono" required><label for="telNew" class="text-black">Nuovo numero di Telefono</label></div>
 		</div><div class="modal-footer"><input type="submit" class="btn btn-primary" value="Conferma e invia"></div></form></div></div></div>
 
 		<div class="modal fade" id="editEmail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -230,7 +230,7 @@ $userData = pg_fetch_assoc($result);
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-		<form method="post" action="../myPhp/modificaEmail.php" name="modificaForm">
+		<form method="post" action="../myPhp/modificaEmail.php" name="modificaEmailForm">
 		<div class="form-floating mb-3">
 		<input type="password" name="passwordCurr" class="form-control" id="passwordCurr" placeholder="Inserisci la password" required><label for="passwordCurr" class="text-black">Password corrente</label></div><div class="form-floating mb-3"><input type="email"  name="emailNew" class="form-control" id="emailNew" placeholder="Nuova email" required><label for="emailNew" class="text-black">Nuova email</label></div>
 		</div><div class="modal-footer"><input type="submit" class="btn btn-primary" value="Conferma e invia"></div></form></div></div></div>
@@ -258,7 +258,7 @@ $userData = pg_fetch_assoc($result);
 		<div class="modal-body">
 		<form method="post" action="../myPhp/modificaCognome.php" name="modificaForm">
 		<div class="form-floating mb-3">
-		<input type="password" name="passwordCurr" class="form-control" id="passwordCurr" placeholder="Inserisci la password" required><label for="passwordCurr" class="text-black">Password corrente</label></div><div class="form-floating mb-3"><input type="text"  name="congnomepnew" class="form-control" id="cognomepNew" placeholder="Nuovo Cognome" required><label for="cognomepNew" class="text-black">Nuovo Cognome</label></div>
+		<input type="password" name="passwordCurr" class="form-control" id="passwordCurr" placeholder="Inserisci la password" required><label for="passwordCurr" class="text-black">Password corrente</label></div><div class="form-floating mb-3"><input type="text"  name="cognomepNew" class="form-control" id="cognomepNew" placeholder="Nuovo Cognome" required><label for="cognomepNew" class="text-black">Nuovo Cognome</label></div>
 		</div><div class="modal-footer"><input type="submit" class="btn btn-primary" value="Conferma e invia"></div></form></div></div></div>
 
 		<div class="modal fade" id="editNomeP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -282,7 +282,7 @@ $userData = pg_fetch_assoc($result);
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
 		<div class="modal-body">
-		<form method="post" action="../myPhp/modificaAssociazione.php" name="modificaForm">
+		<form method="post" action="../myPhp/modificaNomeAss.php" name="modificaForm">
 		<div class="form-floating mb-3">
 		<input type="password" name="passwordCurr" class="form-control" id="passwordCurr" placeholder="Inserisci la password" required><label for="passwordCurr" class="text-black">Password corrente</label></div><div class="form-floating mb-3"><input type="text"  name="nomeAssNew" class="form-control" id="nomeAssNew" placeholder="Nuovo Nome Associazione" required><label for="nomeAssNew" class="text-black">Nuovo Nome Associazione</label></div>
 		</div><div class="modal-footer"><input type="submit" class="btn btn-primary" value="Conferma e invia"></div></form></div></div></div>
