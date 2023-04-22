@@ -61,38 +61,11 @@ session_start();
                 echo '<li class="Myitem-dropdown"><h6>Email:</h6>'.$_SESSION["username"].'</li>';
                 ?>
                 <li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalModificaPsw">Modifica Password</a></li>
+                <li><a class="dropdown-item" href="datiUtente.php">Dati utente</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a>
                 </li>
               </ul>
-            </div>
-            <div class="modal fade" id="modalModificaPsw" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="text-black" id="exampleModalLabel">Modifica Password</h4>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                  <form method="post" action="../myPhp/modificaPsw.php" name="modificaForm">
-                    <div class="form-floating mb-3">
-                      <input type="password" name="passwordCurr" class="form-control" id="passwordCurr" placeholder="Inserisci la password attuale" required>
-                      <label for="passwordCurr" class="text-black">Password corrente</label>
-                    </div> 
-                    <div class="form-floating mb-3">
-                      <input type="password"  name="passwordNew" class="form-control" id="passwordNew" placeholder="Nuova password" required>
-                      <label for="passwordNew" class="text-black">Nuova Password</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                      <input type="password"  name="passwordNew2" class="form-control" id="passwordNew2" placeholder="Nuova password" required>
-                      <label for="passwordNew2" class="text-black">Conferma password</label>
-                    </div>
-                  </div><div class="modal-footer">
-                    <input type="submit" class="btn btn-primary" value="Conferma e invia"></div>
-                  </form>
-                </div>
-              </div>
             </div>
             <button type="button" class="btn btn-danger" onclick="goToLogout();">
               LOGOUT
