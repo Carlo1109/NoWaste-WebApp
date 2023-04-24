@@ -279,6 +279,7 @@ function checkCarrello() {
       text: 'Sarai contattato via mail per informazioni sul ritiro. Grazie!',
       icon: 'success'
     });
+    resetAllCarrello();
   } else {
     Swal.fire({
       title: 'Oops...',

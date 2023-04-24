@@ -98,7 +98,7 @@ session_start();
             <input type="text" class="form-control" name="idAzienda" placeholder="Azienda">
           </div>
           <div class="mb-2">
-            <label for="telDonatore">Inserisci numero di telefono dell'azienda:</label>
+            <label for="telDonatore">Inserisci numero di telefono:</label>
             <input type="tel" class="form-control" name="telDonatore" placeholder="Numero di telefono">
           </div>
         </div>

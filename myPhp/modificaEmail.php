@@ -23,9 +23,16 @@
         $_SESSION["modificaERR"] = "La password corrente inserita non è corretta. Aggiornamento dell'email non riuscito. Premere 'OK' per tornare alla home.";
       }
       else {
+
           $query = "UPDATE utente SET email = '$emailNew' WHERE email = '$sessionUser'";
           $result = pg_query($dbconn, $query);
           if (!$result) {
+              die("Errore nella query di modifica");
+          }
+          $dbconn2 = pg_connect("host=localhost user=postgres password=ltwsql port=5432 dbname=DatabaseProdotti");
+          $query2 = "UPDATE immagini SET email = '$emailNew' WHERE email = '$sessionUser'";
+          $result2 = pg_query($dbconn2, $query2);
+          if (!$result2) {
               die("Errore nella query di modifica");
           }
           $_SESSION["modificaSUCC"] = "Email aggiornata con successo! Premere 'OK' per effettuare il login.";
