@@ -212,11 +212,12 @@ function aggiungiCarrello(pulsante) {
   
   const nomeProdotto = $(pulsante).parent().parent().parent().find('.card-title').text();
   const quantita = parseInt($(pulsante).parent().parent().find('#quantita-select').val());
+  const from = $(pulsante).parent().parent().parent().find('#utente').text();
   const tableBody = $('#tableCarrello');
   let rowFound = false;
   //Controllo se il prodotto esiste già
   tableBody.find('tr').each(function() {
-  if ($(this).find('td:first').text() === nomeProdotto) {
+  if ($(this).find('td:first').text() == nomeProdotto && $(this).find('td:nth-child(3)').text() == from) {
   const quantitaPrecedente = parseInt($(this).find('td:nth-child(2)').text());
   const nuovaQuantita = quantitaPrecedente + quantita;
   $(this).find('td:nth-child(2)').text(nuovaQuantita);
@@ -244,6 +245,7 @@ function aggiungiCarrello(pulsante) {
   const newRow = $('<tr>');
   const nameCell = $('<td>').text(nomeProdotto);
   const quantityCell = $('<td>').text(quantita);
+  const fromCell = $('<td>').text(from);
   const removeButton = $('<button>').html('<i class="fas fa-trash"></i>').addClass('btn btn-danger btn-sm mx-1 rimuovi-button');
   removeButton.on('click', function() {
   const row = $(this).parent().parent();
@@ -256,7 +258,7 @@ function aggiungiCarrello(pulsante) {
   }
   });
   const removeCell = $('<td>').append(removeButton);
-  newRow.append(nameCell, quantityCell, removeCell);
+  newRow.append(nameCell, quantityCell, fromCell, removeCell);
   tableBody.append(newRow);
   }
   const modalCarrello = $('#modalCarrello');
@@ -277,8 +279,6 @@ function checkCarrello() {
       text: 'Sarai contattato via mail per informazioni sul ritiro. Grazie!',
       icon: 'success'
     });
-    resetAllCarrello();
-    return true;
   } else {
     Swal.fire({
       title: 'Oops...',
@@ -421,7 +421,6 @@ function caricaAssociazione() {
       }
   });
 }
-
 function loadPaginaAssociazione(response){
   const container = document.querySelector('#scorriPagine');
       var htmlSource = '<div class="row mt-5 mb-3">';
@@ -447,7 +446,7 @@ function loadPaginaAssociazione(response){
             <img src="'+srcImmagine+'" class="card-img-top" width="200" height="300" alt="Pasta al pomodoro">\
             <div class="card-body\">\
               <h5 class="card-title">'+nomecard+'-'+marca+'</h5>\
-              <p class="card-text">Caricato da: '+utente+'</p>\
+              <p class="card-text">Caricato da: <span id="utente">'+utente+'</span></p>\
               <p class="card-text">'+descrizione+'</p>\
               <p class="card-text">Prodotto vegano: '+isvegano+'</p>\
               <p class="card-text">Prodotto vegetariano: '+isvegetariano+'</p>\
@@ -490,7 +489,6 @@ function caricaMieDonazioni() {
       }
   });
 }
-
 function loadMieDonazioni(response) {
   const tableBody = $('#tableBodyMieDon');
   var num = 1;

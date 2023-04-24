@@ -110,6 +110,7 @@ session_start();
                   <tr>
                     <th scope="col">Prodotto</th>
                     <th scope="col">Quantità</th>
+                    <th scope="col">Caricato da</th>
                   </tr>
                 </thead>
                 <tbody id="tableCarrello">
