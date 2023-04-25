@@ -546,3 +546,9 @@ function searchWeb(event) {
   window.open(searchUrl, '_blank'); 
   document.search.searchText.value='';
 }
+
+function openMap() {
+  var address = document.getElementById("indirizzo").textContent.split(": ")[1];
+  var url = "https://www.google.com/maps/search/?api=1&query=" + "Edificio MArco Polo" + encodeURIComponent(address);
+  window.open(url, "_blank", "width=600,height=400");
+}
