@@ -18,8 +18,8 @@ session_start();
     <script src="../libraries/sweetalert2.all.min.js"></script>
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg bg-gr">
+  <header>
+		<nav class="navbar navbar-expand-lg bg-gr">
         <div class="container">
           <div class="logo">
             <img src="../src/logo.png" class="imLog" alt="Logo NoWaste">
@@ -32,7 +32,7 @@ session_start();
 					</div>
         </div>
       </nav>
-      <nav class="navbar navbar-expand-lg myNav">
+      <nav class="navbar navbar-expand-lg myNav" id="navHome">
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-navicon"></span>
@@ -45,7 +45,7 @@ session_start();
               <li class="nav-item">
                 <a class="nav-link active" href="soldi.php">Donazioni</a>
               </li>
-              <?php
+						<?php
 	if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] != true) {
 		echo '<li class="nav-item">
 		<a class="nav-link" href="#" onclick="return false;">Area privata</a>
@@ -54,9 +54,13 @@ session_start();
 	}
 	else if ($_SESSION['logged_in'] == true) {
 		echo '<li class="nav-item"><a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina('.$_SESSION["assBoolean"].');">Area privata</a>
-	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li><li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li><li><a class="dropdown-item" href="datiUtente.php">Dati utente</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a></li></ul></div>
-    
-  <button type="button" class="btn btn-danger" onclick="goToLogout();">LOGOUT</button>';
+	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li>'; 
+		if(!($_SESSION["assBoolean"])){ 
+			echo '<li><a class="dropdown-item" style="cursor: pointer;" href="dashboard.php">Dashboard</a></li>';
+		} 
+echo '<li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li><li><a class="dropdown-item" href="datiUtente.php">Dati utente</a><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a></li></ul></div>
+
+<button type="button" class="btn btn-danger" onclick="goToLogout();">LOGOUT</button>';
 	}
 ?>
       </nav>

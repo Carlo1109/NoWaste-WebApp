@@ -1,26 +1,25 @@
 <?php
-session_start();
-$dbconn = pg_connect("host=localhost user=postgres password=ltwsql port=5432 dbname=DatabaseRichieste");
+// Connessione al database Postgres
+$dbcon = pg_connect("host=localhost user=postgres password=ltwsql port=5432 dbname=DatabaseRichieste");
 
-if (!$dbconn) {
-  die("Connessione al database fallita");
+// Recupera i dati inviati tramite la richiesta POST
+$data = json_decode(file_get_contents('php://input'), true);
+
+// Inserisci i dati nella tabella richieste Postgres
+$darichiesta = date('Y-m-d');
+foreach ($data as $row) {
+  $prodotto = pg_escape_string($row['prodotto']);
+  $quantita = pg_escape_string($row['quantita']);
+  $caricatoda = pg_escape_string($row['caricatoDa']);
+  $richiestoda = pg_escape_string($row['richiestoDa']);
+  $query = "INSERT INTO richieste (prodotto, quantita, caricatoda, richiestoda, datarichiesta) VALUES ('$prodotto', '$quantita','$caricatoda', '$richiestoda', '$darichiesta')";
+  pg_query($dbcon, $query);
 }
-
-$prodotto = $_POST["prodotto"];
-$quantita = $_POST["quantita"];
-$caricatoda = $_POST["caricatoda"];
-$richiestoda = $_POST["richiestoda"];
-
-$query = "INSERT INTO richieste (prodotto, quantita, caricatoda, richiestoda) VALUES ($prodotto, $quantita, $caricatoda, $richiestoda)";
-$result = pg_query($dbconn, $query);
-if (!$result) {
-  http_response_code(500);
-  die("Errore nella query di eliminazione");
-}
-
-// Invia una risposta di successo al client
-http_response_code(200);
 
 // Chiudi la connessione al database
-pg_close($dbconn);
+pg_close($dbcon);
+
+// Restituisci una risposta JSON al client
+$response = array('success' => true);
+echo json_encode($response);
 ?>

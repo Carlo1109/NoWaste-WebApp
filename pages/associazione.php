@@ -119,7 +119,7 @@ session_start();
               </table>              
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" onclick="checkCarrello();">Conferma</button>
+              <button type="button" class="btn btn-primary" onclick="checkCarrello('<?php echo $_SESSION['username']; ?>');">Conferma</button>
               <button type="button" class="btn btn-secondary" onclick="resetAllCarrello();">Reset</button>
             </div>
           </div>

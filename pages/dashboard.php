@@ -7,20 +7,21 @@ session_start();
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>NoWaste - AreaPrivataDonatore</title>
-		<link rel="shortcut icon" href="../src/iconaLogoN.ico">
+		<title>NoWaste - Dashboard</title>
+		<link rel="icon" type="image/x-icon" href="../src/iconaLogoN.ico">
 		<link rel="stylesheet" href="../libraries/bootstrap-5.2.3/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../myCss/myCss.css">
 		<link rel="stylesheet" href="../libraries/fontawesome-free-6.4.0-web/css/all.css">
     <link rel="stylesheet" href="../libraries/sweetalert2.min.css">
 		<script src="../libraries/bootstrap-5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="../libraries/bootstrap-5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../libraries/jQuery.min.js"></script>
 		<script src="../myJs/myJs.js"></script>
+    <script src="../libraries/jQuery.min.js"></script>
+    <link rel="stylesheet" href="../libraries/sweetalert2.min.css">
     <script src="../libraries/sweetalert2.all.min.js"></script>
 	</head>
-	<body onload="caricaDonatore();">
-		<header>
+  <body onload="caricaDashboard();">
+  <header>
       <nav class="navbar navbar-expand-lg bg-gr">
         <div class="container">
           <div class="logo">
@@ -48,11 +49,11 @@ session_start();
                 <a class="nav-link active" href="soldi.php">Donazioni</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active selected-text" style="cursor: pointer;">Area privata-Donatore</a>
+                <a class="nav-link active" style="cursor: pointer;">Area privata-Associazione</a>
               </li>
             </ul>
             <div class="dropdown">
-              <a class="btn dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-user"></i>
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
@@ -78,67 +79,36 @@ session_start();
         </div>
       </nav>
     </header>
-    <div class="container mb-4">
-      <div class="row">
-        <div class="jumbotron">
-          <div class="col-md-12 text-center">
-            <h2 class="mb-4">Dona cibo!</h2>
-            <p>In questa sezione, hai l'opportunità di mettere a disposizione i cibi non venduti, contribuendo a ridurre gli sprechi alimentari. Potrai gestire facilmente i tuoi scaffali, aggiungendo, rimuovendo o modificando i prodotti già presenti, consentendo una raccolta del cibo più efficace e mirata. Insieme, possiamo lavorare per prevenire lo spreco alimentare e assicurare che i cibi in eccedenza raggiungano coloro che ne hanno bisogno in modo tempestivo ed efficiente. Grazie per la tua generosità e partecipazione in questa importante causa!<br>
-            </p>
-            <button class="btn btn-donate mt-auto" id="btn-donate" onclick="scrollaPaginaDonatore();">Vai a "Il mio scaffale"</button>
-          </div>
-        </div>
-      </div>
-      <div id="scorriPagineDon">
-        
+    
+    <div class="speech-bubble p-3 bg-primary text-white mt-4 mb-4  m-auto w-50">
+      <h2 class="m-auto">DASHBOARD</h2>
 
-      
-      </div>
-      <div id="containerBasket" class="containermb-4 d-flex justify-content-center align-items-center">
-        <button class="cestino btn btn-info d-flex flex-column align-items-center justify-content-center w-25" onclick="window.location.href = 'formDonatore.html';">
-          <i class="fas fa-book fa-5x"></i>
-          Aggiugni prodotti
-        </button>
-        <button class="m-lg-3 cestino btn btn-info d-flex flex-column align-items-center justify-content-center w-25" data-bs-toggle="modal" data-bs-target="#modalElimina">
-          <i class="fas fa-trash fa-5x"></i>
-          Elimina prodotti
-        </button>
-      </div>
-      <div class="modal fade" id="modalElimina" tabindex="-1" aria-labelledby="myModalTitle" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="myModalTitle">Prodotti caricati</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Prodotto</th>
-                    <th scope="col">Consumarsi preferibilmente entro:</th>
-                  </tr>
-                </thead>
-                <tbody id="tableElimina">
-                  <!--Tabella si aggiorna con gli elementi aggiunti-->
-                </tbody>
-              </table>              
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="window.location.href = 'donatore.php';">Chiudi e ricarica</button>
-              <button id="eliminaTutto" type="button" class="btn btn-secondary" onclick="eliminaTutti();"disabled>Elimina tutto</button>
-            </div>
-          </div>
+      <div class="containerTable mt-3 mb-5">
+        <div class="table-responsive">
+          <table class="tableDon table-sm">
+            <thead>
+              <tr>
+                <th class="thDon">Prodotto</th>
+                <th class="thDon">Quantità</th>
+                <th class="thDon">Richiesto da</th>
+                <th class="thDon">Data richiesta</th>
+              </tr>
+            </thead>
+            <tbody id="miaDashboard">
+            </tbody>
+          </table>
         </div>
-      </div> 
-		</div>
-		<footer class="bg-dark text-white">
+      </div>
+    </div>
+
+
+    <footer class="bg-dark text-white">
 			<div class="container">
 				<div class="row">
 				<div class="col-md-4 mx-auto text-center">
 					<h4 class="titleFooter">Contatti</h4>
 					<ul class="list-unstyled">
-            <li id="indirizzo">Indirizzo: <a href="#" onclick="openMap();">Viale Scalo San Lorenzo, Roma</a></li>
+						<li id="indirizzo">Indirizzo: <a href="#" onclick="openMap();">Viale Scalo San Lorenzo, Roma</a></li>
 						<li>Telefono: <a href="tel:06-1234567">06 1234567</a></li>
 						<li>Email: <a href="mailto:info@nowaste.com">info@nowaste.com</a></li>
 					</ul>
@@ -167,5 +137,5 @@ session_start();
 		<button id="pulsante-scroll-up" class="btn btn-primary rounded-circle" onclick="scrollaPaginaSu()">
 			<i class="fas fa-arrow-up"></i>
 		</button>
-	</body>
+  </body>
 </html>

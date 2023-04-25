@@ -271,22 +271,54 @@ function resetAllCarrello() {
   tableBody.innerHTML = '';
 }
 
-function checkCarrello() {
+function checkCarrello(richiedente) {
   const tableBody = document.getElementById('tableCarrello');
   if (tableBody.rows.length > 0) {
-    Swal.fire({
-      title: 'Dati del carrello acquisiti.',
-      text: 'Sarai contattato via mail per informazioni sul ritiro. Grazie!',
-      icon: 'success'
+    // Ottieni i dati della tabella
+    const rows = tableBody.getElementsByTagName('tr');
+    const data = [];
+    for (let i = 0; i < rows.length; i++) {
+      const cells = rows[i].getElementsByTagName('td');
+      data.push({
+        prodotto: cells[0].innerText,
+        quantita: cells[1].innerText,
+        caricatoDa: cells[2].innerText,
+        richiestoDa : richiedente,
+      });
+    }
+    // Invia la richiesta POST al server PHP
+    fetch('../myPhp/richiesteProdotti.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Errore durante l\'inserimento dei dati');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Dati inseriti correttamente:', data);
+      Swal.fire({
+        title: 'Successo!',
+        text: 'Dati del carrello acquisiti correttamente. E inviati agli utenti propietari dei prodotti.',
+        icon: 'success'
+      });
+      resetAllCarrello();
+    })
+    .catch(error => {
+      console.error('Si è verificato un errore:', error);
     });
-    resetAllCarrello();
-  } else {
+  }
+  else{
     Swal.fire({
-      title: 'Oops...',
-      text: 'Non è presente nessun elemento nel carrello',
-      icon: 'error'
+      title: 'Attenzione!',
+      text: 'Il carrello è vuoto!',
+      icon: 'warning'
     });
-    return false;
   }
 }
 
@@ -551,4 +583,30 @@ function openMap() {
   var address = document.getElementById("indirizzo").textContent.split(": ")[1];
   var url = "https://www.google.com/maps/search/?api=1&query=" + "Edificio MArco Polo" + encodeURIComponent(address);
   window.open(url, "_blank", "width=600,height=400");
+}
+
+//AJAX per recuperare dal server il database delle richieste per la Dashboard
+function caricaDashboard() {
+  $.ajax({
+      url: "../myPhp//uploadDashboard.php", // URL del tuo file PHP
+      dataType: "json", // Tipo di dato atteso come risposta (JSON in questo caso)
+      success: function(response) {
+        loadDashboard(response);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+          console.error(textStatus, errorThrown); // Gestione degli errori
+      }
+  });
+}
+
+function loadDashboard(response) {
+  const dashboard = $('#miaDashboard');
+  $.each(response, function(index, richiesta) {
+    const newRow = $('<tr>');
+    for (let i = 0; i <= 3; i++) {
+      const newCell = $('<td>').addClass('tdDon').text(richiesta[i]);
+      newRow.append(newCell);
+    }
+    dashboard.append(newRow);
+  });
 }
