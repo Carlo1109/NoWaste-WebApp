@@ -304,7 +304,7 @@ function checkCarrello(richiedente) {
       console.log('Dati inseriti correttamente:', data);
       Swal.fire({
         title: 'Successo!',
-        text: 'Dati del carrello acquisiti correttamente. E inviati agli utenti propietari dei prodotti.',
+        text: 'Dati del carrello acquisiti correttamente e inviati agli utenti propietari dei prodotti.',
         icon: 'success'
       });
       resetAllCarrello();
@@ -544,7 +544,7 @@ function eliminaTutti(){
     type: 'POST',
     success: function(response) {
       console.log(response);
-      window.location.href = 'donatore.php';
+      window.location.href = '../pages/donatore.php';
     },
     error: function(xhr, status, error) {
       console.log(xhr.responseText);
@@ -585,13 +585,13 @@ function openMap() {
   window.open(url, "_blank", "width=600,height=400");
 }
 
-//AJAX per recuperare dal server il database delle richieste per la Dashboard
-function caricaDashboard() {
+//AJAX per recuperare dal server il database delle richieste per la Dashboard Associazione
+function caricaDashboardAss() {
   $.ajax({
-      url: "../myPhp//uploadDashboard.php", // URL del tuo file PHP
+      url: "../myPhp/uploadDashboardForAss.php", // URL del tuo file PHP
       dataType: "json", // Tipo di dato atteso come risposta (JSON in questo caso)
       success: function(response) {
-        loadDashboard(response);
+        loadDashboardAss(response);
       },
       error: function(jqXHR, textStatus, errorThrown) {
           console.error(textStatus, errorThrown); // Gestione degli errori
@@ -599,14 +599,70 @@ function caricaDashboard() {
   });
 }
 
-function loadDashboard(response) {
+function loadDashboardAss(response) {
   const dashboard = $('#miaDashboard');
-  $.each(response, function(index, richiesta) {
-    const newRow = $('<tr>');
-    for (let i = 0; i <= 3; i++) {
-      const newCell = $('<td>').addClass('tdDon').text(richiesta[i]);
-      newRow.append(newCell);
+  if (response.length == 0) {
+    dashboard.html('<tr><td colspan="4" class="text-center tdRic">Nessuna richiesta trovata</td></tr>');
+  } else {
+    $.each(response, function(index, richiesta) {
+      const newRow = $('<tr>');
+      for (let i = 0; i <= 3; i++) {
+        const newCell = $('<td>').addClass('tdRic').text(richiesta[i]);
+        newRow.append(newCell);
+      }
+      dashboard.append(newRow);
+      $('#pulisci').attr('disabled', false);
+    });
+  }
+}
+
+//AJAX per recuperare dal server il database delle richieste per la Dashboard Donatore
+function caricaDashboardDon() {
+  $.ajax({
+      url: "../myPhp/uploadDashboardForDon.php", // URL del tuo file PHP
+      dataType: "json", // Tipo di dato atteso come risposta (JSON in questo caso)
+      success: function(response) {
+        loadDashboardDon(response);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+          console.error(textStatus, errorThrown); // Gestione degli errori
+      }
+  });
+}
+
+function loadDashboardDon(response) {
+  const dashboard = $('#miaDashboard');
+  if (response.length == 0) {
+    dashboard.html('<tr><td colspan="4" class="text-center tdRic">Nessuna richiesta trovata</td></tr>');
+  } else {
+    $.each(response, function(index, richiesta) {
+      const newRow = $('<tr>');
+      for (let i = 0; i <= 3; i++) {
+        const newCell = $('<td>').addClass('tdRic').text(richiesta[i]);
+        newRow.append(newCell);
+      }
+      dashboard.append(newRow);
+      $('#pulisci').attr('disabled', false);
+    });
+  }
+}
+
+function svuotaDashboard(assoc){
+  if(assoc){
+    urldin = '../myPhp/svuotaDashboardAss.php';
+  }
+  else{
+    urldin = '../myPhp/svuotaDashboardDon.php';
+  }
+  $.ajax({
+    url: urldin,
+    type: 'POST',
+    success: function(response) {
+      console.log(response);
+      window.location.href = '../pages/dashboard.php';
+    },
+    error: function(xhr, status, error) {
+      console.log(xhr.responseText);
     }
-    dashboard.append(newRow);
   });
 }

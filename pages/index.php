@@ -56,11 +56,7 @@ session_start();
 	}
 	else if ($_SESSION['logged_in'] == true) {
 		echo '<li class="nav-item"><a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina('.$_SESSION["assBoolean"].');">Area privata</a>
-	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li>'; 
-		if(!($_SESSION["assBoolean"])){ 
-			echo '<li><a class="dropdown-item" style="cursor: pointer;" href="dashboard.php">Dashboard</a></li>';
-		} 
-echo '<li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li><li><a class="dropdown-item" href="datiUtente.php">Dati utente</a><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a></li></ul></div>
+	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li><li><a class="dropdown-item" style="cursor: pointer;" href="dashboard.php">Dashboard</a></li><li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li><li><a class="dropdown-item" href="datiUtente.php">Dati utente</a><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a></li></ul></div>
 
 <button type="button" class="btn btn-danger" onclick="goToLogout();">LOGOUT</button>';
 	}

@@ -60,6 +60,7 @@ session_start();
                 <?php
                 echo '<li class="Myitem-dropdown"><h6>Email:</h6>'.$_SESSION["username"].'</li>';
                 ?>
+                <li><a class="dropdown-item" style="cursor: pointer;" href="dashboard.php">Dashboard</a></li>
                 <li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li>
                 <li><a class="dropdown-item" href="datiUtente.php">Dati utente</a></li>
                 <li><hr class="dropdown-divider"></li>

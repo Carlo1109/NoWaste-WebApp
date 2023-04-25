@@ -20,7 +20,14 @@ session_start();
     <link rel="stylesheet" href="../libraries/sweetalert2.min.css">
     <script src="../libraries/sweetalert2.all.min.js"></script>
 	</head>
-  <body onload="caricaDashboard();">
+  <?php
+    if(!($_SESSION["assBoolean"])){
+      echo '<body onload="caricaDashboardDon();">';
+    }
+    else{
+      echo '<body onload="caricaDashboardAss();">';
+    }
+  ?>
   <header>
       <nav class="navbar navbar-expand-lg bg-gr">
         <div class="container">
@@ -48,9 +55,10 @@ session_start();
               <li class="nav-item">
                 <a class="nav-link active" href="soldi.php">Donazioni</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" style="cursor: pointer;">Area privata-Associazione</a>
-              </li>
+              <?php
+                echo '<li class="nav-item"><a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina('.$_SESSION["assBoolean"].');">Area privata</a>
+                </li>';
+              ?>
             </ul>
             <div class="dropdown">
               <a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,11 +68,7 @@ session_start();
                 <?php
                 echo '<li class="Myitem-dropdown"><h6>Email:</h6>'.$_SESSION["username"].'</li>';
                 ?>
-                <?php
-                  if(!($_SESSION["assBoolean"])){ 
-                    echo '<li><a class="dropdown-item selected-text" style="cursor: pointer;" href="dashboard.php">Dashboard</a></li>';
-                  } 
-                ?>
+                <li><a class="dropdown-item selected-text" style="cursor: pointer;" href="dashboard.php">Dashboard</a></li>
                 <li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li>
                 <li><a class="dropdown-item" href="datiUtente.php">Dati utente</a></li>
                 <li><hr class="dropdown-divider"></li>
@@ -79,28 +83,79 @@ session_start();
         </div>
       </nav>
     </header>
-    
-    <div class="speech-bubble p-3 bg-primary text-white mt-4 mb-4  m-auto w-50">
-      <h2 class="m-auto">DASHBOARD</h2>
 
-      <div class="containerTable mt-3 mb-5">
-        <div class="table-responsive">
-          <table class="tableDon table-sm">
-            <thead>
-              <tr>
-                <th class="thDon">Prodotto</th>
-                <th class="thDon">Quantità</th>
-                <th class="thDon">Richiesto da</th>
-                <th class="thDon">Data richiesta</th>
-              </tr>
-            </thead>
-            <tbody id="miaDashboard">
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
+    <?php
+      if(!($_SESSION["assBoolean"])){ 
+         echo '
+         <div class="d-flex align-items-center justify-content-center mt-4">
+         <div class="speech-bubble  bg-primary myBubble">
+           <h2 class="text-center text-white mt-4">DASHBOARD</h2>
+           <h5 class="text-center text-white mt-4">Qui puoi visualizzare le richieste ricevute e puoi svuotare la dashboard.<br>
+           Attenzione! Svuotando la dashboard, la svuoterai anche per l\'utente che ha richiesto i prodotti in quanto confermi di aver preso visione dell\'ordine e di aver contattato il richiedente.</h5>
+           <div class="containerTable mt-3 mb-5">
+             <div class="table-responsive">
+               <table class="tableDon table-sm">
+                 <thead>
+                   <tr>
+                     <th class="thRic">Prodotto</th>
+                     <th class="thRic">Quantità</th>
+                     <th class="thRic">Richiesto da</th>
+                     <th class="thRic">Data richiesta</th>
+                   </tr>
+                 </thead>
+                 <tbody id="miaDashboard">
+   
+                 </tbody>
+               </table>
+             </div>
+             <div class="d-flex justify-content-center mt-3">
+             <button id="pulisci" class="btn btn-secondary" onclick="svuotaDashboard(false);" disabled>
+               <div class="d-flex flex-column align-items-center">
+                 <i class="fa fa-broom-ball fa-2x"></i>
+                 <span class="text-center">Pulisci dashboard</span>
+               </div>
+             </button>
+             </div>
+           </div>
+         </div>
+        </div>';
+      }
+      else{
+        echo '
+         <div class="d-flex align-items-center justify-content-center mt-4">
+         <div class="speech-bubble  bg-primary myBubble">
+           <h2 class="text-center text-white mt-4">DASHBOARD</h2>
+           <h5 class="text-center text-white mt-4">Qui puoi visualizzare le richieste effettuate e puoi svuotare la dashboard<br>
+           Attenzione! Svuotando la dashboard, la svuoterai anche per l\'utente che ha caricato i prodotti in quanto confermi di essere già in contatto con l.</h5>
+           <div class="containerTable mt-3 mb-5">
+             <div class="table-responsive">
+               <table class="tableDon table-sm">
+                 <thead>
+                   <tr>
+                     <th class="thRic">Prodotto</th>
+                     <th class="thRic">Quantità</th>
+                     <th class="thRic">Caricato da</th>
+                     <th class="thRic">Data richiesta</th>
+                   </tr>
+                 </thead>
+                 <tbody id="miaDashboard">
+   
+                 </tbody>
+               </table>
+             </div>
+             <div class="d-flex justify-content-center mt-3">
+             <button id="pulisci" class="btn btn-secondary" onclick="svuotaDashboard(true);" disabled>
+               <div class="d-flex flex-column align-items-center">
+                 <i class="fa fa-broom-ball fa-2x"></i>
+                 <span class="text-center">Pulisci dashboard</span>
+               </div>
+             </button>
+             </div>
+           </div>
+         </div>
+        </div>';
+      }
+    ?>
 
     <footer class="bg-dark text-white">
 			<div class="container">
