@@ -327,3 +327,10 @@ td {
 .cardDonatore{
   height: 700px;
 }
+
+.cardDashboard{
+  background-color: #FFCC80;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0.5, 0.5);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}

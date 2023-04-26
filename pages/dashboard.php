@@ -83,7 +83,7 @@ session_start();
       if(!($_SESSION["assBoolean"])){ 
          echo '
          <div class="d-flex justify-content-center mt-4 mb-4">
-          <div class="card shadow-lg p-4 rounded-lg" style="background-color: #F5F5F5;">
+          <div class="card cardDashboard">
             <h2 class="text-center mb-4">DASHBOARD</h2>
             <h5 class="text-center mb-4">Qui puoi visualizzare le richieste ricevute e svuotare la dashboard.</h5>
             <div class="table-responsive">
@@ -102,7 +102,7 @@ session_start();
               </table>
             </div>
             <div class="d-flex justify-content-center mt-4">
-              <button id="pulisci" class="btn btn-primary" onclick="confermaCleanDashboard(false);" disabled>
+              <button id="pulisci" class="btn btn-outline-danger" onclick="confermaCleanDashboard(false);" disabled>
                 <i class="fas fa-broom me-2"></i>
                 <span>Svuota dashboard</span>
               </button>
@@ -113,7 +113,7 @@ session_start();
       else{
         echo '
          <div class="d-flex justify-content-center mt-4 mb-4">
-          <div class="card shadow-lg p-4 rounded-lg" style="background-color: #F5F5F5;">
+          <div class="cardDashboard card">
             <h2 class="text-center mb-4">DASHBOARD</h2>
             <h5 class="text-center mb-4">Qui puoi visualizzare le richieste effettuate e svuotare la dashboard.</h5>
             <div class="table-responsive">
@@ -132,7 +132,7 @@ session_start();
               </table>
             </div>
             <div class="d-flex justify-content-center mt-4">
-              <button id="pulisci" class="btn btn-primary" onclick="confermaCleanDashboard(false);" disabled>
+              <button id="pulisci" class="btn btn-outline-danger" onclick="confermaCleanDashboard(false);" disabled>
                 <i class="fas fa-broom me-2"></i>
                 <span>Svuota dashboard</span>
               </button>
