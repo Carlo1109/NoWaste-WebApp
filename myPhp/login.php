@@ -66,6 +66,7 @@
         showDenyButton: true,
         confirmButtonText: "Sign in",
         denyButtonText: "Ritenta Login",
+        allowOutsideClick: false,
       }).then((result) => {
         if (result.isConfirmed) {
           window.location.href = "../pages/sigin.php";
