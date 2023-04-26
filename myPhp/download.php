@@ -25,7 +25,7 @@
     // descrizione varchar(255),
     // immagine bytea
     if ($_FILES['immagine']['size'] == 0) {
-      $defaultImagePath = '../src/default.jpg';
+      $defaultImagePath = '../src/prodotti/default.jpg';
       $_FILES['immagine']['tmp_name'] = $defaultImagePath;
       $_FILES['immagine']['name'] = basename($defaultImagePath);
     }
