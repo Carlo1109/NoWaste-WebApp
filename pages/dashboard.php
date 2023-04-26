@@ -82,70 +82,62 @@ session_start();
     <?php
       if(!($_SESSION["assBoolean"])){ 
          echo '
-         <div class="d-flex align-items-center justify-content-center mt-4">
-         <div class="speech-bubble  bg-primary myBubble">
-           <h2 class="text-center text-white mt-4">DASHBOARD</h2>
-           <h5 class="text-center text-white mt-4">Qui puoi visualizzare le richieste ricevute e puoi svuotare la dashboard.</h5>
-           <div class="containerTable mt-3 mb-5">
-             <div class="table-responsive">
-               <table class="tableDon table-sm">
-                 <thead>
-                   <tr>
-                     <th class="thRic">Prodotto</th>
-                     <th class="thRic">Quantità</th>
-                     <th class="thRic">Richiesto da</th>
-                     <th class="thRic">Data richiesta</th>
-                   </tr>
-                 </thead>
-                 <tbody id="miaDashboard">
-   
-                 </tbody>
-               </table>
-             </div>
-             <div class="d-flex justify-content-center mt-3">
-             <button id="pulisci" class="btn btn-secondary" onclick="confermaCleanDashboard(false);" disabled>
-               <div class="d-flex flex-column align-items-center">
-                 <i class="fa fa-broom-ball fa-2x"></i>
-                 <span class="text-center">Svuota dashboard</span>
-               </div>
-             </button>
-             </div>
-           </div>
-         </div>
+         <div class="d-flex justify-content-center mt-4 mb-4">
+          <div class="card shadow-lg p-4 rounded-lg" style="background-color: #F5F5F5;">
+            <h2 class="text-center mb-4">DASHBOARD</h2>
+            <h5 class="text-center mb-4">Qui puoi visualizzare le richieste ricevute e svuotare la dashboard.</h5>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Prodotto</th>
+                    <th scope="col">Quantità</th>
+                    <th scope="col">Richiesto da</th>
+                    <th scope="col">Data richiesta</th>
+                  </tr>
+                </thead>
+                <tbody id="miaDashboard">
+
+                </tbody>
+              </table>
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+              <button id="pulisci" class="btn btn-primary" onclick="confermaCleanDashboard(false);" disabled>
+                <i class="fas fa-broom me-2"></i>
+                <span>Svuota dashboard</span>
+              </button>
+            </div>
+          </div>
         </div>';
       }
       else{
         echo '
-         <div class="d-flex align-items-center justify-content-center mt-4">
-         <div class="speech-bubble  bg-primary myBubble">
-           <h2 class="text-center text-white mt-4">DASHBOARD</h2>
-           <h5 class="text-center text-white mt-4">Qui puoi visualizzare le richieste effettuate e puoi svuotare la dashboard</h5>
-           <div class="containerTable mt-3 mb-5">
-             <div class="table-responsive">
-               <table class="tableDon table-sm">
-                 <thead>
-                   <tr>
-                     <th class="thRic">Prodotto</th>
-                     <th class="thRic">Quantità</th>
-                     <th class="thRic">Caricato da</th>
-                     <th class="thRic">Data richiesta</th>
-                   </tr>
-                 </thead>
-                 <tbody id="miaDashboard">
-   
-                 </tbody>
-               </table>
-             </div>
-             <div class="d-flex justify-content-center mt-3">
-             <button id="pulisci" class="btn btn-secondary" onclick="confermaCleanDashboard(true);" disabled>
-               <div class="d-flex flex-column align-items-center">
-                 <i class="fa fa-broom-ball fa-2x"></i>
-                 <span class="text-center">Svuota dashboard</span>
-               </div>
-             </button>
-             </div>
-           </div>
-         </div>
+         <div class="d-flex justify-content-center mt-4 mb-4">
+          <div class="card shadow-lg p-4 rounded-lg" style="background-color: #F5F5F5;">
+            <h2 class="text-center mb-4">DASHBOARD</h2>
+            <h5 class="text-center mb-4">Qui puoi visualizzare le richieste effettuate e svuotare la dashboard.</h5>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Prodotto</th>
+                    <th scope="col">Quantità</th>
+                    <th scope="col">Caricato da</th>
+                    <th scope="col">Data richiesta</th>
+                  </tr>
+                </thead>
+                <tbody id="miaDashboard">
+
+                </tbody>
+              </table>
+            </div>
+            <div class="d-flex justify-content-center mt-4">
+              <button id="pulisci" class="btn btn-primary" onclick="confermaCleanDashboard(false);" disabled>
+                <i class="fas fa-broom me-2"></i>
+                <span>Svuota dashboard</span>
+              </button>
+            </div>
+          </div>
         </div>';
       }
     ?>
@@ -156,7 +148,7 @@ session_start();
 				<div class="col-md-4 mx-auto text-center">
 					<h4 class="titleFooter">Contatti</h4>
 					<ul class="list-unstyled">
-						<li id="indirizzo">Indirizzo: <a href="#" onclick="openMap();">Viale Scalo San Lorenzo, Roma</a></li>
+          <li id="indirizzo">Indirizzo: <a style="cursor: pointer;" onmouseover="this.style.color='#aaa'" onmouseout="this.style.color='#fff'" onclick="openMap();">Viale Scalo San Lorenzo, Roma</a></li>
 						<li>Telefono: <a href="tel:06-1234567">06 1234567</a></li>
 						<li>Email: <a href="mailto:info@nowaste.com">info@nowaste.com</a></li>
 					</ul>

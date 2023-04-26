@@ -579,9 +579,15 @@ function searchWeb(event) {
 }
 
 function openMap() {
-  var address = document.getElementById("indirizzo").textContent.split(": ")[1];
-  var url = "https://www.google.com/maps/search/?api=1&query=" + "Edificio MArco Polo" + encodeURIComponent(address);
-  window.open(url, "_blank", "width=600,height=400");
+  Swal.fire({
+    title: '<strong>Visualizza sulla mappa</strong>',
+    html: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.8348142993414!2d12.51837777598391!3d41.896409471239764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6185205c9bfd%3A0x773e8360f9a9e5e!2sEdificio%20Marco%20Polo!5e0!3m2!1sit!2sit!4v1682516415519!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
+    showCloseButton: true,
+    showConfirmButton: false,
+    allowOutsideClick: false
+  });
+  var popup = document.querySelector('.swal2-popup');
+  popup.style.backgroundColor = '#1E90FF';
 }
 
 //AJAX per recuperare dal server il database delle richieste per la Dashboard
