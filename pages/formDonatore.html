@@ -22,10 +22,16 @@
           <div class="logo">
             <img src="../src/logo.png" class="imLog" alt="Logo NoWaste">
           </div>
+          <div class="ricerca">
+						<form class="d-flex" name="search" role="search" onsubmit="searchWeb(event)">
+							<input class="form-control me-2" type="search" placeholder="Cerca sul web..." aria-label="Search" id="searchText" name="searchText">
+							<button class="btn btn-outline-success" type="submit">Search</button>
+						</form>
+					</div>
         </div>
       </nav>
     </header>
-    <div id="donazioneForm" class="card bg-white cardFormDonatore">
+    <div id="donazioneForm" class="card cardFormDonatore">
       <div class="row justify-content-center">
         <div class="col-md-8">
           <h1 class="text-center mb-4">Aggiungi prodotto</h1>

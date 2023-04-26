@@ -90,10 +90,10 @@ session_start();
               <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">Prodotto</th>
-                    <th scope="col">Quantità</th>
-                    <th scope="col">Richiesto da</th>
-                    <th scope="col">Data richiesta</th>
+                    <th class="text-center" scope="col">Prodotto</th>
+                    <th class="text-center" scope="col">Quantità</th>
+                    <th class="text-center" scope="col">Richiesto da</th>
+                    <th class="text-center" scope="col">Data richiesta</th>
                   </tr>
                 </thead>
                 <tbody id="miaDashboard">
@@ -120,10 +120,10 @@ session_start();
               <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th scope="col">Prodotto</th>
-                    <th scope="col">Quantità</th>
-                    <th scope="col">Caricato da</th>
-                    <th scope="col">Data richiesta</th>
+                    <th class="text-center" scope="col">Prodotto</th>
+                    <th class="text-center" scope="col">Quantità</th>
+                    <th class="text-center" scope="col">Caricato da</th>
+                    <th class="text-center" scope="col">Data richiesta</th>
                   </tr>
                 </thead>
                 <tbody id="miaDashboard">

@@ -556,8 +556,9 @@ function showConfirm(){
     title: 'Sei sicuro di voler eliminare il profilo?',
     icon: 'warning',
     showDenyButton: true,
+    allowOutsideClick: false,
     confirmButtonText: 'Si',
-    denyButtonText: `No. Cancella`,
+    denyButtonText: `No`,
   }).then((result) => {
     if (result.isConfirmed) {
       Swal.fire('Eliminazione del profilo avvenuta con successo', '', 'success')
@@ -617,7 +618,7 @@ function loadDashboard(response) {
     $.each(response, function(index, richiesta) {
       const newRow = $('<tr>');
       for (let i = 0; i <= 3; i++) {
-        const newCell = $('<td>').addClass('tdRic').text(richiesta[i]);
+        const newCell = $('<td>').addClass('text-center').text(richiesta[i]);
         newRow.append(newCell);
       }
       dashboard.append(newRow);
