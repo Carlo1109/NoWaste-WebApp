@@ -272,8 +272,19 @@ td {
   border-color: #5f5d06;
 }
 
-.marginiCarousel3{
-  margin-top: 100px;
+#carousel1{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#carousel2{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#carousel3{
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .colorForm{

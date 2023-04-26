@@ -358,7 +358,6 @@ function caricaDonatore() {
       }
   });
 }
-
 function loadPaginaDonatore(response) {
   var htmlSource='';
   var i=0;
@@ -409,14 +408,14 @@ function loadEliminaProdotti(response){
     const scadenzaCell = document.createElement('td');
     scadenzaCell.textContent = scad;
     const removeButton = document.createElement('button');
-    removeButton.innerHTML = '<i class="fas fa-trash"></i>'; //icona del cestino
+    removeButton.innerHTML = '<i class="fas fa-trash"></i>'; 
     removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'mx-1', 'rimuovi-button');
     removeButton.addEventListener('click', function() {
       const row = this.parentNode.parentNode;
       const nomeProdotto = row.cells[0].textContent;
       const scadenzaProdotto = row.cells[1].textContent;
       row.remove();
-      // Chiamata AJAX per eliminare la riga dal database
+
       const xhr = new XMLHttpRequest();
       xhr.open('POST', '../myPhp/eliminaProdotto.php', true);
       xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -512,13 +511,13 @@ function loadPaginaAssociazione(response){
 //AJAX per recuperare dal server il database delle donazioni per la pagina mieDonazioni
 function caricaMieDonazioni() {
   $.ajax({
-      url: "../myPhp/uploadDonazioniMonetarie.php", // URL del tuo file PHP
-      dataType: "json", // Tipo di dato atteso come risposta (JSON in questo caso)
+      url: "../myPhp/uploadDonazioniMonetarie.php", 
+      dataType: "json", 
       success: function(response) {
         loadMieDonazioni(response);
       },
       error: function(jqXHR, textStatus, errorThrown) {
-          console.error(textStatus, errorThrown); // Gestione degli errori
+          console.error(textStatus, errorThrown);
       }
   });
 }
@@ -585,52 +584,26 @@ function openMap() {
   window.open(url, "_blank", "width=600,height=400");
 }
 
-//AJAX per recuperare dal server il database delle richieste per la Dashboard Associazione
-function caricaDashboardAss() {
-  $.ajax({
-      url: "../myPhp/uploadDashboardForAss.php", // URL del tuo file PHP
-      dataType: "json", // Tipo di dato atteso come risposta (JSON in questo caso)
-      success: function(response) {
-        loadDashboardAss(response);
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-          console.error(textStatus, errorThrown); // Gestione degli errori
-      }
-  });
-}
-
-function loadDashboardAss(response) {
-  const dashboard = $('#miaDashboard');
-  if (response.length == 0) {
-    dashboard.html('<tr><td colspan="4" class="text-center tdRic">Nessuna richiesta trovata</td></tr>');
-  } else {
-    $.each(response, function(index, richiesta) {
-      const newRow = $('<tr>');
-      for (let i = 0; i <= 3; i++) {
-        const newCell = $('<td>').addClass('tdRic').text(richiesta[i]);
-        newRow.append(newCell);
-      }
-      dashboard.append(newRow);
-      $('#pulisci').attr('disabled', false);
-    });
+//AJAX per recuperare dal server il database delle richieste per la Dashboard
+function caricaDashboard(assoc) {
+  if(assoc){
+    urldin = '../myPhp/uploadDashboardForAss.php';
   }
-}
-
-//AJAX per recuperare dal server il database delle richieste per la Dashboard Donatore
-function caricaDashboardDon() {
+  else{
+    urldin = '../myPhp/uploadDashboardForDon.php';
+  }
   $.ajax({
-      url: "../myPhp/uploadDashboardForDon.php", // URL del tuo file PHP
-      dataType: "json", // Tipo di dato atteso come risposta (JSON in questo caso)
+      url: urldin, 
+      dataType: "json",
       success: function(response) {
-        loadDashboardDon(response);
+        loadDashboard(response);
       },
       error: function(jqXHR, textStatus, errorThrown) {
-          console.error(textStatus, errorThrown); // Gestione degli errori
+          console.error(textStatus, errorThrown); 
       }
   });
 }
-
-function loadDashboardDon(response) {
+function loadDashboard(response) {
   const dashboard = $('#miaDashboard');
   if (response.length == 0) {
     dashboard.html('<tr><td colspan="4" class="text-center tdRic">Nessuna richiesta trovata</td></tr>');
@@ -665,4 +638,41 @@ function svuotaDashboard(assoc){
       console.log(xhr.responseText);
     }
   });
+}
+
+function confermaCleanDashboard(assoc){
+  if(assoc){
+    Swal.fire({
+      title: 'Sei sicuro di voler svuotare la dashboard?',
+      text: 'Svuotando la dashboard la svuoterai anche per gli utenti che hanno caricato i prodotti che hai prenotato.',
+      icon: 'warning',
+      showDenyButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('Dashboard svuotata con successo', '', 'success')
+        svuotaDashboard(assoc);
+      } else if (result.isDenied) {
+        Swal.fire('Dashboard non svuotata', '', 'info')
+      }
+    })
+  }
+  else{
+    Swal.fire({
+      title: 'Sei sicuro di voler svuotare la dashboard?',
+      text: 'Svuotando la dashboard la svuoterai anche per gli utenti che hanno richiesto i seguenti prodotti, in quanto confermi di essere in contatto con loro per la spedizione.',
+      icon: 'warning',
+      showDenyButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('Dashboard svuotata con successo', '', 'success')
+        svuotaDashboard(assoc);
+      } else if (result.isDenied) {
+        Swal.fire('Dashboard non svuotata', '', 'info')
+      }
+    })
+  }
 }

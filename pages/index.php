@@ -56,7 +56,7 @@ session_start();
 	}
 	else if ($_SESSION['logged_in'] == true) {
 		echo '<li class="nav-item"><a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina('.$_SESSION["assBoolean"].');">Area privata</a>
-	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li><li><a class="dropdown-item" style="cursor: pointer;" href="dashboard.php">Dashboard</a></li><li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li><li><a class="dropdown-item" href="datiUtente.php">Dati utente</a><li><hr class="dropdown-divider"></li><li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a></li></ul></div>
+	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li><hr class="dropdown-divider"><li><a class="dropdown-item" style="cursor: pointer;" href="dashboard.php">Dashboard</a></li><li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li><li><a class="dropdown-item" href="datiUtente.php">Dati utente</a></li><hr class="dropdown-divider"><li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a></li></ul></div>
 
 <button type="button" class="btn btn-danger" onclick="goToLogout();">LOGOUT</button>';
 	}
@@ -65,7 +65,7 @@ session_start();
     </header>
 		<div class="container">
 			<div class="jumbotron">
-				<div class="row">
+				<div class="row d-flex align-items-center">
 					<div class="col-md-6">
 						<h2 class="display-4">Chi siamo?</h2>
 						<p class="testoHome">Siamo un'organizzazione che si impegna a creare una rete di contatti tra associazioni che donano cibo ai bisognosi e ristoranti o esercizi alimentari. Il nostro obiettivo è aiutare le persone che si trovano in difficoltà ad avere accesso a pasti nutritivi e salutari e allo stesso tempo evitare spreco di cibo. Con la nostra web-app, offriamo una piattaforma che semplifica la donazione di cibo da parte dei ristoranti e degli esercizi alimentari e la distribuzione da parte delle associazioni. Ci impegniamo a creare un ambiente collaborativo e inclusivo per promuovere il benessere e la giustizia sociale nella nostra comunità.</p>
@@ -102,9 +102,9 @@ session_start();
 			</div>
 			<hr class="my-4">
 			<div class="jumbotron">
-				<div class="row">
+				<div class="row d-flex align-items-center">
 					<div class="col-md-6">
-						<div id="carousel2" class="carousel slide" data-bs-ride="carousel">
+						<div id="carousel2" class="carousel slide h-100" data-bs-ride="carousel">
 							<div class="carousel-inner">
 								<div class="carousel-item active">
 									<img src="../src/carousel21.jpeg" class="d-block w-100" alt="Immagine 4">
@@ -133,13 +133,13 @@ session_start();
 					</div>
 					<div class="col-md-6">
 						<h2 class="display-4">Contribuisci!</h2>
-							<p class="testoHome">Scegli di fare la differenza: dona il tuo cibo in eccesso e contribuisci a combattere lo 									spreco alimentare, a preservare l'ambiente e a migliorare la vita di coloro che sono in difficoltà nella tua 								 comunità locale. Il tuo gesto di generosità ha un impatto tangibile sulla salute e sul benessere di chi ne 										beneficia, promuovendo legami sociali più forti, dimostrando la tua responsabilità sociale e creando un 											futuro più sostenibile per tutti.</p>
+						<p class="testoHome">Scegli di fare la differenza: dona il tuo cibo in eccesso e contribuisci a combattere lo spreco alimentare, a preservare l'ambiente e a migliorare la vita di coloro che sono in difficoltà nella tua comunità locale. Il tuo gesto di generosità ha un impatto tangibile sulla salute e sul benessere di chi ne beneficia, promuovendo legami sociali più forti, dimostrando la tua responsabilità sociale e creando un futuro più sostenibile per tutti.</p>
 					</div>
 				</div>
 			</div>
 			<hr>
 			<div class="jumbotron">
-				<div class="row">
+				<div class="row d-flex align-items-center">
 					<div class="col-md-6">
 						<h2 class="display-4">Come unirti?</h2>
 					  <p class="testoHome">Puoi unirti a noi come membro di un'associazione per prenotare il cibo messo a disposizione da ristoranti o alimentari, ma puoi entrare a far parte dell'organizzazione anche come azienda del settore alimentare che mette a dispozione sul nostro sito gli eccessi di cibo per semplificare il lavoro alle associazioni che distribuiscono ai bisognosi questi beni di prima necessità. </p>					
@@ -147,7 +147,7 @@ session_start();
 						<p class="testoHome">Clicca qui per esplorare le possibilità della nostra organizzazione.</p>
 						<button class="btn btn-donate" id="btn-donate" onclick="scrollaHome();">Esplora</button>
 					</div>
-					<div class="col-md-6 marginiCarousel3">
+					<div class="col-md-6">
 						<div id="carousel3" class="carousel slide" data-bs-ride="carousel">
 							<div class="carousel-inner">
 								<div class="carousel-item active">

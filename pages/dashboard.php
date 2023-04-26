@@ -21,12 +21,7 @@ session_start();
     <script src="../libraries/sweetalert2.all.min.js"></script>
 	</head>
   <?php
-    if(!($_SESSION["assBoolean"])){
-      echo '<body onload="caricaDashboardDon();">';
-    }
-    else{
-      echo '<body onload="caricaDashboardAss();">';
-    }
+      echo '<body onload="caricaDashboard('.$_SESSION["assBoolean"].');">';
   ?>
   <header>
       <nav class="navbar navbar-expand-lg bg-gr">
@@ -68,12 +63,12 @@ session_start();
                 <?php
                 echo '<li class="Myitem-dropdown"><h6>Email:</h6>'.$_SESSION["username"].'</li>';
                 ?>
+                <hr class="dropdown-divider">
                 <li><a class="dropdown-item selected-text" style="cursor: pointer;" href="dashboard.php">Dashboard</a></li>
                 <li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li>
                 <li><a class="dropdown-item" href="datiUtente.php">Dati utente</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a>
-                </li>
+                <hr class="dropdown-divider">
+                <li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a></li>
               </ul>
             </div>
             <button type="button" class="btn btn-danger" onclick="goToLogout();">
@@ -90,8 +85,7 @@ session_start();
          <div class="d-flex align-items-center justify-content-center mt-4">
          <div class="speech-bubble  bg-primary myBubble">
            <h2 class="text-center text-white mt-4">DASHBOARD</h2>
-           <h5 class="text-center text-white mt-4">Qui puoi visualizzare le richieste ricevute e puoi svuotare la dashboard.<br>
-           Attenzione! Svuotando la dashboard, la svuoterai anche per l\'utente che ha richiesto i prodotti in quanto confermi di aver preso visione dell\'ordine e di aver contattato il richiedente.</h5>
+           <h5 class="text-center text-white mt-4">Qui puoi visualizzare le richieste ricevute e puoi svuotare la dashboard.</h5>
            <div class="containerTable mt-3 mb-5">
              <div class="table-responsive">
                <table class="tableDon table-sm">
@@ -109,10 +103,10 @@ session_start();
                </table>
              </div>
              <div class="d-flex justify-content-center mt-3">
-             <button id="pulisci" class="btn btn-secondary" onclick="svuotaDashboard(false);" disabled>
+             <button id="pulisci" class="btn btn-secondary" onclick="confermaCleanDashboard(false);" disabled>
                <div class="d-flex flex-column align-items-center">
                  <i class="fa fa-broom-ball fa-2x"></i>
-                 <span class="text-center">Pulisci dashboard</span>
+                 <span class="text-center">Svuota dashboard</span>
                </div>
              </button>
              </div>
@@ -125,8 +119,7 @@ session_start();
          <div class="d-flex align-items-center justify-content-center mt-4">
          <div class="speech-bubble  bg-primary myBubble">
            <h2 class="text-center text-white mt-4">DASHBOARD</h2>
-           <h5 class="text-center text-white mt-4">Qui puoi visualizzare le richieste effettuate e puoi svuotare la dashboard<br>
-           Attenzione! Svuotando la dashboard, la svuoterai anche per l\'utente che ha caricato i prodotti in quanto confermi di essere già in contatto con l.</h5>
+           <h5 class="text-center text-white mt-4">Qui puoi visualizzare le richieste effettuate e puoi svuotare la dashboard</h5>
            <div class="containerTable mt-3 mb-5">
              <div class="table-responsive">
                <table class="tableDon table-sm">
@@ -144,10 +137,10 @@ session_start();
                </table>
              </div>
              <div class="d-flex justify-content-center mt-3">
-             <button id="pulisci" class="btn btn-secondary" onclick="svuotaDashboard(true);" disabled>
+             <button id="pulisci" class="btn btn-secondary" onclick="confermaCleanDashboard(true);" disabled>
                <div class="d-flex flex-column align-items-center">
                  <i class="fa fa-broom-ball fa-2x"></i>
-                 <span class="text-center">Pulisci dashboard</span>
+                 <span class="text-center">Svuota dashboard</span>
                </div>
              </button>
              </div>

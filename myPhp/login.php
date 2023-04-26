@@ -40,7 +40,7 @@
         }
       }
       else {
-        $_SESSION["login_error_unreg"] = "L'utente non è registrato, clicca OK per registrarti.";
+        $_SESSION["login_error_unreg"] = "L'utente non è registrato. Vuoi registrarti o riprovare il login?";
       }
     ?>
     <script>
@@ -60,15 +60,19 @@
     }
     if (isset($_SESSION["login_error_unreg"])) {
       echo 'Swal.fire({
-        icon: "error",
         title: "Oops...",
-        text: "' . $_SESSION["login_error_unreg"] . '",
-        allowOutsideClick: false
+        text: "'.$_SESSION["login_error_unreg"].'",
+        icon: "error",
+        showDenyButton: true,
+        confirmButtonText: "Sign in",
+        denyButtonText: "Ritenta Login",
       }).then((result) => {
         if (result.isConfirmed) {
           window.location.href = "../pages/sigin.php";
+        } else if (result.isDenied) {
+          window.location.href = "../pages/index.php";
         }
-      });';
+      })';
       unset($_SESSION["login_error_unreg"]);
     }
     ?>
