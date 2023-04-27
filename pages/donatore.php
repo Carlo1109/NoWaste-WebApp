@@ -29,7 +29,7 @@ session_start();
           <div class="ricerca">
 						<form class="d-flex" name="search" role="search" onsubmit="searchWeb(event)">
 							<input class="form-control me-2" type="search" placeholder="Cerca sul web..." aria-label="Search" id="searchText" name="searchText">
-							<button class="btn btn-outline-success" type="submit">Search</button>
+							<button class="btn btn-outline-success" type="submit"><i class="fab fa-google fa-fw"></i></button>
 						</form>
 					</div>
         </div>
