@@ -133,9 +133,9 @@ session_start();
 				<div class="col-md-4 mx-auto text-center">
 					<h4 class="titleFooter">Contatti</h4>
 					<ul class="list-unstyled">
-          <li id="indirizzo">Indirizzo: <a style="cursor: pointer;" onmouseover="this.style.color='#aaa'" onmouseout="this.style.color='#fff'" onclick="openMap();">Viale Scalo San Lorenzo, Roma</a></li>
-						<li>Telefono: <a href="tel:06-1234567">06 1234567</a></li>
-						<li>Email: <a href="mailto:info@nowaste.com">info@nowaste.com</a></li>
+						<li id="indirizzo">Indirizzo: <a style="cursor: pointer;" onmouseover="this.style.color='#aaa'" onmouseout="this.style.color='#fff'" onclick="openMap();">Viale Scalo San Lorenzo, Roma <i class="fa fa-map-marker fa-fw"></i></a></li>
+						<li>Telefono: <a href="tel:06-1234567">06 1234567 <i class="fa fa-phone fa-fw"></i></a></li>
+						<li>Email: <a href="mailto:info@nowaste.com">info@nowaste.com <i class="fa fa-mail-bulk fa-fw"></i></a></li>
 					</ul>
 				</div>
 				<div class="col-md-4 mx-auto text-center">
