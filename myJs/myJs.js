@@ -523,18 +523,23 @@ function caricaMieDonazioni() {
 }
 function loadMieDonazioni(response) {
   const tableBody = $('#tableBodyMieDon');
-  var num = 1;
-  $.each(response, function(index, prodotto) {
-    const newRow = $('<tr>');
-    const cellNum = $('<td>').addClass('tdDon').text(num);
-    newRow.append(cellNum);
-    for (let i = 0; i <= 11; i++) {
-      const newCell = $('<td>').addClass('tdDon').text(prodotto[i]);
-      newRow.append(newCell);
-    }
-    tableBody.append(newRow);
-    num += 1;
-  });
+  if (response.length == 0) {
+    tableBody.html('<tr><td colspan="14" class="text-center tdDon"><h6>Nessuna donazione monetaria presente</h6></td></tr>');
+  }
+  else{
+    var num = 1;
+    $.each(response, function(index, prodotto) {
+      const newRow = $('<tr>');
+      const cellNum = $('<td>').addClass('tdDon').text(num);
+      newRow.append(cellNum);
+      for (let i = 0; i <= 11; i++) {
+        const newCell = $('<td>').addClass('tdDon').text(prodotto[i]);
+        newRow.append(newCell);
+      }
+      tableBody.append(newRow);
+      num += 1;
+    });
+  }
 }
 
 function eliminaTutti(){
@@ -582,7 +587,7 @@ function searchWeb(event) {
 function openMap() {
   Swal.fire({
     title: '<strong>Visualizza sulla mappa</strong>',
-    html: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.8348142993414!2d12.51837777598391!3d41.896409471239764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6185205c9bfd%3A0x773e8360f9a9e5e!2sEdificio%20Marco%20Polo!5e0!3m2!1sit!2sit!4v1682516415519!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
+    html: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2969.8348142993414!2d12.51837777598391!3d41.896409471239764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f6185205c9bfd%3A0x773e8360f9a9e5e!2sEdificio%20Marco%20Polo!5e0!3m2!1sit!2sit!4v1682516415519!5m2!1sit!2sit" width="400" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>',
     showCloseButton: true,
     showConfirmButton: false,
     allowOutsideClick: false
@@ -656,6 +661,7 @@ function confermaCleanDashboard(assoc){
       showDenyButton: true,
       confirmButtonText: 'Si',
       denyButtonText: `No`,
+      allowOutsideClick: false,
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire('Dashboard svuotata con successo', '', 'success')
@@ -673,6 +679,7 @@ function confermaCleanDashboard(assoc){
       showDenyButton: true,
       confirmButtonText: 'Si',
       denyButtonText: `No`,
+      allowOutsideClick: false,
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire('Dashboard svuotata con successo', '', 'success')
