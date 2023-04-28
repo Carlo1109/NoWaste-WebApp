@@ -26,10 +26,10 @@ app.component("myfooter", {
 					</div>
 					<div class="col-md-4 mx-auto text-center">
 						<h4 class="titleFooter">Newsletter</h4>
-						<p>Iscriviti alla nostra newsletter per ricevere tutte le novità</p>
-						<form>
+						<p>Iscriviti alla newsletter NoWaste per ricevere tutte le novità</p>
+						<form method="post" action="../myPhp/newsletter.php">
 							<div class="input-group mb-3">
-								<input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" required>
+								<input type="email" name="emailIscritto" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" required>
 								<input type="submit" class="btn btn-outline-secondary" id="button-addon2" value="Invia">
 							</div>
 						</form>

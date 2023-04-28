@@ -41,9 +41,34 @@ session_start();
 						<?php
 	if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] != true) {
 		echo '<li class="nav-item">
-		<a class="nav-link" href="#" onclick="return false;">Area privata</a>
-	</li></ul><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">LOGIN</button><div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="loginTitle text-black" id="exampleModalLabel">Login</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><form method="post" action="../myPhp/login.php" name="loginForm" onsubmit="return checkLogin();"><div class="form-floating mb-3"><input type="email" name="username" class="form-control" id="username" placeholder="Inserisci l\'email"><label for="username" class="text-black">Email</label></div><div class="form-floating mb-3"><input type="password"  name="psw" class="form-control" id="psw" placeholder="Password"><label for="psw" class="text-black">Password</label></div></div><div class="modal-footer"><input type="submit" class="btn btn-primary" value="Login"><a href="sigin.php"><button type="button" class="btn btn-secondary">Sign in</button></a></div></form></div></div></div>';
+				<a class="nav-link" href="#" onclick="return false;">Area privata</a>
+				</li></ul><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">LOGIN</button>
+				<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="loginTitle text-black" id="exampleModalLabel">Login</h4>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body text-center">
+							<form method="post" action="../myPhp/login.php" name="loginForm" onsubmit="return checkLogin();">
+								<div class="form-floating mb-3">
+									<input type="email" name="username" class="form-control" id="username" placeholder="Inserisci l\'email">
+									<label for="username" class="text-black">Email</label>
+								</div>
+								<div class="form-floating mb-3">
+									<input type="password"  name="psw" class="form-control" id="psw" placeholder="Password">
+									<label for="psw" class="text-black">Password</label>
+								</div>
+								<div class="modal-footer justify-content-center">
+									<input type="submit" class="btn btn-primary text-center" value="Login">
+								</div>
+							</form>
+							<p class="text-muted">Non hai un account? <a href="sigin.php">Registrati</a></p>
+						</div>
+					</div>
+				</div>
+			</div>';
 	}
 	else if ($_SESSION['logged_in'] == true) {
 		echo '<li class="nav-item"><a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina('.$_SESSION["assBoolean"].');">Area privata</a>
