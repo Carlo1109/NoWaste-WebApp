@@ -48,12 +48,14 @@
     else
       $isCeliaco = 0;
     $scad = $_POST["scad"];
+    $datetime = DateTime::createFromFormat('Y-m-d', $scad);
+    $formatted_scad = $datetime->format('d-m-Y');
     $descrizione = $_POST["descrizione"];
 
     $fileContent = file_get_contents($fileTmpPath);
     $fileContent = pg_escape_bytea($fileContent); 
 
-    $query = "INSERT INTO immagini (email,titolo,marca,isvegano,isvegetariano,isceliaco,scad,descrizione,immagine) VALUES ('$email','$titolo','$marca','$isVegano','$isVegetariano','$isCeliaco','$scad','$descrizione','$fileContent')";
+    $query = "INSERT INTO immagini (email,titolo,marca,isvegano,isvegetariano,isceliaco,scad,descrizione,immagine) VALUES ('$email','$titolo','$marca','$isVegano','$isVegetariano','$isCeliaco','$formatted_scad','$descrizione','$fileContent')";
     $result = pg_query($dbconn, $query);
 
     if ($result) {

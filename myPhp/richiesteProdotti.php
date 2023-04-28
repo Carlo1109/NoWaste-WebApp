@@ -6,7 +6,7 @@ $dbcon = pg_connect("host=localhost user=postgres password=ltwsql port=5432 dbna
 $data = json_decode(file_get_contents('php://input'), true);
 
 // Inserisci i dati nella tabella richieste Postgres
-$darichiesta = date('Y-m-d');
+$darichiesta = date('d-m-Y');
 foreach ($data as $row) {
   $prodotto = pg_escape_string($row['prodotto']);
   $quantita = pg_escape_string($row['quantita']);

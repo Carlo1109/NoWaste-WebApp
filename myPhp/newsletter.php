@@ -25,7 +25,7 @@
           $_SESSION["alreadyPres"] = "Questa email è già presente nel database.";
       } else {
           // Inserisci i dati nella tabella richieste Postgres
-          $dataiscrizione = date('Y-m-d');
+          $dataiscrizione = date('d-m-Y');
           $query = "INSERT INTO iscrittinewsletter (iscritto, dataiscrizione) VALUES ('$iscritto', '$dataiscrizione')";
           $result = pg_query($dbcon, $query);
           if($result)

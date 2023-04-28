@@ -20,15 +20,17 @@
     $email = $_POST["email"];
     $telefono = $_POST["telefono"];
     $nascita = $_POST["birthdate"];
+    $datetime = DateTime::createFromFormat('Y-m-d', $nascita);
+    $formatted_birth = $datetime->format('d-m-Y');
     $paese = $_POST["country"];
     $provincia = $_POST["province"];
     $citta = $_POST["city"];
     $cap = $_POST["cap"];
     $indirizzo = $_POST["address"];
     $importo = $_POST["amount"];
-    $datadon = date('Y-m-d');
+    $datadon = date('d-m-Y');
 
-    $query = "INSERT INTO monetaria (nome,cognome,email,telefono,nascita,paese,provincia,citta,cap,indirizzo,importo,datadon) VALUES ('$nome','$cognome','$email','$telefono','$nascita','$paese','$provincia','$citta','$cap','$indirizzo','$importo','$datadon')";
+    $query = "INSERT INTO monetaria (nome,cognome,email,telefono,nascita,paese,provincia,citta,cap,indirizzo,importo,datadon) VALUES ('$nome','$cognome','$email','$telefono','$formatted_birth','$paese','$provincia','$citta','$cap','$indirizzo','$importo','$datadon')";
     $result = pg_query($dbconn, $query);
 
     if ($result) {

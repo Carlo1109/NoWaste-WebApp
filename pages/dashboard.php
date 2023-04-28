@@ -123,7 +123,7 @@ session_start();
               </table>
             </div>
             <div class="d-flex justify-content-center mt-4">
-              <button id="pulisci" class="btn btn-outline-danger" onclick="confermaCleanDashboard(false);" disabled>
+              <button id="pulisci" class="btn btn-outline-danger" onclick="confermaCleanDashboard(true);" disabled>
                 <i class="fas fa-broom me-2"></i>
                 <span>Svuota dashboard</span>
               </button>
