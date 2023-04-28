@@ -185,7 +185,6 @@ window.addEventListener('scroll', function() {
     pulsanteScrollUp.style.display = 'none';
   }
 });
-
 function scrollaPaginaSu() {
   window.scroll({top: 0, behavior: 'smooth'});
 }

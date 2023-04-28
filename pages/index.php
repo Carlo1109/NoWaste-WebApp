@@ -18,35 +18,26 @@ session_start();
 		<script src="../libraries/jQuery.min.js"></script>
 		<script src="../myJs/myJs.js"></script>
     <script src="../libraries/sweetalert2.all.min.js"></script>
+		<script src="../libraries/vue.js"></script>
 	</head>
 	<body>
 		<header>
-		<nav class="navbar navbar-expand-lg bg-gr">
-        <div class="container">
-          <div class="logo">
-            <img src="../src/logo.png" class="imLog" alt="Logo NoWaste">
-          </div>
-          <div class="ricerca">
-						<form class="d-flex" name="search" role="search" onsubmit="searchWeb(event)">
-							<input class="form-control me-2" type="search" placeholder="Cerca sul web..." aria-label="Search" id="searchText" name="searchText">
-							<button class="btn btn-outline-success" type="submit"><i class="fab fa-google fa-fw"></i></button>
-						</form>
-					</div>
-        </div>
-      </nav>
-      <nav class="navbar navbar-expand-lg myNav" id="navHome">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="fa fa-navicon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active selected-text" aria-current="page" href="index.php">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="soldi.php">Donazioni</a>
-              </li>
+			<div id="logosearch">
+        <mylogosearch></mylogosearch>
+      </div>
+			<nav class="navbar navbar-expand-lg myNav" id="navHome">
+				<div class="container-fluid">
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="fa fa-navicon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link active selected-text" aria-current="page" href="index.php">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" href="soldi.php">Donazioni</a>
+							</li>
 						<?php
 	if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] != true) {
 		echo '<li class="nav-item">
@@ -58,11 +49,12 @@ session_start();
 		echo '<li class="nav-item"><a class="nav-link active" style="cursor: pointer;" onclick="return decidiPagina('.$_SESSION["assBoolean"].');">Area privata</a>
 	</li> </ul><div class="dropdown"><a class="btn dropdown-toggle" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"><li class="Myitem-dropdown"><h6>Email:</h6> '.$_SESSION["username"].' </li><hr class="dropdown-divider"><li><a class="dropdown-item" style="cursor: pointer;" href="dashboard.php">Dashboard</a></li><li><a class="dropdown-item" style="cursor: pointer;" href="mieDonazioni.php">Le mie donazioni monetarie</a></li><li><a class="dropdown-item" href="datiUtente.php">Dati utente</a></li><hr class="dropdown-divider"><li><a class="dropdown-item" onclick="showConfirm();">Elimina profilo</a></li></ul></div>
 
-<button type="button" class="btn btn-danger" onclick="goToLogout();">LOGOUT</button>';
+	<button type="button" class="btn btn-danger" onclick="goToLogout();">LOGOUT</button>';
 	}
-?>
-      </nav>
-    </header>
+	?>
+			</nav>
+		</header>
+
 		<div class="container">
 			<div class="jumbotron">
 				<div class="row d-flex align-items-center">
@@ -178,40 +170,13 @@ session_start();
 				</div>
 			</div>
 		</div>
-		<footer class="bg-dark text-white">
-			<div class="container">
-				<div class="row">
-				<div class="col-md-4 mx-auto text-center">
-					<h4 class="titleFooter">Contatti</h4>
-					<ul class="list-unstyled">
-						<li id="indirizzo">Indirizzo: <a style="cursor: pointer;" onmouseover="this.style.color='#aaa'" onmouseout="this.style.color='#fff'" onclick="openMap();">Viale Scalo San Lorenzo, Roma <i class="fa fa-map-marker fa-fw"></i></a></li>
-						<li>Telefono: <a href="tel:06-1234567">06 1234567 <i class="fa fa-phone fa-fw"></i></a></li>
-						<li>Email: <a href="mailto:info@nowaste.com">info@nowaste.com <i class="fa fa-mail-bulk fa-fw"></i></a></li>
-					</ul>
-				</div>
-				<div class="col-md-4 mx-auto text-center">
-						<h4 class="titleFooter">Social</h4>
-						<ul class="list-unstyled-icon">
-							<li><a href="https://it-it.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a></li>
-							<li><a href="https://twitter.com/?lang=it" target="_blank"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-						</ul>
-					</div>
-					<div class="col-md-4 mx-auto text-center">
-						<h4 class="titleFooter">Newsletter</h4>
-						<p>Iscriviti alla nostra newsletter per ricevere tutte le novità</p>
-						<form>
-							<div class="input-group mb-3">
-								<input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" required>
-								<input type="submit" class="btn btn-outline-secondary" id="button-addon2" value="Invia">
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
+		<footer class="bg-dark text-white" id="footernowaste">
+			<myfooter></myfooter>			
 		</footer>
 		<button id="pulsante-scroll-up" class="btn btn-primary rounded-circle" onclick="scrollaPaginaSu()">
 			<i class="fas fa-arrow-up"></i>
 		</button>
+		<script src="../myJs/myFooter.js"></script>
+		<script src="../myJs/myLogo&Search.js"></script>
 	</body>
 </html>
