@@ -266,8 +266,7 @@ function aggiungiCarrello(pulsante) {
 }
 
 function resetAllCarrello() {
-  const tableBody = document.querySelector('#tableCarrello');
-  tableBody.innerHTML = '';
+  $('#tableCarrello').empty();
 }
 
 function checkCarrello(richiedente) {
@@ -323,7 +322,7 @@ function checkCarrello(richiedente) {
 
 function scrollaHome() {
   const container = $('#navHome');
-  const yOffset = container.offset().top - 100;
+  const yOffset = container.offset().top;
   $('html, body').scrollTop(yOffset);
 }
 
