@@ -380,11 +380,26 @@ function loadPaginaDonatore(response) {
         <img src="'+srcImmagine+'" class="card-img-top" width="200" height="300" alt="Image">\
         <div class="card-body\">\
           <h5 class="card-title">'+nomecard+'-'+marca+'</h5>\
-          <p class="card-text">'+descrizione+'</p>\
-          <p class="card-text">Prodotto vegano: '+isvegano+'</p>\
-          <p class="card-text">Prodotto vegetariano: '+isvegetariano+'</p>\
-          <p class="card-text">Prodotto celiaco: '+isceliaco+'</p>\
-          <p class="card-text">Consumarsi preferibilmente entro: '+scad+'</p>\
+          <p class="card-text">'+descrizione+'</p>';
+          if(isvegano=='t'){
+            htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegano: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
+          }
+          else if(isvegano=='f'){
+            htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegano: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
+          }
+          if(isvegetariano=='t'){
+            htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegetariano: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
+          }
+          else if(isvegetariano=='f'){
+            htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegetariano: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
+          }
+          if(isceliaco=='t'){
+            htmlSource+='<p style="display: flex; align-items: center;">Prodotto celiaco: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
+          }
+          else if(isceliaco=='f'){
+            htmlSource+='<p style="display: flex; align-items: center;">Prodotto celiaco: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
+          }
+          htmlSource+='<p class="card-text">Consumarsi preferibilmente entro: '+scad+'</p>\
         </div>\
       </div>\
     </div>';
@@ -477,11 +492,26 @@ function loadPaginaAssociazione(response){
             <div class="card-body\">\
               <h5 class="card-title">'+nomecard+'-'+marca+'</h5>\
               <p class="card-text">Caricato da: <span id="utente">'+utente+'</span></p>\
-              <p class="card-text">'+descrizione+'</p>\
-              <p class="card-text">Prodotto vegano: '+isvegano+'</p>\
-              <p class="card-text">Prodotto vegetariano: '+isvegetariano+'</p>\
-              <p class="card-text">Prodotto celiaco: '+isceliaco+'</p>\
-              <p class="card-text">Consumarsi preferibilmente entro: '+scad+'</p>\
+              <p class="card-text">'+descrizione+'</p>';
+              if(isvegano=='t'){
+                htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegano: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
+              }
+              else if(isvegano=='f'){
+                htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegano: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
+              }
+              if(isvegetariano=='t'){
+                htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegetariano: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
+              }
+              else if(isvegetariano=='f'){
+                htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegetariano: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
+              }
+              if(isceliaco=='t'){
+                htmlSource+='<p style="display: flex; align-items: center;">Prodotto celiaco: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
+              }
+              else if(isceliaco=='f'){
+                htmlSource+='<p style="display: flex; align-items: center;">Prodotto celiaco: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
+              }
+              htmlSource+='<p class="card-text">Consumarsi preferibilmente entro: '+scad+'</p>\
             </div>\
               <div class="input-group mb-3 justify-content-center">\
                 <div class="input-group-prepend">\
