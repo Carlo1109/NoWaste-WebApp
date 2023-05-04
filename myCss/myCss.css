@@ -350,3 +350,30 @@ td {
   border-color: black;
   border-radius: 5%;
 }
+
+.fa-check{
+  color:#20c320;
+}
+
+.fa-times{
+  color: crimson;
+}
+
+#scorriPagine {
+  opacity: 0; 
+  animation: fade-in 0.5s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1; 
+  }
+}
+
+#scorriPagineDon {
+  opacity: 0; 
+  animation: fade-in 0.5s ease-in-out forwards;
+}

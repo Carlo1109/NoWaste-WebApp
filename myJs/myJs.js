@@ -236,7 +236,7 @@ function aggiungiCarrello(pulsante) {
     $(this).find('td:last').empty().append(removeButton);
   
     rowFound = true;
-    return false; //exit loop if row is found
+    return false;
   }
   });
   //Aggiungo riga se il prodotto non esiste
@@ -405,8 +405,11 @@ function loadPaginaDonatore(response) {
     </div>';
     i+=1;
   }
+  container = document.getElementById("scorriPagineDon");
+  container.innerHTML = "";
   htmlSource+='</div>';
-  document.getElementById("scorriPagineDon").innerHTML=htmlSource;
+  container.innerHTML=htmlSource;
+  container.style.opacity = 1;
 }
 
 function loadEliminaProdotti(response){
@@ -468,6 +471,7 @@ function caricaAssociazione() {
 }
 function loadPaginaAssociazione(response){
   const container = document.querySelector('#scorriPagine');
+  container.innerHTML = "";
       var htmlSource = '<div class="row mt-5 mb-3">';
       var i = 0;
       for(const prodotto of response){
@@ -534,6 +538,7 @@ function loadPaginaAssociazione(response){
       }
       htmlSource+='</div>';
       container.innerHTML = htmlSource;
+      container.style.opacity = 1;
 }
 
 //AJAX per recuperare dal server il database delle donazioni per la pagina mieDonazioni
