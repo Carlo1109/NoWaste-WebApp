@@ -209,7 +209,7 @@ function aggiungiCarrello(pulsante) {
   }, 800);
   }, 100);
   
-  const nomeProdotto = $(pulsante).parent().parent().parent().find('.card-title').text();
+  const nomeProdotto = $(pulsante).parent().parent().parent().find('#titoloCard').text();
   const quantita = parseInt($(pulsante).parent().parent().find('#quantita-select').val());
   const from = $(pulsante).parent().parent().parent().find('#utente').text();
   const tableBody = $('#tableCarrello');
@@ -491,12 +491,12 @@ function loadPaginaAssociazione(response){
         }
         htmlSource+='\
         <div class="col-md-4">\
-          <div class="card cardDonatore" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
+          <div class="card cardAssociazione" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
+          <div class="cardAssociazione-front">\
             <img src="'+srcImmagine+'" class="card-img-top" width="200" height="300" alt="Pasta al pomodoro">\
             <div class="card-body\">\
-              <h5 class="card-title">'+nomecard+'-'+marca+'</h5>\
-              <p class="card-text">Caricato da: <span id="utente">'+utente+'</span></p>\
-              <p class="card-text">'+descrizione+'</p>';
+              <h5 class="card-title info"><a onclick="rotateCard(this)"><span id="titoloCard">'+nomecard+'-'+marca+'</span> <i class="fas fa-info-circle"></i></a><span class="info-box">Clicca per ruotare e mostrare scadenza e descrizione</span></h5>\
+              <p class="card-text">Caricato da: <span id="utente">'+utente+'</span></p>';
               if(isvegano=='t'){
                 htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegano: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
               }
@@ -515,7 +515,7 @@ function loadPaginaAssociazione(response){
               else if(isceliaco=='f'){
                 htmlSource+='<p style="display: flex; align-items: center;">Prodotto celiaco: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
               }
-              htmlSource+='<p class="card-text">Consumarsi preferibilmente entro: '+scad+'</p>\
+              htmlSource+='\
             </div>\
               <div class="input-group mb-3 justify-content-center">\
                 <div class="input-group-prepend">\
@@ -531,6 +531,20 @@ function loadPaginaAssociazione(response){
                 <div class="input-group-append">\
                   <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi   al carrello</button>\
               </div>\
+            </div>\
+            </div>\
+            <div class="cardAssociazione-back">\
+              <p class="card-text">Consumarsi preferibilmente entro: '+scad+'</p>';
+              if(descrizione==''){
+                htmlSource += '<p class="card-text">Nessuna descrizione per il prodotto.</p>\
+                <a onclick="rotateCard(this)"><i class="fas fa-undo fa-3x"></i></a>';
+              }
+              else{
+                htmlSource += '\
+                <p class="card-text">Descrizione: '+descrizione+'</p>\
+                <a onclick="rotateCard(this)"><i class="fas fa-undo fa-3x"></i></a>';
+              }
+              htmlSource += '\
             </div>\
           </div>\
         </div>';
@@ -626,7 +640,7 @@ function openMap() {
     allowOutsideClick: false
   });
   var popup = document.querySelector('.swal2-popup');
-  popup.style.backgroundColor = '#1E90FF';
+  popup.style.backgroundColor = '#422aff';
 }
 
 //AJAX per recuperare dal server il database delle richieste per la Dashboard
@@ -723,3 +737,9 @@ function confermaCleanDashboard(assoc){
     })
   }
 }
+
+function rotateCard(link) {
+  const card = link.closest('.cardAssociazione');
+  card.classList.toggle('flipped');
+}
+

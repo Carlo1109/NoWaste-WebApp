@@ -333,10 +333,6 @@ td {
   word-wrap: break-word;
 }
 
-.cardDonatore{
-  height: 700px;
-}
-
 .cardDashboard{
   background-color: #FFCC80;
   box-shadow: 0px 4px 10px rgba(0, 0, 0.5, 0.5);
@@ -376,4 +372,85 @@ td {
 #scorriPagineDon {
   opacity: 0; 
   animation: fade-in 0.5s ease-in-out forwards;
+}
+
+.cardDonatore{
+  height: 650px;
+  background: linear-gradient(to bottom, #d6eadd, #00ad0667);
+}
+
+.cardAssociazione {
+  height: 600px;
+  perspective: 1000px;
+}
+
+.cardAssociazione-front, .cardAssociazione-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+}
+
+.cardAssociazione-front {
+  background: linear-gradient(to bottom, #d6e8ea, #05618f67);
+
+}
+
+.cardAssociazione-back {
+  background: linear-gradient(to bottom, #2C3E50, #3498DB);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transform: rotateY(180deg);
+}
+
+.cardAssociazione-back p {
+  font-size: 1.1em;
+  color: black;
+}
+
+.cardAssociazione-back i {
+  font-size: 2em;
+  margin-top: 10px;
+}
+
+.cardAssociazione.flipped .cardAssociazione-front {
+  transform: rotateY(180deg);
+}
+
+.cardAssociazione.flipped .cardAssociazione-back {
+  transform: rotateY(0deg);
+}
+
+.info {
+  position: relative;
+  text-align: center;
+}
+
+.info-box {
+  position: absolute;
+  top: -30px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  display: none; 
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap; 
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.info:hover .info-box {
+  display: block;
+  opacity: 1;
+}
+
+.fa-undo:hover {
+  color: green;
 }
