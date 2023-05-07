@@ -76,7 +76,7 @@ session_start();
 ?>
       </nav>
     </header>
-    <div class="form-container">
+    <div class="form-container mt-5 mb-5">
       <h2>Registrazione</h2>
       <form method="post" action="../myPhp/register.php" name="registrazioneForm" onsubmit="return checkRegistrazione()">
         <div class="mb-2">

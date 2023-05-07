@@ -104,8 +104,8 @@ session_start();
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">Prodotto</th>
-                    <th scope="col">Consumarsi preferibilmente entro:</th>
+                    <th class="text-center" scope="col">Prodotto</th>
+                    <th class="text-center" scope="col">Consumarsi preferibilmente entro:</th>
                   </tr>
                 </thead>
                 <tbody id="tableElimina">

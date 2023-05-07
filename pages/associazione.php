@@ -100,9 +100,9 @@ session_start();
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">Prodotto</th>
-                    <th scope="col">Quantità</th>
-                    <th scope="col">Caricato da</th>
+                    <th class="text-center" scope="col">Prodotto</th>
+                    <th class="text-center" scope="col">Quantità</th>
+                    <th class="text-center" scope="col">Caricato da</th>
                   </tr>
                 </thead>
                 <tbody id="tableCarrello">

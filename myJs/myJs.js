@@ -242,9 +242,9 @@ function aggiungiCarrello(pulsante) {
   //Aggiungo riga se il prodotto non esiste
   if (!rowFound) {
   const newRow = $('<tr>');
-  const nameCell = $('<td>').text(nomeProdotto);
-  const quantityCell = $('<td>').text(quantita);
-  const fromCell = $('<td>').text(from);
+  const nameCell = $('<td>').addClass("text-center").text(nomeProdotto);
+  const quantityCell = $('<td>').addClass("text-center").text(quantita);
+  const fromCell = $('<td>').addClass("text-center").text(from);
   const removeButton = $('<button>').html('<i class="fas fa-trash"></i>').addClass('btn btn-danger btn-sm mx-1 rimuovi-button');
   removeButton.on('click', function() {
   const row = $(this).parent().parent();
@@ -412,47 +412,34 @@ function loadPaginaDonatore(response) {
   container.style.opacity = 1;
 }
 
-function loadEliminaProdotti(response){
-  const tableBody = document.querySelector('#tableElimina');
-  const eliminaTuttoButton = document.querySelector('#eliminaTutto')
-  for(const prodotto of response){
-    nome = prodotto[2];
-    scad = prodotto[7];
-    const newRow = document.createElement('tr');
-    const nameCell = document.createElement('td');
-    nameCell.textContent = nome;
-    const scadenzaCell = document.createElement('td');
-    scadenzaCell.textContent = scad;
-    const removeButton = document.createElement('button');
-    removeButton.innerHTML = '<i class="fas fa-trash"></i>'; 
-    removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'mx-1', 'rimuovi-button');
-    removeButton.addEventListener('click', function() {
-      const row = this.parentNode.parentNode;
-      const nomeProdotto = row.cells[0].textContent;
-      const scadenzaProdotto = row.cells[1].textContent;
+function loadEliminaProdotti(response) {
+  const tableBody = $('#tableElimina');
+  const eliminaTuttoButton = $('#eliminaTutto');
+  for (const prodotto of response) {
+    const nome = prodotto[2];
+    const scad = prodotto[7];
+    const newRow = $('<tr>');
+    const nameCell = $('<td>').text(nome).addClass('text-center');
+    const scadenzaCell = $('<td>').text(scad).addClass('text-center');
+    const removeButton = $('<button>').html('<i class="fas fa-trash"></i>').addClass('btn btn-danger btn-sm mx-1 rimuovi-button');
+    removeButton.on('click', function() {
+      const row = $(this).parent().parent();
+      const nomeProdotto = row.find('td:first').text();
+      const scadenzaProdotto = row.find('td:nth-child(2)').text();
       row.remove();
 
-      const xhr = new XMLHttpRequest();
-      xhr.open('POST', '../myPhp/eliminaProdotto.php', true);
-      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-      xhr.onload = function() {
-        if (this.status === 200) {
-          console.log(this.responseText);
-        }
-      }
-      xhr.send('titolo=' + nomeProdotto + '&scad=' + scadenzaProdotto);
+      $.post('../myPhp/eliminaProdotto.php', {titolo: nomeProdotto, scad: scadenzaProdotto}, function(data) {
+        console.log(data);
+      });
     });
-    const removeCell = document.createElement('td');
-    removeCell.appendChild(removeButton);
-    newRow.appendChild(nameCell);
-    newRow.appendChild(scadenzaCell);
-    newRow.appendChild(removeCell);
-    tableBody.appendChild(newRow);
+    const removeCell = $('<td>').append(removeButton);
+    newRow.append(nameCell, scadenzaCell, removeCell);
+    tableBody.append(newRow);
   }
-  if (tableBody.childElementCount > 0) {
-    eliminaTuttoButton.disabled = false;
+  if (tableBody.children().length > 0) {
+    eliminaTuttoButton.prop('disabled', false);
   } else {
-    eliminaTuttoButton.disabled = true;
+    eliminaTuttoButton.prop('disabled', true);
   }
 }
 

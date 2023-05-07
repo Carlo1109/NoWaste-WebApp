@@ -34,7 +34,7 @@
     $result = pg_query($dbconn, $query);
 
     if ($result) {
-      $_SESSION["donazioneAvvenuta"] = "Donazione monetaria avvenuta con successo";
+      $_SESSION["donazioneAvvenuta"] = "Donazione monetaria avvenuta con successo. Ti ringraziamo per il tuo gesto!";
     } else {
         echo "Errore durante il pagamento: " . pg_last_error();
     }
