@@ -9,7 +9,7 @@ app2.component("mylogosearch", {
   <nav class="navbar navbar-expand-lg bg-gr">
         <div class="container">
           <div class="logo">
-            <img src="../src/logo.png" class="imLog" alt="Logo NoWaste">
+            <a href="index.php"><img src="../src/logo.png" class="imLog" alt="Logo NoWaste"></a>
           </div>
           <div class="ricerca">
 						<form class="d-flex" name="search" role="search" onsubmit="searchWeb(event)">

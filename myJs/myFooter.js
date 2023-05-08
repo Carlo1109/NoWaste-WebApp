@@ -16,7 +16,7 @@ app.component("myfooter", {
 						<li>Email: <a href="mailto:info@nowaste.com">info@nowaste.com <i class="fa fa-mail-bulk fa-fw"></i></a></li>
 					</ul>
 				</div>
-				<div class="col-md-4 mx-auto text-center">
+				<div class="col-md-4 mx-auto text-center" style="display: flex; flex-direction: column;">
 						<h4 class="titleFooter">Social</h4>
 						<ul class="list-unstyled-icon">
 							<li><a href="https://it-it.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a></li>
