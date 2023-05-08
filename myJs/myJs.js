@@ -375,7 +375,7 @@ function loadPaginaDonatore(response) {
       i=0;
     }
     htmlSource+='\
-    <div class="col-md-4">\
+    <div class="col-md-4 my-col">\
       <div class="card cardDonatore" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
         <img src="'+srcImmagine+'" class="card-img-top" width="200" height="300" alt="Image">\
         <div class="card-body\">\
@@ -477,7 +477,7 @@ function loadPaginaAssociazione(response){
           i=0;
         }
         htmlSource+='\
-        <div class="col-md-4" con "col-lg-4 col-md-6 col-sm-12">\
+        <div class="col-md-4 my-col" >\
           <div class="card cardAssociazione" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
           <div class="cardAssociazione-front">\
             <img src="'+srcImmagine+'" class="card-img-top" width="200" height="300" alt="Pasta al pomodoro">\

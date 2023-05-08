@@ -83,12 +83,12 @@ session_start();
       
       </div>
       
-      <div id="containerBasket" class="mt-5 containermb-4 d-flex justify-content-center align-items-center">
-        <button class="cestino btn btn-info d-flex flex-column align-items-center justify-content-center w-25" onclick="window.location.href = 'formDonatore.html';">
+      <div id="containerBasket" class="mt-5 containermb-4 d-flex justify-content-between align-items-center">
+        <button class="cestino btn btn-info d-flex flex-column align-items-center justify-content-center w-25 mx-3" onclick="window.location.href = 'formDonatore.html';">
           <i class="fas fa-book fa-5x"></i>
           Aggiugni prodotti
         </button>
-        <button class="m-lg-3 cestino btn btn-info d-flex flex-column align-items-center justify-content-center w-25" data-bs-toggle="modal" data-bs-target="#modalElimina">
+        <button class="m-lg-3 cestino btn btn-info d-flex flex-column align-items-center justify-content-center w-25 mx-3" data-bs-toggle="modal" data-bs-target="#modalElimina">
           <i class="fas fa-trash fa-5x"></i>
           Elimina prodotti
         </button>
