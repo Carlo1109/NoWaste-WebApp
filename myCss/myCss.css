@@ -404,7 +404,7 @@ td {
 }
 
 /* cardAssociazione stile per grandi schermi */
-@media (min-width: 1992px) {
+@media (min-width: 992px) {
   .cardAssociazione {
     height: 600px;
     perspective: 1000px;
@@ -412,7 +412,7 @@ td {
 }
 
 /* cardAssociazione stile per dispositivi mobili */
-@media (max-width: 1991px) {
+@media (max-width: 991px) {
   .cardAssociazione {
     height: 700px;
     perspective: 1000px;
