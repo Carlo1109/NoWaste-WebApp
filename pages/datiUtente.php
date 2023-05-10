@@ -63,125 +63,131 @@ $userData = pg_fetch_assoc($result);
     </header>
 
 		<div class="container">
-    <h1 class="text-center mb-4 mt-4">Dati dell'utente</h1>
-		<form>
-    <?php
-      if($_SESSION["assBoolean"]){
-				echo '<div class="row">
-					<div class="col">
-						<div class="row align-items-center">
-							<div class="col-sm-4">
-								<label class="form-label">Nome Associazione</label>
-							</div>
-							<div class="col">
-								<input type="text" class="form-control mb-4" value="'.$userData['nomeass'].'" readonly>
-							</div>
-							<div class="col">
-								<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editNomeAss">Modifica campo</button>
-							</div>
-						</div>
-					</div>
-					</div>';
-      }
-      else{
-        if($userData['idaz']==''){
-					echo '<div class="row">
-					<div class="col">
-						<div class="row align-items-center">
-							<div class="col-sm-4">
-								<label class="form-label">Nome Donatore</label>
-							</div>
-							<div class="col">
-								<input type="text" class="form-control mb-4" value="'.$userData['nomep'].'" readonly>
-							</div>
-							<div class="col">
-								<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editNomeP">Modifica campo</button>
-							</div>
-						</div>
-					</div>
+			<div class="cardDati">
+				<div class="cardDati-header">
+					<h1 class="text-center cardDati-title">Dati dell'utente</h1>
 				</div>
-				<div class="row">
-					<div class="col">
-						<div class="row align-items-center">
-							<div class="col-sm-4">
-								<label class="form-label">Cognome Donatore</label>
+				<div class="cardDati-body">
+					<form>
+					<?php
+						if($_SESSION["assBoolean"]){
+							echo '<div class="row">
+								<div class="col">
+									<div class="row align-items-center">
+										<div class="col-sm-4">
+											<label class="form-label">Nome Associazione</label>
+										</div>
+										<div class="col">
+											<input type="text" class="form-control mb-4" value="'.$userData['nomeass'].'" readonly>
+										</div>
+										<div class="col">
+											<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editNomeAss">Modifica campo</button>
+										</div>
+									</div>
+								</div>
+								</div>';
+						}
+						else{
+							if($userData['idaz']==''){
+								echo '<div class="row">
+								<div class="col">
+									<div class="row align-items-center">
+										<div class="col-sm-4">
+											<label class="form-label">Nome Donatore</label>
+										</div>
+										<div class="col">
+											<input type="text" class="form-control mb-4" value="'.$userData['nomep'].'" readonly>
+										</div>
+										<div class="col">
+											<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editNomeP">Modifica campo</button>
+										</div>
+									</div>
+								</div>
 							</div>
+							<div class="row">
+								<div class="col">
+									<div class="row align-items-center">
+										<div class="col-sm-4">
+											<label class="form-label">Cognome Donatore</label>
+										</div>
+										<div class="col">
+											<input type="text" class="form-control mb-4" value="'.$userData['cognomep'].'" readonly>
+										</div>
+										<div class="col">
+											<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editCognomeP">Modifica campo</button>
+										</div>
+									</div>
+								</div>
+							</div>';
+							}
+							else{
+								echo '<div class="row">
+								<div class="col">
+									<div class="row align-items-center">
+										<div class="col-sm-4">
+											<label class="form-label">Id Azienda</label>
+										</div>
+										<div class="col">
+											<input type="text" class="form-control mb-4" value="'.$userData['idaz'].'" readonly>
+										</div>
+										<div class="col">
+											<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editIdAzienda">Modifica campo</button>
+										</div>
+									</div>
+								</div>
+							</div>';
+							}
+						}
+						echo '<div class="row">
+								<div class="col">
+									<div class="row align-items-center">
+										<div class="col-sm-4">
+											<label class="form-label">Email</label>
+										</div>
+										<div class="col">
+											<input type="text" class="form-control mb-4" value="'.$userData['email'].'" readonly>
+										</div>
+										<div class="col">
+											<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editEmail">Modifica campo</button>
+										</div>
+									</div>
+								</div>
+							</div>';
+							echo '<div class="row">
 							<div class="col">
-								<input type="text" class="form-control mb-4" value="'.$userData['cognomep'].'" readonly>
+								<div class="row align-items-center">
+									<div class="col-sm-4">
+										<label class="form-label">Password</label>
+									</div>
+									<div class="col">
+										<input type="password" class="form-control mb-4" value="'.$userData['pswd'].'" readonly>
+									</div>
+									<div class="col">
+										<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editPassword">Modifica campo</button>
+									</div>
+								</div>
 							</div>
-							<div class="col">
-								<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editCognomeP">Modifica campo</button>
-							</div>
-						</div>
-					</div>
-				</div>';
-        }
-        else{
-          echo '<div class="row">
-					<div class="col">
-						<div class="row align-items-center">
-							<div class="col-sm-4">
-								<label class="form-label">Id Azienda</label>
-							</div>
-							<div class="col">
-								<input type="text" class="form-control mb-4" value="'.$userData['idaz'].'" readonly>
-							</div>
-							<div class="col">
-								<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editIdAzienda">Modifica campo</button>
-							</div>
-						</div>
-					</div>
-				</div>';
-        }
-      }
-			echo '<div class="row">
-					<div class="col">
-						<div class="row align-items-center">
-							<div class="col-sm-4">
-								<label class="form-label">Email</label>
-							</div>
-							<div class="col">
-								<input type="text" class="form-control mb-4" value="'.$userData['email'].'" readonly>
-							</div>
-							<div class="col">
-								<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editEmail">Modifica campo</button>
-							</div>
-						</div>
-					</div>
-				</div>';
-				echo '<div class="row">
-				<div class="col">
-					<div class="row align-items-center">
-						<div class="col-sm-4">
-							<label class="form-label">Password</label>
-						</div>
-						<div class="col">
-							<input type="password" class="form-control mb-4" value="'.$userData['pswd'].'" readonly>
-						</div>
-						<div class="col">
-							<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editPassword">Modifica campo</button>
-						</div>
-					</div>
+						</div>';
+						echo '<div class="row mb-4">
+								<div class="col">
+									<div class="row align-items-center">
+										<div class="col-sm-4">
+											<label class="form-label">Telefono</label>
+										</div>
+										<div class="col">
+											<input type="text" class="form-control mb-4" value="'.$userData['telefono'].'" readonly>
+										</div>
+										<div class="col">
+											<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editTelefono">Modifica campo</button>
+										</div>
+									</div>
+								</div>
+							</div>';
+					?>
+					</form>
 				</div>
-			</div>';
-			echo '<div class="row mb-4">
-					<div class="col">
-						<div class="row align-items-center">
-							<div class="col-sm-4">
-								<label class="form-label">Telefono</label>
-							</div>
-							<div class="col">
-								<input type="text" class="form-control mb-4" value="'.$userData['telefono'].'" readonly>
-							</div>
-							<div class="col">
-								<button type="button" class="btn btn-secondary mb-4" data-bs-toggle="modal" data-bs-target="#editTelefono">Modifica campo</button>
-							</div>
-						</div>
-					</div>
-				</div>';
-    ?>
-		</form>
-    </div>
+			</div>
+		</div>
 
 		<!-- MODAL DA VISUALIZZARE PER MODIFICARE DATI -->
 		
