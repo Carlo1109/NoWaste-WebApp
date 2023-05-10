@@ -97,18 +97,20 @@ session_start();
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th class="text-center" scope="col">Prodotto</th>
-                    <th class="text-center" scope="col">Quantità</th>
-                    <th class="text-center" scope="col">Caricato da</th>
-                  </tr>
-                </thead>
-                <tbody id="tableCarrello">
-                  <!--Tabella si aggiorna con gli elementi aggiunti-->
-                </tbody>
-              </table>              
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th class="text-center" scope="col">Prodotto</th>
+                      <th class="text-center" scope="col">Quantità</th>
+                      <th class="text-center" scope="col">Caricato da</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableCarrello">
+                    <!--Tabella si aggiorna con gli elementi aggiunti-->
+                  </tbody>
+                </table> 
+              </div>             
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" onclick="checkCarrello('<?php echo $_SESSION['username']; ?>');">Conferma</button>

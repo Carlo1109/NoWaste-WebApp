@@ -101,17 +101,19 @@ session_start();
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th class="text-center" scope="col">Prodotto</th>
-                    <th class="text-center" scope="col">Consumarsi preferibilmente entro:</th>
-                  </tr>
-                </thead>
-                <tbody id="tableElimina">
-                  <!--Tabella si aggiorna con gli elementi aggiunti-->
-                </tbody>
-              </table>              
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th class="text-center" scope="col">Prodotto</th>
+                      <th class="text-center" scope="col">Consumarsi preferibilmente entro:</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableElimina">
+                    <!--Tabella si aggiorna con gli elementi aggiunti-->
+                  </tbody>
+                </table>  
+              </div>            
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="window.location.href = 'donatore.php';">Chiudi e ricarica</button>
