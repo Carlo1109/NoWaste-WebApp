@@ -120,7 +120,7 @@ $userData = pg_fetch_assoc($result);
 								</div>
 							</div>';
 							}
-							else{
+							else if($userData['idaz']!=''){
 								echo '<div class="row">
 								<div class="col">
 									<div class="row align-items-center">
