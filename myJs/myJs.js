@@ -600,7 +600,6 @@ function showConfirm(){
     denyButtonText: `No`,
   }).then((result) => {
     if (result.isConfirmed) {
-      Swal.fire('Eliminazione del profilo avvenuta con successo', '', 'success')
       window.location.href = "../myPhp/eliminaProfilo.php";
     } else if (result.isDenied) {
       Swal.fire('Eliminazione del profilo non avvenuta', '', 'info')
