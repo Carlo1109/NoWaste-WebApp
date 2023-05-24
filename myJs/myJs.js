@@ -626,7 +626,7 @@ function openMap() {
     allowOutsideClick: false
   });
   var popup = document.querySelector('.swal2-popup');
-  popup.style.backgroundColor = '#422aff';
+  popup.style.backgroundColor = '#20c320';
 }
 
 //AJAX per recuperare dal server il database delle richieste per la Dashboard
