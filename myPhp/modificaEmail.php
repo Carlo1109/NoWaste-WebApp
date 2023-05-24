@@ -20,7 +20,10 @@
         die("Connessione al database fallita");
       }
       if ($pswCurrInserita != $sessionPsw) {
-        $_SESSION["modificaERR"] = "La password corrente inserita non è corretta. Aggiornamento dell'email non riuscito. Premere 'OK' per tornare alla home.";
+        $_SESSION["modificaERR"] = "La password corrente inserita non è corretta. Aggiornamento dell'email non riuscito. Premere 'OK' per riprovare.";
+      }
+      else if($emailNew == $sessionUser){
+        $_SESSION["modificaWAR"] = "La nuova email è identica alla precedente. Premere 'OK' per riprovare.";
       }
       else {
 
@@ -35,7 +38,7 @@
           if (!$result2) {
               die("Errore nella query di modifica");
           }
-          $_SESSION["modificaSUCC"] = "Email aggiornata con successo! Premere 'OK' per effettuare il login.";
+          $_SESSION["modificaSUCC"] = "Email aggiornata con successo! Premere 'OK' per effettuare il login con la nuova email.";
       }
     ?>
     <script>
@@ -48,10 +51,23 @@
         allowOutsideClick: false
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = "../pages/index.php";
+          window.location.href = "../pages/datiUtente.php";
         }
       });';
       unset($_SESSION["modificaERR"]);
+    }
+    if (isset($_SESSION["modificaWAR"])) {
+      echo 'Swal.fire({
+        icon: "warning",
+        title: "Oops...",
+        text: "' . $_SESSION["modificaWAR"] . '",
+        allowOutsideClick: false
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = "../pages/datiUtente.php";
+        }
+      });';
+      unset($_SESSION["modificaWAR"]);
     }
     if (isset($_SESSION["modificaSUCC"])) {
       echo 'Swal.fire({

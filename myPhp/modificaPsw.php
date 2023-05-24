@@ -21,12 +21,12 @@
         die("Connessione al database fallita");
       }
       if ($pswCurrInserita != $sessionPsw) {
-        $_SESSION["modificaERR"] = "La password corrente inserita non è corretta. Aggiornamento della password non riuscito. Premere 'OK' per tornare alla home.";
+        $_SESSION["modificaERR"] = "La password corrente inserita non è corretta. Aggiornamento della password non riuscito. Premere 'OK' per riprovare.";
       } else if ($pswNew != $confermaPSW) {
-          $_SESSION["modificaERR"] = "Le due nuove password inserite non corrispondono. Aggiornamento della password non riuscito. Premere 'OK' per tornare alla home.";
+          $_SESSION["modificaERR"] = "Le due nuove password inserite non corrispondono. Aggiornamento della password non riuscito. Premere 'OK' per riprovare.";
       }
       else if ($pswNew == $pswCurrInserita) {
-        $_SESSION["modificaERR"] = "La nuova password è uguale alla password corrente. Aggiornamento della password non riuscito. Premere 'OK' per tornare alla home.";
+        $_SESSION["modificaERR"] = "La nuova password è uguale alla password corrente. Aggiornamento della password non riuscito. Premere 'OK' per riprovare.";
       } 
       else {
           $query = "UPDATE utente SET pswd = '$pswNew' WHERE email = '$sessionUser'";
@@ -47,7 +47,7 @@
         allowOutsideClick: false
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location.href = "../pages/index.php";
+          window.location.href = "../pages/datiUtente.php";
         }
       });';
       unset($_SESSION["modificaERR"]);
