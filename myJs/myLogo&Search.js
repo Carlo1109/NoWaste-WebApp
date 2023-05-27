@@ -1,3 +1,4 @@
+//In questo file viene creata l'applicazione "mylogosearch" tramite l'utilizzo di Vue.js per poter includere in tutte le nostre pagine il footer tramite la scrittura "<mylogosearch></mylogosearch>"
 let app2 = Vue.createApp({
   data: function() {
       return {

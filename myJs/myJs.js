@@ -1,3 +1,6 @@
+//In questo file sono presenti tutte le funzioni javascript e jQuery per gestire la nostra web-app
+
+//Funzione che esegue i controlli sul form di login
 function checkLogin(){
   if(document.loginForm.username.value==""){
     Swal.fire({
@@ -18,6 +21,7 @@ function checkLogin(){
   return true;
 }
 
+//Funzione che esegue i controlli sul form di registrazione
 function checkRegistrazione() {
   if(document.registrazioneForm.email.value=="") {
     Swal.fire({
@@ -106,6 +110,7 @@ function checkRegistrazione() {
   return true;
 }
 
+//Funzione che nel form di registrazione controlla quale tipologia di account si è scelto e mostra il relativo form
 function showForm() {
   var option1 = document.getElementById('associazione');
   var option2 = document.getElementById('donatore');
@@ -120,6 +125,7 @@ function showForm() {
   }
 }
 
+//Funzione che nel form di registrazione nasconde il form relativo all'account scelto
 function hideForm(){
   document.getElementById('formAssociazione').style.display = 'none';
   document.getElementById('formDonatore').style.display = 'none';
@@ -127,6 +133,7 @@ function hideForm(){
   document.getElementById('formAzienda').style.display = 'none';
 }
 
+//Funzione che al clic su "Area Privata" rimanda alla pagina adatta a seconda dell'utente loggato
 function decidiPagina(assBoolean){
   if(assBoolean)
     window.location.href = "../pages/associazione.php";
@@ -134,6 +141,7 @@ function decidiPagina(assBoolean){
     window.location.href = "../pages/donatore.php";
 }
 
+//Funzione che nel form di donazione monetaria controlla quale tipologia di pagamento si è scelto e mostra il relativo form
 function showPayment(){
   var option1 = document.getElementById('visa');
   var option2 = document.getElementById('mc');
@@ -149,6 +157,7 @@ function showPayment(){
   }
 }
 
+//Funzione che nella pagina "Donazioni", al clic sul pulsante "Dona Ora" fa uno scroll della pagina fino al form di donazione
 function scrollaPaginaDonazione() {
   const container = document.querySelector('#donazioneForm'); 
   const yOffset = container.getBoundingClientRect().top + window.pageYOffset;
@@ -158,6 +167,7 @@ function scrollaPaginaDonazione() {
   });
 }
 
+//Funzione che nella pagina "Area Privata-Associazione", al clic sul pulsante "Vai al carrello" fa uno scroll della pagina fino al button per aprire il carrello
 function scrollaPaginaAssociazione() {
   const container = document.querySelector('#containerBasket'); 
   const yOffset = container.getBoundingClientRect().top + window.pageYOffset;
@@ -167,6 +177,7 @@ function scrollaPaginaAssociazione() {
   });
 }
 
+//Funzione che nella pagina "Area Privata-Donatore", al clic sul pulsante "Vai al mio scaffale" fa uno scroll della pagina fino ai button per visualizzare i prodotti caricati o inserirne degli altri
 function scrollaPaginaDonatore() {
   const container = document.querySelector('#containerBasket'); 
   const yOffset = container.getBoundingClientRect().top + window.pageYOffset;
@@ -176,7 +187,7 @@ function scrollaPaginaDonatore() {
   });
 }
 
-//Listener per mostrare pulsante 'sali su'
+//Listener per mostrare pulsante 'sali su' su tutte le pagine e funzione per fare scroll fino a 'top'
 window.addEventListener('scroll', function() {
   var pulsanteScrollUp = document.getElementById('pulsante-scroll-up');
   if (window.pageYOffset > 500) {
@@ -189,6 +200,7 @@ function scrollaPaginaSu() {
   window.scroll({top: 0, behavior: 'smooth'});
 }
 
+
 function scrollaSuContenuti() {
   const container = document.querySelector('#scorriPagine'); 
   const yOffset = container.getBoundingClientRect().top + window.pageYOffset - 100;
@@ -198,6 +210,7 @@ function scrollaSuContenuti() {
   });
 }
 
+//Funzione che nella pagina "Area Privata-Associazione" al clic su i button "Aggiungi al carrello", crea un'animazione e aggiunge le informazioni del prodotto al modal del carrello
 function aggiungiCarrello(pulsante) {
   //Animazione '+'
   let icona = $(pulsante).find('.fa-plus');
@@ -265,10 +278,12 @@ function aggiungiCarrello(pulsante) {
   modal.hide();
 }
 
+//Funzione che nella pagina "Area Privata-Associazione", al clic sul pulsante "Reset" del modal del carrello resetta tutto il carrello
 function resetAllCarrello() {
   $('#tableCarrello').empty();
 }
 
+//Funzione che nella pagina "Area Privata-Associazione", al clic sul pulsante "Conferma" del modal del carrello tramite la funzione "fetch" invia tramite POST le informazioni del carrello al database delle richieste
 function checkCarrello(richiedente) {
   const tableBody = document.getElementById('tableCarrello');
   if (tableBody.rows.length > 0) {
@@ -320,32 +335,36 @@ function checkCarrello(richiedente) {
   }
 }
 
+//Funzione che nella pagina "Home", al clic sul pulsante "Esplora" fa uno scroll della pagina fino alla navbar 
 function scrollaHome() {
   const container = $('#navHome');
   const yOffset = container.offset().top;
   $('html, body').scrollTop(yOffset);
 }
 
+//Funzione che aggiunge delle propietà css alle card dei prodotti per effettuare l'animazione onmousehover
 function animateCardOn(card) {
   $(card).css('cursor', 'pointer');
   $(card).css('transform', 'scale(1.1)');
   $(card).css('transition', 'transform 0.3s ease-in-out');
 }
 
+//Funzione che ripristina le propietà css delle card dei prodotti quando si attiva onmouseout
 function animateCardOff(card) {
   $(card).css('cursor', 'default');
   $(card).css('transform', 'scale(1)');
   $(card).css('transition', 'transform 0.3s ease-in-out');
 }
 
+//Funzione che rimanda alla pagina php che gestisce il logout
 function goToLogout(){
   window.location.href = "../myPhp/logout.php";
 }
 
-//AJAX per recuperare dal server il database dei prodotti per la pagina Donatore
+//Chiamata AJAX per recuperare dal server il database dei prodotti per popolare la pagina Donatore e in seguito funzione che, tramite il risultato della chiamata AJAX, popola la pagina Donatore
 function caricaDonatore() {
   $.ajax({
-      url: "../myPhp/uploadDonatore.php", // URL del tuo file PHP
+      url: "../myPhp/uploadDonatore.php", 
       dataType: "json", // Tipo di dato atteso come risposta (JSON in questo caso)
       success: function(response) {
         loadPaginaDonatore(response);
@@ -412,6 +431,7 @@ function loadPaginaDonatore(response) {
   container.style.opacity = 1;
 }
 
+//Funzione che, tramite il risultato della chiamata AJAX precedente, popola il modal dove vengono visualizzati i prodotti in modo più schematico per poterli poi eliminare
 function loadEliminaProdotti(response) {
   const tableBody = $('#tableElimina');
   const eliminaTuttoButton = $('#eliminaTutto');
@@ -443,10 +463,10 @@ function loadEliminaProdotti(response) {
   }
 }
 
-//AJAX per recuperare dal server il database dei prodotti per la pagina Associazione
+//Chiamata AJAX per recuperare dal server il database dei prodotti per la pagina Associazione e in seguito funzione che, tramite il risultato della chiamata AJAX, popola la pagina Associazione
 function caricaAssociazione() {
   $.ajax({
-      url: "../myPhp/uploadAssociazione.php", // URL del tuo file PHP
+      url: "../myPhp/uploadAssociazione.php",
       dataType: "json", // Tipo di dato atteso come risposta (JSON in questo caso)
       success: function(response) {
         loadPaginaAssociazione(response);
@@ -542,7 +562,7 @@ function loadPaginaAssociazione(response){
       container.style.opacity = 1;
 }
 
-//AJAX per recuperare dal server il database delle donazioni per la pagina mieDonazioni
+//Chiamata AJAX per recuperare dal server il database delle donazioni per la pagina mieDonazioni e in seguito funzione che, tramite il risultato della chiamata AJAX, popola la pagina mieDonazioni
 function caricaMieDonazioni() {
   $.ajax({
       url: "../myPhp/uploadDonazioniMonetarie.php", 
@@ -576,6 +596,7 @@ function loadMieDonazioni(response) {
   }
 }
 
+//Funzione che viene utilizzata all'interno del modal "Elimina Prodotti" della pagina Donatore per eliminare tutti i prodotti caricati dall'utente dalla tabella dal database dei prodotti. Utilizza AJAX
 function eliminaTutti(){
   $.ajax({
     url: '../myPhp/eliminaTutti.php',
@@ -590,6 +611,7 @@ function eliminaTutti(){
   });
 }
 
+//Funzione che mostra un pop-up di conferma prima di procedere con l'eliminazione del profilo utente e quindi richiamare il relativo file php "eliminaProfilo.php"
 function showConfirm(){
   Swal.fire({
     title: 'Sei sicuro di voler eliminare il profilo?',
@@ -607,6 +629,7 @@ function showConfirm(){
   })
 }
 
+//Funzione che prende la stringa inserita nella barra di ricerca e in una nuova pagina effettua la ricerca tramite google della stringa inserita
 function searchWeb(event) {
   if(document.search.searchText.value=='')
     return false;
@@ -617,6 +640,7 @@ function searchWeb(event) {
   document.search.searchText.value='';
 }
 
+//Funzione che apre in un pop-up SweetAlert la mappa dell'indirizzo indicato nel footer
 function openMap() {
   Swal.fire({
     title: '<strong>Visualizza sulla mappa</strong>',
@@ -629,7 +653,7 @@ function openMap() {
   popup.style.backgroundColor = '#20c320';
 }
 
-//AJAX per recuperare dal server il database delle richieste per la Dashboard
+//Chiamata AJAX per recuperare dal server il database delle richieste per la Dashboard e in seguito fuzione che, tramite il risultato della chiamata AJAX, popola la dasboard della pagina Dashboard
 function caricaDashboard(assoc) {
   if(assoc){
     urldin = '../myPhp/uploadDashboardForAss.php';
@@ -665,6 +689,7 @@ function loadDashboard(response) {
   }
 }
 
+//Funzione che invia la richiesta al database di eliminare tutte le righe del database Richieste dell'utente che invia la richiesta. Utilizza AJAX
 function svuotaDashboard(assoc){
   if(assoc){
     urldin = '../myPhp/svuotaDashboardAss.php';
@@ -685,6 +710,7 @@ function svuotaDashboard(assoc){
   });
 }
 
+//Funzione che mostra uno SweetAlert per chiedere conferma dello svuotamento della dashboard 
 function confermaCleanDashboard(assoc){
   if(assoc){
     Swal.fire({
@@ -724,6 +750,7 @@ function confermaCleanDashboard(assoc){
   }
 }
 
+//Funzione che aggiunge all classe "cardAssociazione" la classe css "flipped" quando l'utente intende ruotare la card
 function rotateCard(link) {
   const card = link.closest('.cardAssociazione');
   card.classList.toggle('flipped');

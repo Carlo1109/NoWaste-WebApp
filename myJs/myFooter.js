@@ -1,3 +1,4 @@
+//In questo file viene creata l'applicazione "myfooter" tramite l'utilizzo di Vue.js per poter includere in tutte le nostre pagine il footer tramite la scrittura "<myfoooter></myfooter>"
 let app = Vue.createApp({
   data: function() {
       return {

@@ -1,3 +1,7 @@
+/*
+All'interno di questo file css che comprende il foglio di stile per tutto il nostro sito, abbiamo innanzitutto ridefinito alcune classi Bootstrap per adattarle meglio alle nostre esigenze e creare un design più moderno. Abbiamo inoltre creato altre classi, come per esempio le classi che abbiamo applicato mediante javascript per definire varie animazioni e transizioni. Infine in questo file abbiamo fatto anche delle media queries per gestire la responsiveness della nostra web-app.
+*/
+
 html {
   scroll-behavior: inherit;
 }
