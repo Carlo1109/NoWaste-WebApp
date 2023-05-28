@@ -5,4 +5,3 @@ Il nostro progetto è organizzato in questo modo:
 - nella cartella 'myPhp' sono presenti tutti i file php che gestiscono l'interazione con il server e i database e ogni file è presentato con dei brevi commenti che spiegano lo scopo del codice;
 - nella cartella 'pages' sono presenti tutti i file relativi alle varie pagine html e php del nostro sito e ogni file è presentato con dei brevi commenti che spiegano lo scopo del codice;
 - nella cartella 'src' sono presenti alcune immagini utilizzate nel sito.
-
