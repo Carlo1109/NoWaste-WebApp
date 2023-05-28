@@ -1,0 +1,8 @@
+Il nostro progetto è organizzato in questo modo:
+- nella cartella 'libraries' sono presenti tutte le librerie che abbiamo utilizzato (Bootstrap, JQuery, SweetAlert2, Fontawesome, Vue.js);
+- nella cartella 'myCss' è presente un unico file 'myCss.css' dove è contenuto tutto il foglio di stile della nostra web-app e all'interno del file è presente un commento più dettagliato del codice;
+- nella cartella 'myJs' sono presenti i file 'myJs.js' che contiene tutte le funzioni javascript utilizzate con i relativi commenti, 'myFooter.js' che contiene l'applicazione per importare il footer con vue.js e infine il file 'myLogo&Search.js' che contiene l'applicazione per importare la barra in alto con vue.js;
+- nella cartella 'myPhp' sono presenti tutti i file php che gestiscono l'interazione con il server e i database e ogni file è presentato con dei brevi commenti che spiegano lo scopo del codice;
+- nella cartella 'pages' sono presenti tutti i file relativi alle varie pagine html e php del nostro sito e ogni file è presentato con dei brevi commenti che spiegano lo scopo del codice;
+- nella cartella 'src' sono presenti alcune immagini utilizzate nel sito.
+
