@@ -1,3 +1,6 @@
+<!--
+  Questa è la pagina dove l'utente può effettuare la registrazione attraverso un form dinamico. Se l'utente dichiara di volersi registrare come DONATORE compilerà alcuni campi che saranno diversi dall'utente che vorrà registrarsi come ASSOCIAZIONE.
+-->
 <?php
 session_start();
 ?>

@@ -1,3 +1,6 @@
+<!--
+  Questa è la pagina dell'area privata per l'utente DONATORE. Qui l'utente può visualizzare i suoi prodotti e decidere di eliminarli oppure di caricarne degli altri.
+-->
 <?php
 session_start();
 ?>

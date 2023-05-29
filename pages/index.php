@@ -1,3 +1,6 @@
+<!--
+  Questa è la pagina HOME. Abbiamo utilizzato delle condizioni in php per poter modificare la navbar a seconda dell'avvenuto login o meno. Abbiamo aggiunto un button che permette di estendere la navbar con schermi di dimensioni ridotte. Qui l'utente può conoscere lo scopo del sito e può inoltre accedere ad alcune funzionalità senza aver effettuato il login.
+-->
 <?php
 session_start();
 ?>

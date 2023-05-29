@@ -1,3 +1,6 @@
+<!--
+  Questa è la pagina che permette all'utente  di visualizzare la propria dashboard con i prodotti che sono stati richiesti. In questa pagina è presente una tabella che viene popolata tramite AJAX. Grazie a dei controlli php stabiliamo se mostrare la dashboard associazione o donatore.
+-->
 <?php
 session_start();
 ?>

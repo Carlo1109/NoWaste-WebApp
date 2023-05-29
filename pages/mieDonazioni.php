@@ -1,3 +1,6 @@
+<!--
+  Questa è la pagina che permette all'utente di visualizzare le proprie donazioni monetarie. Se l'utente ha effettuato delle donazioni monetarie la tabella presente all'interno della pagina viene popolata tramite AJAX e vengono visualizzati i dati della donazione.
+-->
 <?php
 session_start();
 ?>

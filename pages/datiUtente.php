@@ -1,3 +1,6 @@
+<!--
+  Questa è la pagina che permette all'utente  di visualizzare i propri dati di registrazione e di modificare ciascun campo. Grazie a dei controlli php stabiliamo se mostrare le informazioni associazione o donatore. In questa pagina è quindi presente un <div> che viene popolato tramite una chiamata AJAX.
+-->
 <?php
 session_start();
 $dbcon = pg_connect("host=localhost user=postgres password=ltwsql port=5432 dbname=DatabaseUtenti");
