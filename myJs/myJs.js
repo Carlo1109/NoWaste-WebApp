@@ -375,11 +375,14 @@ function caricaDonatore() {
       }
   });
 }
+
+// Funzione per caricare la pagina del donatore
 function loadPaginaDonatore(response) {
-  var htmlSource='';
-  var i=0;
-  htmlSource+= '<div class="row mt-5 mb-3">';
-  for(const prodotto of response){
+  var htmlSource = '';
+  var i = 0;
+  htmlSource += '<div class="row mt-5 mb-3">';
+  // Itera su ogni prodotto nella risposta
+  for (const prodotto of response) {
     nomecard = prodotto[2];
     descrizione = prodotto[8];
     srcImmagine = prodotto[9];
@@ -388,46 +391,46 @@ function loadPaginaDonatore(response) {
     isvegetariano = prodotto[5];
     isceliaco = prodotto[6];
     scad = prodotto[7];
-    if(i==3){
-      htmlSource+='</div>';
-      htmlSource+='<div class="row mt-5 mb-3">'
-      i=0;
+    // Se raggiungi il terzo prodotto nella riga, chiudi la riga e inizia una nuova riga
+    if (i == 3) {
+      htmlSource += '</div>';
+      htmlSource += '<div class="row mt-5 mb-3">';
+      i = 0;
     }
-    htmlSource+='\
+    htmlSource += '\
     <div class="col-md-4 my-col">\
       <div class="card cardDonatore" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
-        <img src="'+srcImmagine+'" class="card-img-top" width="200" height="300" alt="Image">\
-        <div class="card-body\">\
-          <h5 class="card-title">'+nomecard+'-'+marca+'</h5>\
-          <p class="card-text">'+descrizione+'</p>';
-          if(isvegano=='t'){
-            htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegano: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
-          }
-          else if(isvegano=='f'){
-            htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegano: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
-          }
-          if(isvegetariano=='t'){
-            htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegetariano: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
-          }
-          else if(isvegetariano=='f'){
-            htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegetariano: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
-          }
-          if(isceliaco=='t'){
-            htmlSource+='<p style="display: flex; align-items: center;">Prodotto celiaco: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
-          }
-          else if(isceliaco=='f'){
-            htmlSource+='<p style="display: flex; align-items: center;">Prodotto celiaco: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
-          }
-          htmlSource+='<p class="card-text">Consumarsi preferibilmente entro: '+scad+'</p>\
+        <img src="' + srcImmagine + '" class="card-img-top" width="200" height="300" alt="Image">\
+        <div class="card-body">\
+          <h5 class="card-title">' + nomecard + '-' + marca + '</h5>\
+          <p class="card-text">' + descrizione + '</p>';
+    // Mostra l'icona corretta per i flag di isvegano, isvegetariano, isceliaco
+    if (isvegano == 't') {
+      htmlSource += '<p style="display: flex; align-items: center;">Prodotto vegano: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
+    } else if (isvegano == 'f') {
+      htmlSource += '<p style="display: flex; align-items: center;">Prodotto vegano: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
+    }
+    if (isvegetariano == 't') {
+      htmlSource += '<p style="display: flex; align-items: center;">Prodotto vegetariano: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
+    } else if (isvegetariano == 'f') {
+      htmlSource += '<p style="display: flex; align-items: center;">Prodotto vegetariano: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
+    }
+    if (isceliaco == 't') {
+      htmlSource += '<p style="display: flex; align-items: center;">Prodotto celiaco: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
+    } else if (isceliaco == 'f') {
+      htmlSource += '<p style="display: flex; align-items: center;">Prodotto celiaco: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
+    }
+    htmlSource += '<p class="card-text">Consumarsi preferibilmente entro: ' + scad + '</p>\
         </div>\
       </div>\
     </div>';
-    i+=1;
+    i += 1;
   }
+  // Seleziona il container per i prodotti del donatore e aggiorna il suo contenuto
   container = document.getElementById("scorriPagineDon");
   container.innerHTML = "";
-  htmlSource+='</div>';
-  container.innerHTML=htmlSource;
+  htmlSource += '</div>';
+  container.innerHTML = htmlSource;
   container.style.opacity = 1;
 }
 
@@ -476,91 +479,93 @@ function caricaAssociazione() {
       }
   });
 }
-function loadPaginaAssociazione(response){
+// Funzione per caricare la pagina di associazione
+function loadPaginaAssociazione(response) {
   const container = document.querySelector('#scorriPagine');
   container.innerHTML = "";
-      var htmlSource = '<div class="row mt-5 mb-3">';
-      var i = 0;
-      for(const prodotto of response){
-        utente = prodotto[1];
-        nomecard = prodotto[2];
-        descrizione = prodotto[8];
-        srcImmagine = prodotto[9];
-        marca = prodotto[3];
-        isvegano = prodotto[4];
-        isvegetariano = prodotto[5];
-        isceliaco = prodotto[6];
-        scad = prodotto[7];
-        if(i==3){
-          htmlSource+='</div>';
-          htmlSource+='<div class="row mt-5 mb-3">'
-          i=0;
-        }
-        htmlSource+='\
-        <div class="col-md-4 my-col" >\
-          <div class="card cardAssociazione" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
-          <div class="cardAssociazione-front">\
-            <img src="'+srcImmagine+'" class="card-img-top" width="200" height="300" alt="Pasta al pomodoro">\
-            <div class="card-body\">\
-              <h5 class="card-title info"><a onclick="rotateCard(this)"><span id="titoloCard">'+nomecard+'-'+marca+'</span> <i class="fas fa-info-circle"></i></a><span class="info-box">Clicca per ruotare e mostrare scadenza e descrizione</span></h5>\
-              <p class="card-text">Caricato da: <span id="utente">'+utente+'</span></p>';
-              if(isvegano=='t'){
-                htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegano: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
-              }
-              else if(isvegano=='f'){
-                htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegano: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
-              }
-              if(isvegetariano=='t'){
-                htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegetariano: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
-              }
-              else if(isvegetariano=='f'){
-                htmlSource+='<p style="display: flex; align-items: center;">Prodotto vegetariano: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
-              }
-              if(isceliaco=='t'){
-                htmlSource+='<p style="display: flex; align-items: center;">Prodotto celiaco: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
-              }
-              else if(isceliaco=='f'){
-                htmlSource+='<p style="display: flex; align-items: center;">Prodotto celiaco: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
-              }
-              htmlSource+='\
+  var htmlSource = '<div class="row mt-5 mb-3">';
+  var i = 0;
+  // Itera su ogni prodotto nella risposta
+  for (const prodotto of response) {
+    utente = prodotto[1];
+    nomecard = prodotto[2];
+    descrizione = prodotto[8];
+    srcImmagine = prodotto[9];
+    marca = prodotto[3];
+    isvegano = prodotto[4];
+    isvegetariano = prodotto[5];
+    isceliaco = prodotto[6];
+    scad = prodotto[7];
+    // Se i raggiungono il terzo prodotto nella riga, chiudi la riga e inizia una nuova riga
+    if (i == 3) {
+      htmlSource += '</div>';
+      htmlSource += '<div class="row mt-5 mb-3">';
+      i = 0;
+    }
+    htmlSource += '\
+    <div class="col-md-4 my-col">\
+      <div class="card cardAssociazione" onmouseover="animateCardOn(this)" onmouseout="animateCardOff(this)">\
+        <div class="cardAssociazione-front">\
+          <img src="' + srcImmagine + '" class="card-img-top" width="200" height="300" alt="Pasta al pomodoro">\
+          <div class="card-body">\
+            <h5 class="card-title info"><a onclick="rotateCard(this)"><span id="titoloCard">' + nomecard + '-' + marca + '</span> <i class="fas fa-info-circle"></i></a><span class="info-box">Clicca per ruotare e mostrare scadenza e descrizione</span></h5>\
+            <p class="card-text">Caricato da: <span id="utente">' + utente + '</span></p>';
+    // Mostra l'icona corretta per i flag di isvegano, isvegetariano, isceliaco
+    if (isvegano == 't') {
+      htmlSource += '<p style="display: flex; align-items: center;">Prodotto vegano: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
+    } else if (isvegano == 'f') {
+      htmlSource += '<p style="display: flex; align-items: center;">Prodotto vegano: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
+    }
+    if (isvegetariano == 't') {
+      htmlSource += '<p style="display: flex; align-items: center;">Prodotto vegetariano: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
+    } else if (isvegetariano == 'f') {
+      htmlSource += '<p style="display: flex; align-items: center;">Prodotto vegetariano: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
+    }
+    if (isceliaco == 't') {
+      htmlSource += '<p style="display: flex; align-items: center;">Prodotto celiaco: <i class="fas fa-check" style="margin-left: 5px;"></i></p>';
+    } else if (isceliaco == 'f') {
+      htmlSource += '<p style="display: flex; align-items: center;">Prodotto celiaco: <i class="fas fa-times" style="margin-left: 5px;"></i></p>';
+    }
+    htmlSource += '\
+          </div>\
+          <div class="input-group mb-3 justify-content-center">\
+            <div class="input-group-prepend">\
+              <label class="input-group-text" for="quantita-select">Quantità</label>\
             </div>\
-              <div class="input-group mb-3 justify-content-center">\
-                <div class="input-group-prepend">\
-                  <label class="input-group-text" for="quantita-select">Quantità</label>\
-                </div>\
-                <select class="custom-select" id="quantita-select">\
-                  <option selected>1</option>\
-                  <option value="2">2</option>\
-                  <option value="3">3</option>\
-                  <option value="4">4</option>\
-                  <option value="5">5</option>\
-                </select>\
-                <div class="input-group-append">\
-                  <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi   al carrello</button>\
-              </div>\
-            </div>\
-            </div>\
-            <div class="cardAssociazione-back">\
-              <p class="card-text">Consumarsi preferibilmente entro: '+scad+'</p>';
-              if(descrizione==''){
-                htmlSource += '<p class="card-text">Nessuna descrizione per il prodotto.</p>\
-                <a onclick="rotateCard(this)"><i class="fas fa-undo fa-3x"></i></a>';
-              }
-              else{
-                htmlSource += '\
-                <p class="card-text">Descrizione: '+descrizione+'</p>\
-                <a onclick="rotateCard(this)"><i class="fas fa-undo fa-3x"></i></a>';
-              }
-              htmlSource += '\
+            <select class="custom-select" id="quantita-select">\
+              <option selected>1</option>\
+              <option value="2">2</option>\
+              <option value="3">3</option>\
+              <option value="4">4</option>\
+              <option value="5">5</option>\
+            </select>\
+            <div class="input-group-append">\
+              <button class="btn btn-primary" type="button" onclick="aggiungiCarrello(this)"><i class="fas fa-plus"></i> Aggiungi al carrello</button>\
             </div>\
           </div>\
-        </div>';
-        i+=1;
-      }
-      htmlSource+='</div>';
-      container.innerHTML = htmlSource;
-      container.style.opacity = 1;
+        </div>\
+        <div class="cardAssociazione-back">\
+          <p class="card-text">Consumarsi preferibilmente entro: ' + scad + '</p>';
+    // Mostra la descrizione del prodotto se presente, altrimenti mostra un messaggio di nessuna descrizione
+    if (descrizione == '') {
+      htmlSource += '<p class="card-text">Nessuna descrizione per il prodotto.</p>\
+        <a onclick="rotateCard(this)"><i class="fas fa-undo fa-3x"></i></a>';
+    } else {
+      htmlSource += '\
+        <p class="card-text">Descrizione: ' + descrizione + '</p>\
+        <a onclick="rotateCard(this)"><i class="fas fa-undo fa-3x"></i></a>';
+    }
+    htmlSource += '\
+        </div>\
+      </div>\
+    </div>';
+    i += 1;
+  }
+  htmlSource += '</div>';
+  container.innerHTML = htmlSource;
+  container.style.opacity = 1;
 }
+
 
 //Chiamata AJAX per recuperare dal server il database delle donazioni per la pagina mieDonazioni e in seguito funzione che, tramite il risultato della chiamata AJAX, popola la pagina mieDonazioni
 function caricaMieDonazioni() {
@@ -575,26 +580,34 @@ function caricaMieDonazioni() {
       }
   });
 }
+// Funzione jQuery per caricare le donazioni
 function loadMieDonazioni(response) {
   const tableBody = $('#tableBodyMieDon');
+  // Se la risposta è vuota, mostra un messaggio di nessuna donazione presente
   if (response.length == 0) {
     tableBody.html('<tr><td colspan="14" class="text-center tdDon"><h6>Nessuna donazione monetaria presente</h6></td></tr>');
   }
-  else{
+  else {
     var num = 1;
+    // Se la risposta contiene dati, itera su ogni donazione e aggiungi una riga alla tabella
     $.each(response, function(index, prodotto) {
       const newRow = $('<tr>');
+      // Aggiungi una cella per il numero della donazione
       const cellNum = $('<td>').addClass('tdDon').text(num);
       newRow.append(cellNum);
+      // Itera su ogni campo della donazione (12 in totale) e aggiungi una cella alla riga
       for (let i = 0; i <= 11; i++) {
         const newCell = $('<td>').addClass('tdDon').text(prodotto[i]);
         newRow.append(newCell);
       }
+      // Aggiungi la riga al corpo della tabella
       tableBody.append(newRow);
+      // Incrementa il numero per la prossima donazione
       num += 1;
     });
   }
 }
+
 
 //Funzione che viene utilizzata all'interno del modal "Elimina Prodotti" della pagina Donatore per eliminare tutti i prodotti caricati dall'utente dalla tabella dal database dei prodotti. Utilizza AJAX
 function eliminaTutti(){
@@ -672,22 +685,29 @@ function caricaDashboard(assoc) {
       }
   });
 }
+// Funzione per caricare il dashboard, utilizza jquery
 function loadDashboard(response) {
   const dashboard = $('#miaDashboard');
+  // Se la risposta è vuota, mostra un messaggio di nessuna richiesta trovata
   if (response.length == 0) {
     dashboard.html('<tr><td colspan="4" class="text-center tdRic">Nessuna richiesta trovata</td></tr>');
   } else {
+    // Se la risposta contiene dati, itera su ogni richiesta e aggiungi una riga alla tabella
     $.each(response, function(index, richiesta) {
       const newRow = $('<tr>');
+      // Itera su ogni campo della richiesta (4 in totale) e aggiungi una cella alla riga
       for (let i = 0; i <= 3; i++) {
         const newCell = $('<td>').addClass('text-center').text(richiesta[i]);
         newRow.append(newCell);
       }
+      // Aggiungi la riga alla tabella
       dashboard.append(newRow);
+      // Abilita il pulsante "pulisci"
       $('#pulisci').attr('disabled', false);
     });
   }
 }
+
 
 //Funzione che invia la richiesta al database di eliminare tutte le righe del database Richieste dell'utente che invia la richiesta. Utilizza AJAX
 function svuotaDashboard(assoc){
