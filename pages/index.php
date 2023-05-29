@@ -22,9 +22,11 @@ session_start();
 	</head>
 	<body>
 		<header>
+			<!--Parte di header fissa scritta su myLogo&Search-->
 			<div id="logosearch">
         <mylogosearch></mylogosearch>
       </div>
+			<!--fine-->
 			<nav class="navbar navbar-expand-lg myNav" id="navHome">
 				<div class="container-fluid">
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +40,8 @@ session_start();
 							<li class="nav-item">
 								<a class="nav-link active" href="soldi.php">Donazioni</a>
 							</li>
-						<?php
+<!--Parte dinamica di login e logout, fatta in php-->
+<?php
 	if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] != true) {
 		echo '<li class="nav-item">
 				<a class="nav-link" href="#" onclick="return false;">Area privata</a>
@@ -79,7 +82,7 @@ session_start();
 	?>
 			</nav>
 		</header>
-
+	<!--inizio dei container con le descrizioni e foto-->
 		<div class="container">
 			<div class="jumbotron">
 				<div class="row d-flex align-items-center">
@@ -195,9 +198,11 @@ session_start();
 				</div>
 			</div>
 		</div>
+		<!--Footer scritto in myFooter.js-->
 		<footer class="bg-dark text-white" id="footernowaste">
 			<myfooter></myfooter>			
 		</footer>
+		<!--Pulsante di risalita-->
 		<button id="pulsante-scroll-up" class="btn btn-primary rounded-circle" onclick="scrollaPaginaSu()">
 			<i class="fas fa-arrow-up"></i>
 		</button>

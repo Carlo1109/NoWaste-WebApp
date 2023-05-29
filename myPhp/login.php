@@ -10,40 +10,58 @@
   </head>
   <body>
     <?php
+      // Inizio del blocco di codice PHP per verificare l'utente nel database
       session_start();
       $email = $_POST["username"];
+
+      // Connessione al database
       $dbconn = pg_connect("host=localhost user=postgres password=ltwsql port=5432 dbname=DatabaseUtenti");
-      $query = "SELECT * FROM utente where email=$1";
-      $result = pg_query_params($dbconn,$query,array($email));
-      if ($line=pg_fetch_array($result)) {
+
+      // Query per selezionare l'utente dal database
+      $query = "SELECT * FROM utente WHERE email=$1";
+      $result = pg_query_params($dbconn, $query, array($email));
+
+      if ($line = pg_fetch_array($result)) {
+        // L'utente è presente nel database, verificare la password
         $pswd = $_POST["psw"];
-        $query2 = "SELECT * FROM utente WHERE email=$1 and pswd=$2";
-        $result = pg_query_params($dbconn,$query2,array($email, $pswd));
-        if ($line=pg_fetch_array($result)) {
-          $query3 = "SELECT nomeass FROM utente WHERE email="."'"."$email"."'";
+        $query2 = "SELECT * FROM utente WHERE email=$1 AND pswd=$2";
+        $result = pg_query_params($dbconn, $query2, array($email, $pswd));
+
+        if ($line = pg_fetch_array($result)) {
+          // L'utente ha inserito la password corretta, procedi con il login
+
+          // Ottieni il nome dell'associazione dell'utente
+          $query3 = "SELECT nomeass FROM utente WHERE email='" . $email . "'";
           $result = pg_query($query3);
           $line = pg_fetch_assoc($result);
-          if ($line["nomeass"]==null) { //non è una associazione
-            $_SESSION["assBoolean"]=false;
+
+          if ($line["nomeass"] == null) {
+            // L'utente non è associato a un'associazione
+            $_SESSION["assBoolean"] = false;
+          } else {
+            // L'utente è associato a un'associazione
+            $_SESSION["assBoolean"] = true;
           }
-          else {
-            $_SESSION["assBoolean"]=true;
-          }
+
+          // Imposta le variabili di sessione per il login
           $_SESSION["logged_in"] = true;
           $_SESSION["username"] = $_POST["username"];
           $_SESSION["pswCurr"] = $_POST["psw"];
+
+          // Reindirizza alla pagina principale dopo il login
           header("Location: ../pages/index.php?login=success");
-          exit(); 
-        }
-        else {
+          exit();
+        } else {
+          // La password inserita non è corretta
           $_SESSION["login_error_psw"] = "La password inserita non è corretta, clicca OK per ritornare alla home e riprovare.";
         }
-      }
-      else {
+      } else {
+        // L'utente non è registrato nel database
         $_SESSION["login_error_unreg"] = "L'utente non è registrato. Vuoi registrarti o riprovare il login?";
       }
     ?>
     <script>
+    //gestione degli errori con sweetalert
     <?php
     if (isset($_SESSION["login_error_psw"])){
       echo 'Swal.fire({

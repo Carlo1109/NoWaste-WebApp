@@ -25,6 +25,7 @@ session_start();
       echo '<body onload="caricaDashboard('.$_SESSION["assBoolean"].');">';
   ?>
   <header>
+    <!--Parte di header fissa scritta su myLogo&Search-->
       <div id="logosearch">
         <mylogosearch></mylogosearch>
       </div>
@@ -132,7 +133,7 @@ session_start();
         </div>';
       }
     ?>
-
+<!--Footer scritto in myFooter.js-->
     <footer class="bg-dark text-white" id="footernowaste">
 			<myfooter></myfooter>			
 		</footer>

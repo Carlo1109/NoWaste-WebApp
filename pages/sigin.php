@@ -20,6 +20,7 @@ session_start();
   </head>
   <body>
   <header>
+  <!--Parte di header fissa scritta su myLogo&Search-->
   <div id="logosearch">
         <mylogosearch></mylogosearch>
       </div>
@@ -36,6 +37,7 @@ session_start();
               <li class="nav-item">
                 <a class="nav-link active" href="soldi.php">Donazioni</a>
               </li>
+              <!--Parte dinamica di login e logout, fatta in php-->
 						<?php
 	if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] != true) {
 		echo '<li class="nav-item">
@@ -133,6 +135,7 @@ session_start();
         </div>
       </form>
     </div>
+    <!--Footer scritto in myFooter.js-->
     <footer class="bg-dark text-white" id="footernowaste">
 			<myfooter></myfooter>			
 		</footer>

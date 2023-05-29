@@ -1,9 +1,14 @@
 <?php
 session_start();
+
+// Controlla se l'utente è già loggato
 if (isset($_SESSION["logged_in"])) {
-  session_unset();
-  session_destroy();
+  // Se l'utente è loggato, esegue il logout
+  session_unset(); // Cancella tutte le variabili di sessione
+  session_destroy(); // Distrugge la sessione attiva
 }
+
+// Reindirizza alla pagina di login dopo il logout
 header("Location: ../pages/index.php");
 exit();
 ?>

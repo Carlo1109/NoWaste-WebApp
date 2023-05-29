@@ -29,6 +29,7 @@ $userData = pg_fetch_assoc($result);
 	</head>
 	<body>
 	<header>
+		<!--Parte di header fissa scritta su myLogo&Search-->
 			<div id="logosearch">
         <mylogosearch></mylogosearch>
       </div>
@@ -45,6 +46,7 @@ $userData = pg_fetch_assoc($result);
               <li class="nav-item">
                 <a class="nav-link active" href="soldi.php">Donazioni</a>
               </li>
+							<!--Parte dinamica di login e logout, fatta in php-->
 						<?php
 	if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] != true) {
 		echo '<li class="nav-item">
@@ -283,7 +285,7 @@ $userData = pg_fetch_assoc($result);
 		<input type="password" name="passwordCurr" class="form-control" id="passwordCurr" placeholder="Inserisci la password" required><label for="passwordCurr" class="text-black">Password corrente</label></div><div class="form-floating mb-3"><input type="text"  name="nomeAssNew" class="form-control" id="nomeAssNew" placeholder="Nuovo Nome Associazione" required><label for="nomeAssNew" class="text-black">Nuovo Nome Associazione</label></div>
 		</div><div class="modal-footer"><input type="submit" class="btn btn-primary" value="Conferma e invia"></div></form></div></div></div>
 
-
+<!--Footer scritto in myFooter.js-->
     <footer class="bg-dark text-white" id="footernowaste">
 			<myfooter></myfooter>			
 		</footer>

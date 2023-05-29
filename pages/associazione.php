@@ -23,6 +23,7 @@ session_start();
 	</head>
 	<body onload="caricaAssociazione();">
     <header>
+      <!--Parte di header fissa scritta su myLogo&Search-->
       <div id="logosearch">
         <mylogosearch></mylogosearch>
       </div>
@@ -120,6 +121,7 @@ session_start();
         </div>
       </div>      
     </div>
+    <!--Footer scritto in myFooter.js-->
     <footer class="bg-dark text-white" id="footernowaste">
 			<myfooter></myfooter>			
 		</footer>
