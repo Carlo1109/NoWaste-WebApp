@@ -1,3 +1,6 @@
+<!--
+  Questo file php gestisce la richiesta di eliminazione da parte del DONATORE di tutti i prodotti precedentemente inseriti.
+-->
 <?php
 session_start();
 $sessionUser = $_SESSION["username"];

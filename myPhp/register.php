@@ -1,3 +1,6 @@
+<!--
+  Questo file php gestisce la registrazione di un nuovo utente all'interno del sito. Quindi fa dei controlli per verificare che l'utente non sia già iscritto e aggiunge i dati al database utenti.
+-->
 <!DOCTYPE html>
 <html lang="it">
   <head>

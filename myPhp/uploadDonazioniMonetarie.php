@@ -1,3 +1,6 @@
+<!--
+  Questo file php è utilizzato per poter popolare la pagina 'Le mie donazioni monetarie' e visualizzare i dati delle donazioni effettuate dall'utente loggato. Interagisce con il databse delle donazioni monetarie.
+-->
 <?php
   session_start();
   $dbconn = pg_connect("host=localhost user=postgres password=ltwsql port=5432 dbname=DatabaseDonazioniMonetarie");

@@ -1,3 +1,6 @@
+<!--
+  Questo file php gestisce la richiesta di login da parte dell'utente, interagendo con il database contentene tutte le informazioni degli utenti.
+-->
 <!DOCTYPE html>
 <html lang="it">
   <head>

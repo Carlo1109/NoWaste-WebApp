@@ -1,3 +1,6 @@
+<!--
+  Questo file php gestisce la richiesta di eliminazione da parte dell'utente del proprio profilo privato e dei relativi dati.
+-->
 <!DOCTYPE html>
 <html lang="it">
   <head>

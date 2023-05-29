@@ -1,3 +1,6 @@
+<!--
+  Questo file php gestisce la richiesta AJAX per caricare i dati relativi alle richieste effettuate dal database delle richieste, cosi da poter popolare le dashboard ASSOCIAZIONE. 
+-->
 <?php
   session_start();
   $dbconn = pg_connect("host=localhost user=postgres password=ltwsql port=5432 dbname=DatabaseRichieste");

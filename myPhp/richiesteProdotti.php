@@ -1,3 +1,6 @@
+<!--
+  Questo file php gestisce acquisisce i dati del carrello ASSOCIAZIONE per poter registrare la richiesta all'interno del database richieste. Abbiamo utilizzato il tipo json come tipo di dati da scambiare.
+-->
 <?php
 // Connessione al database Postgres
 $dbcon = pg_connect("host=localhost user=postgres password=ltwsql port=5432 dbname=DatabaseRichieste");

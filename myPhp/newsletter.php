@@ -1,3 +1,6 @@
+<!--
+  Questo file php gestisce la richiesta di entrare a far parte del database ISCRITTI NEWSLETTER. Viene verificata la presenza dell'email nel database e se il check è negativo, l'email viene iscritta correttamente alla newsletter.
+-->
 <!DOCTYPE html>
 <html lang="it">
   <head>

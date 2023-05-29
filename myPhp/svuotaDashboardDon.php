@@ -1,3 +1,6 @@
+<!--
+  Questo file php gestisce la richiesta per svuotare la dashboard DONATORE.
+-->
 <?php
 session_start();
 $sessionUser = $_SESSION["username"];

@@ -1,3 +1,6 @@
+<!--
+  Questo file php gestisce la richiesta di modifica del nome all'interno della pagina contenente i dati personali. Interagisce con il database contenente tutti i dati degli utenti.
+-->
 <!DOCTYPE html>
 <html lang="it">
   <head>
