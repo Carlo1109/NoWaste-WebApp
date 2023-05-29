@@ -1,3 +1,6 @@
+<!--
+  Questa è la pagina dell'area privata per l'utente ASSOCIAZIONE. Qui l'utente può visualizzare i prodotti che sono stati caricati sulla piattaforma e aggiungerli al carrello per poter poi inviare la richiesta agli utenti che li hanno caricati.
+-->
 <?php
 session_start();
 ?>

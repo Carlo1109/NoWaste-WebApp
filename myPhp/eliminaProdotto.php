@@ -1,3 +1,6 @@
+<!--
+  Questo file php gestisce la richiesta di eliminazione da parte del DONATORE di un singolo prodotto caricato.
+-->
 <?php
 session_start();
 $nome = $_POST['titolo'];

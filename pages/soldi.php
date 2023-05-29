@@ -1,3 +1,6 @@
+<!--
+  Questa è la pagina DONAZIONI. Qui l'utente loggato o non, potrà inserire i propri dati per effettuare una donazione monetaria tramite un form.
+-->
 <?php
 session_start();
 ?>

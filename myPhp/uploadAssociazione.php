@@ -1,3 +1,6 @@
+<!--
+  Questo file php è utilizzato per poter popolare la pagina ASSOCIAZIONE e visualizzare i prodotti caricati dai donatori. Interagisce con il database dei prodotti.
+-->
 <?php
   session_start();
   $dbconn = pg_connect("host=localhost user=postgres password=ltwsql port=5432 dbname=DatabaseProdotti");

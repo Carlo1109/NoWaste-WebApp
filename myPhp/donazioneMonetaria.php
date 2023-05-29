@@ -1,3 +1,6 @@
+<!--
+  Questo file php gestisce la compilazione del form per le donazioni monetarie. Invia i dati al database delle donazioni
+-->
 <!DOCTYPE html>
 <html lang="it">
   <head>

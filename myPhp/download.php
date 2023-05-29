@@ -1,3 +1,6 @@
+<!--
+  Questo file php gestisce la compilazione del form per caricare nuovi prodotti da parte di un DONATORE. Invia i dati al database dei prodotti.
+-->
 <!DOCTYPE html>
 <html lang="it">
   <head>

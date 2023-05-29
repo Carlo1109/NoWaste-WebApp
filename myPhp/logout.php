@@ -1,3 +1,6 @@
+<!--
+  Questo file php gestisce la richiesta di logout da parte dell'utente.
+-->
 <?php
 session_start();
 
